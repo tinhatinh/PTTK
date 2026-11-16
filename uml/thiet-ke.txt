@@ -1,0 +1,583 @@
+@startuml 07-registration-design
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+top to bottom direction
+class AppServlet0 <<servlet>> {
+ -registration : RegistrationService0
+ -registerPage(q,r,error) : void
+ #doGet(q,r) : void
+ #doPost(q,r) : void
+}
+class View0 <<view>> {
+ +{static} page(title,body,manager,csrf) : String
++{static} e(x) : String
+}
+class RegistrationService0 <<service>> {
+ -dao : CustomerDAO0
+ +normalize(x : Registration0) : Registration0
+ +validate(x : Registration0) : String
+ +register(x : Registration0) : long
+}
+class CustomerDAO0 <<DAO>> {
+ -db : Database0
+ +saveRegistration(input : Registration0, passwordHash : String) : long
+}
+class Database0 {
+ -url : String
++open() : Connection
++initialize() : void
+}
+class Password0 {
+ +{static} hash(value : String) : String
+}
+class Registration0 <<record>> {
+ fullName : String
+phone : String
+email : String
+username : String
+password : String
+confirmPassword : String
+}
+AppServlet0 --> RegistrationService0
+AppServlet0 ..> View0
+AppServlet0 ..> Registration0
+RegistrationService0 --> CustomerDAO0
+RegistrationService0 ..> Password0
+CustomerDAO0 --> Database0
+CustomerDAO0 ..> Registration0
+note bottom of Registration0
+DTO chỉ tồn tại trong request, không lưu vào session.
+passwordHash được lưu; mật khẩu không trả về HTML.
+end note
+@enduml
+
+
+@startuml 07a-entities-design
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+class Account0 <<record>> {
+-id : long
+-username : String
+-passwordHash : String
+-role : String
+-fullName : String
+}
+class Customer0 <<record>> {
+-id : long
+-accountId : long
+-phone : String
+-email : String
+-registeredAt : LocalDate
+}
+class Movie0 <<record>> {
+-id : long
+-title : String
+-durationMinutes : int
+}
+class Room0 <<record>> {
+-id : long
+-name : String
+}
+class Seat0 <<record>> {
+-id : long
+-roomId : long
+-label : String
+}
+class Showtime0 <<record>> {
+-id : long
+-movieId : long
+-roomId : long
+-startsAt : LocalDateTime
+}
+class Invoice0 <<record>> {
+-id : long
+-customerId : Long
+-issuedAt : LocalDateTime
+-status : String
+}
+class Ticket0 <<record>> {
+-id : long
+-invoiceId : long
+-showtimeId : long
+-seatId : long
+-unitPrice : BigDecimal
+}
+Account0 "1" -- "0..1" Customer0 : hồ sơ khách hàng
+Customer0 "0..1" -- "0..*" Invoice0 : đứng tên
+Invoice0 "1" *-- "1..*" Ticket0 : gồm
+Movie0 "1" -- "0..*" Showtime0 : được chiếu
+Room0 "1" -- "0..*" Showtime0 : diễn ra tại
+Room0 "1" *-- "1..*" Seat0 : có
+Showtime0 "1" -- "0..*" Ticket0 : dành cho
+Seat0 "1" -- "0..*" Ticket0 : vị trí ngồi
+
+note bottom of Ticket0
+Record components private final; accessors public.
+Các ID liên kết là thành phần record trong code.
+end note
+@enduml
+
+
+@startuml 08-revenue-design
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+top to bottom direction
+class AppServlet0 <<servlet>> {
+ -revenue : RevenueDAO0
+ -reportPage(q,r) : void
+ -showtimesPage(q,r) : void
+ -invoicesPage(q,r) : void
+ -range(q) : LocalDate[]
+ -id(q,name) : long
+}
+class RevenueService0 <<validation>> {
+ +{static} validateRange(from,to) : void
+}
+class RevenueDAO0 <<DAO>> {
+ -db : Database0
+ +getMovieRevenueStats(from,to) : List<MovieRevenue0>
+ +getShowtimeStats(movieId,from,to) : List<ShowtimeRevenue0>
+ +getInvoicesByShowtime(showtimeId,from,to) : List<InvoiceRevenue0>
+ -bind(statement,from,to) : void
+}
+class Database0 {
+ +open() : Connection
+}
+class MovieRevenue0 <<record>> {
+ movieId : long
+title : String
+showtimeCount : long
+ticketCount : long
+revenue : BigDecimal
+}
+class ShowtimeRevenue0 <<record>> {
+ showtimeId : long
+movieTitle : String
+roomName : String
+startsAt : LocalDateTime
+ticketCount : long
+revenue : BigDecimal
+}
+class InvoiceRevenue0 <<record>> {
+ invoiceId : long
+issuedAt : LocalDateTime
+customerName : String
+ticketCount : long
+revenue : BigDecimal
+}
+AppServlet0 ..> RevenueService0
+AppServlet0 --> RevenueDAO0
+RevenueDAO0 --> Database0
+RevenueDAO0 ..> MovieRevenue0
+RevenueDAO0 ..> ShowtimeRevenue0
+RevenueDAO0 ..> InvoiceRevenue0
+note bottom of RevenueDAO0
+from và to: LocalDate; mã đối tượng: long.
+Mọi truy vấn dùng cùng điều kiện PAID và starts_at.
+end note
+@enduml
+
+
+@startuml 09-registration-activity
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+start
+:AppServlet0.doGet()\nhiển thị biểu mẫu đăng ký;
+:Khách nhập thông tin và gửi POST /register;
+:AppServlet0.service()\nkiểm tra CSRF;
+if (CSRF hợp lệ?) then (Có)
+ :RegistrationService0.register();
+ :normalize() và validate();
+ if (Dữ liệu hợp lệ?) then (Có)
+  :Password0.hash();
+  :CustomerDAO0.saveRegistration();
+  :INSERT account và customer\ntrong một giao dịch;
+  if (Lưu được cả hai bản ghi?) then (Có)
+   :Connection.commit();
+   :AppServlet0.doPost()\ntrả 303 đến /registered;
+   :AppServlet0.doGet()\nhiển thị mã thành viên;
+  else (Không)
+   :Connection.rollback();
+   :AppServlet0.registerPage()\ngiữ dữ liệu không nhạy cảm và báo lỗi;
+  endif
+ else (Không)
+  :AppServlet0.registerPage()\nhiển thị lỗi kiểm tra;
+ endif
+else (Không)
+ :AppServlet0.service()\ntrả HTTP 403;
+endif
+stop
+@enduml
+
+
+@startuml 10-revenue-activity
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+start
+:AppServlet0.service()\nkiểm tra quyền MANAGER;
+if (Có quyền?) then (Có)
+ :AppServlet0.doGet()\nhiển thị trang quản lý và chọn báo cáo;
+ :AppServlet0.reportPage()\nnhận from và to;
+ :range() gọi RevenueService0.validateRange();
+ if (Khoảng ngày hợp lệ?) then (Có)
+  :RevenueDAO0.getMovieRevenueStats();
+  :AppServlet0.reportPage()\nhiển thị bảng phim hoặc danh sách rỗng;
+  if (Chọn một phim?) then (Có)
+   :AppServlet0.showtimesPage();
+   :RevenueDAO0.getShowtimeStats();
+   if (Chọn một suất?) then (Có)
+    :AppServlet0.invoicesPage()\nđối chiếu suất thuộc phim và khoảng ngày;
+    :RevenueDAO0.getInvoicesByShowtime();
+    :Hiển thị hóa đơn và tổng tiền vé của suất;
+   endif
+  endif
+  :Liên kết quay lại mang theo from, to và mã cha; 
+ else (Không)
+  :AppServlet0.service() trả 400\nvà liên kết chọn lại khoảng ngày;
+ endif
+else (Không)
+ :AppServlet0.service() chuyển đến /login;
+endif
+stop
+@enduml
+
+
+@startuml 11-registration-sequence
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+actor "Khách hàng" as A
+participant AppServlet0 as UI
+participant RegistrationService0 as S
+participant CustomerDAO0 as D
+participant Password0 as P
+database "H2 qua JDBC" as DB
+A -> UI : POST /register
+activate UI
+UI -> UI : service() kiểm tra CSRF
+UI -> S : register(input)
+activate S
+S -> S : normalize(input)\nvalidate(input)
+alt dữ liệu hợp lệ
+ S -> P : hash(password)
+ P --> S : passwordHash
+ S -> D : saveRegistration(input,passwordHash)
+ activate D
+ D -> DB : setAutoCommit(false)\nINSERT account\nINSERT customer
+ alt không có lỗi SQL
+  D -> DB : commit()
+  D --> S : customerId
+  S --> UI : customerId
+  UI --> A : HTTP 303 /registered
+ else trùng hoặc lỗi ghi
+  D -> DB : rollback()
+  D --> S : SQLException
+  S --> UI : SQLException
+  UI --> A : HTTP 409 hoặc 500 + biểu mẫu
+ end
+ deactivate D
+else dữ liệu sai
+ S --> UI : IllegalArgumentException
+ UI --> A : HTTP 400 + biểu mẫu
+end
+deactivate S
+deactivate UI
+note over UI
+GET /registered đọc mã và tên từ session;
+không chuyển mật khẩu vào session.
+end note
+@enduml
+
+
+@startuml 12-revenue-sequence
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+actor "Quản lý" as A
+participant AppServlet0 as UI
+participant RevenueService0 as S
+participant RevenueDAO0 as D
+database H2 as DB
+A -> UI : GET /manager/reports?from&to
+activate UI
+UI -> UI : service() kiểm tra quyền\nrange(q)
+UI -> S : validateRange(from,to)
+S --> UI : hợp lệ
+UI -> D : getMovieRevenueStats(from,to)
+activate D
+D -> DB : SELECT GROUP BY movie
+DB --> D : rows
+D --> UI : List<MovieRevenue0>
+deactivate D
+UI --> A : HTML bảng phim
+deactivate UI
+A -> UI : GET /manager/showtimes?movieId&from&to
+activate UI
+UI -> D : getShowtimeStats(movieId,from,to)
+D -> DB : SELECT GROUP BY showtime
+DB --> D : rows
+D --> UI : List<ShowtimeRevenue0>
+UI --> A : HTML bảng suất chiếu
+deactivate UI
+A -> UI : GET /manager/invoices?showtimeId&movieId&from&to
+activate UI
+UI -> D : getShowtimeStats(movieId,from,to)
+D --> UI : đối chiếu suất thuộc ngữ cảnh
+UI -> D : getInvoicesByShowtime(showtimeId,from,to)
+D -> DB : SELECT GROUP BY invoice
+DB --> D : rows
+D --> UI : List<InvoiceRevenue0>
+UI --> A : HTML danh sách hóa đơn
+deactivate UI
+note over UI,DB
+Mỗi GET đều kiểm tra quyền và khoảng ngày.
+Sơ đồ biểu diễn nhánh thành công; nhánh sai xem activity.
+end note
+@enduml
+
+
+@startuml 13-database
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+hide circle
+hide methods
+entity account {
+ *id : BIGINT <<PK>>
+--
+username : VARCHAR(40) <<UQ>>
+password_hash : VARCHAR(255)
+role : VARCHAR(16)
+full_name : VARCHAR(100)
+}
+entity customer {
+ *id : BIGINT <<PK>>
+--
+account_id : BIGINT <<FK,UQ>>
+phone : VARCHAR(10) <<UQ>>
+email : VARCHAR(120) <<UQ>>
+registered_at : DATE
+}
+entity movie {
+ *id : BIGINT <<PK>>
+--
+title : VARCHAR(150)
+duration_minutes : INT
+}
+entity room {
+ *id : BIGINT <<PK>>
+--
+name : VARCHAR(50) <<UQ>>
+}
+entity seat {
+ *id : BIGINT <<PK>>
+--
+room_id : BIGINT <<FK>>
+label : VARCHAR(8)
+}
+entity showtime {
+ *id : BIGINT <<PK>>
+--
+movie_id : BIGINT <<FK>>
+room_id : BIGINT <<FK>>
+starts_at : TIMESTAMP
+}
+entity invoice {
+ *id : BIGINT <<PK>>
+--
+customer_id : BIGINT <<FK,NULL>>
+issued_at : TIMESTAMP
+status : VARCHAR(12)
+}
+entity ticket {
+ *id : BIGINT <<PK>>
+--
+invoice_id : BIGINT <<FK>>
+showtime_id : BIGINT <<FK>>
+seat_id : BIGINT <<FK>>
+unit_price : DECIMAL(14,0)
+}
+account ||--o| customer
+customer |o--o{ invoice
+invoice ||--o{ ticket
+movie ||--o{ showtime
+room ||--o{ showtime
+room ||--o{ seat
+showtime ||--o{ ticket
+seat ||--o{ ticket
+note bottom of ticket
+UNIQUE(showtime_id, seat_id)
+UNIQUE(room_id, label) thuộc seat
+SQL cho phép hóa đơn tạm chưa có vé.
+end note
+@enduml
+
+
+@startuml 14-packages
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+top to bottom direction
+package "vn.cineman" {
+ class Main0
+}
+package "vn.cineman.web" as W {
+ class AppServlet0
+class View0
+}
+package "vn.cineman.service" as S {
+ class RegistrationService0
+class RevenueService0
+class Password0
+}
+package "vn.cineman.dao" as D {
+ class Database0
+class AccountDAO0
+class CustomerDAO0
+class RevenueDAO0
+}
+package "vn.cineman.model" as M {
+ class "12 records dữ liệu" as Records
+}
+Main0 ..> W
+Main0 ..> D
+W ..> S
+W ..> D
+W ..> M
+S ..> D
+S ..> M
+D ..> M
+Database0 ..> Password0 : băm mật khẩu tài khoản demo\nlúc khởi tạo
+note bottom of Database0
+Phụ thuộc dao → Password0 chỉ ở bootstrap dữ liệu mẫu.
+Không có truy vấn JDBC trong lớp View0.
+end note
+@enduml
+
+
+@startuml 15-deployment
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+node "Máy chạy bản demo" {
+ node "Trình duyệt Chromium" as B {
+ artifact "HTML và CSS" as UI
+}
+ node "JVM Java 17 trở lên" {
+  node "Tomcat nhúng 10.1.61\n127.0.0.1:8080" as T {
+   artifact "cineman.jar" as APP
+   component "web\nAppServlet0 và View0" as W
+   component "service\nkiểm tra dữ liệu" as S
+   component "dao\nJDBC" as D
+  }
+  database "H2 nhúng 2.3.232" as DB
+ }
+ artifact "data/cineman.mv.db" as F
+}
+B --> T : HTTP GET và POST\nloopback
+W --> S
+W --> D : truy vấn báo cáo
+S --> D : đăng ký
+D --> DB : JDBC
+DB --> F : đọc ghi tệp
+note bottom of T
+Ba tầng logic chạy trong một JVM ở bản demo.
+Servlet thuộc Jakarta EE, kế thừa mô hình Java EE/J2EE.
+Không mô tả một máy chủ CSDL độc lập chưa triển khai.
+end note
+@enduml

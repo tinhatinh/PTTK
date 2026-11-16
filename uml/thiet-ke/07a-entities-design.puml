@@ -1,0 +1,74 @@
+@startuml 07a-entities-design
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+class Account0 <<record>> {
+-id : long
+-username : String
+-passwordHash : String
+-role : String
+-fullName : String
+}
+class Customer0 <<record>> {
+-id : long
+-accountId : long
+-phone : String
+-email : String
+-registeredAt : LocalDate
+}
+class Movie0 <<record>> {
+-id : long
+-title : String
+-durationMinutes : int
+}
+class Room0 <<record>> {
+-id : long
+-name : String
+}
+class Seat0 <<record>> {
+-id : long
+-roomId : long
+-label : String
+}
+class Showtime0 <<record>> {
+-id : long
+-movieId : long
+-roomId : long
+-startsAt : LocalDateTime
+}
+class Invoice0 <<record>> {
+-id : long
+-customerId : Long
+-issuedAt : LocalDateTime
+-status : String
+}
+class Ticket0 <<record>> {
+-id : long
+-invoiceId : long
+-showtimeId : long
+-seatId : long
+-unitPrice : BigDecimal
+}
+Account0 "1" -- "0..1" Customer0 : hồ sơ khách hàng
+Customer0 "0..1" -- "0..*" Invoice0 : đứng tên
+Invoice0 "1" *-- "1..*" Ticket0 : gồm
+Movie0 "1" -- "0..*" Showtime0 : được chiếu
+Room0 "1" -- "0..*" Showtime0 : diễn ra tại
+Room0 "1" *-- "1..*" Seat0 : có
+Showtime0 "1" -- "0..*" Ticket0 : dành cho
+Seat0 "1" -- "0..*" Ticket0 : vị trí ngồi
+
+note bottom of Ticket0
+Record components private final; accessors public.
+Các ID liên kết là thành phần record trong code.
+end note
+@enduml

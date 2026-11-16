@@ -1,0 +1,40 @@
+@startuml 15-deployment
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+node "Máy chạy bản demo" {
+ node "Trình duyệt Chromium" as B {
+ artifact "HTML và CSS" as UI
+}
+ node "JVM Java 17 trở lên" {
+  node "Tomcat nhúng 10.1.61\n127.0.0.1:8080" as T {
+   artifact "cineman.jar" as APP
+   component "web\nAppServlet0 và View0" as W
+   component "service\nkiểm tra dữ liệu" as S
+   component "dao\nJDBC" as D
+  }
+  database "H2 nhúng 2.3.232" as DB
+ }
+ artifact "data/cineman.mv.db" as F
+}
+B --> T : HTTP GET và POST\nloopback
+W --> S
+W --> D : truy vấn báo cáo
+S --> D : đăng ký
+D --> DB : JDBC
+DB --> F : đọc ghi tệp
+note bottom of T
+Ba tầng logic chạy trong một JVM ở bản demo.
+Servlet thuộc Jakarta EE, kế thừa mô hình Java EE/J2EE.
+Không mô tả một máy chủ CSDL độc lập chưa triển khai.
+end note
+@enduml

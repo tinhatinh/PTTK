@@ -1,0 +1,54 @@
+@startuml 11-registration-sequence
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+actor "Khách hàng" as A
+participant AppServlet0 as UI
+participant RegistrationService0 as S
+participant CustomerDAO0 as D
+participant Password0 as P
+database "H2 qua JDBC" as DB
+A -> UI : POST /register
+activate UI
+UI -> UI : service() kiểm tra CSRF
+UI -> S : register(input)
+activate S
+S -> S : normalize(input)\nvalidate(input)
+alt dữ liệu hợp lệ
+ S -> P : hash(password)
+ P --> S : passwordHash
+ S -> D : saveRegistration(input,passwordHash)
+ activate D
+ D -> DB : setAutoCommit(false)\nINSERT account\nINSERT customer
+ alt không có lỗi SQL
+  D -> DB : commit()
+  D --> S : customerId
+  S --> UI : customerId
+  UI --> A : HTTP 303 /registered
+ else trùng hoặc lỗi ghi
+  D -> DB : rollback()
+  D --> S : SQLException
+  S --> UI : SQLException
+  UI --> A : HTTP 409 hoặc 500 + biểu mẫu
+ end
+ deactivate D
+else dữ liệu sai
+ S --> UI : IllegalArgumentException
+ UI --> A : HTTP 400 + biểu mẫu
+end
+deactivate S
+deactivate UI
+note over UI
+GET /registered đọc mã và tên từ session;
+không chuyển mật khẩu vào session.
+end note
+@enduml

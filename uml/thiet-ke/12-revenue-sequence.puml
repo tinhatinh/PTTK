@@ -1,0 +1,54 @@
+@startuml 12-revenue-sequence
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+actor "Quản lý" as A
+participant AppServlet0 as UI
+participant RevenueService0 as S
+participant RevenueDAO0 as D
+database H2 as DB
+A -> UI : GET /manager/reports?from&to
+activate UI
+UI -> UI : service() kiểm tra quyền\nrange(q)
+UI -> S : validateRange(from,to)
+S --> UI : hợp lệ
+UI -> D : getMovieRevenueStats(from,to)
+activate D
+D -> DB : SELECT GROUP BY movie
+DB --> D : rows
+D --> UI : List<MovieRevenue0>
+deactivate D
+UI --> A : HTML bảng phim
+deactivate UI
+A -> UI : GET /manager/showtimes?movieId&from&to
+activate UI
+UI -> D : getShowtimeStats(movieId,from,to)
+D -> DB : SELECT GROUP BY showtime
+DB --> D : rows
+D --> UI : List<ShowtimeRevenue0>
+UI --> A : HTML bảng suất chiếu
+deactivate UI
+A -> UI : GET /manager/invoices?showtimeId&movieId&from&to
+activate UI
+UI -> D : getShowtimeStats(movieId,from,to)
+D --> UI : đối chiếu suất thuộc ngữ cảnh
+UI -> D : getInvoicesByShowtime(showtimeId,from,to)
+D -> DB : SELECT GROUP BY invoice
+DB --> D : rows
+D --> UI : List<InvoiceRevenue0>
+UI --> A : HTML danh sách hóa đơn
+deactivate UI
+note over UI,DB
+Mỗi GET đều kiểm tra quyền và khoảng ngày.
+Sơ đồ biểu diễn nhánh thành công; nhánh sai xem activity.
+end note
+@enduml

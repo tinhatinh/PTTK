@@ -1,0 +1,68 @@
+@startuml 08-revenue-design
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+top to bottom direction
+class AppServlet0 <<servlet>> {
+ -revenue : RevenueDAO0
+ -reportPage(q,r) : void
+ -showtimesPage(q,r) : void
+ -invoicesPage(q,r) : void
+ -range(q) : LocalDate[]
+ -id(q,name) : long
+}
+class RevenueService0 <<validation>> {
+ +{static} validateRange(from,to) : void
+}
+class RevenueDAO0 <<DAO>> {
+ -db : Database0
+ +getMovieRevenueStats(from,to) : List<MovieRevenue0>
+ +getShowtimeStats(movieId,from,to) : List<ShowtimeRevenue0>
+ +getInvoicesByShowtime(showtimeId,from,to) : List<InvoiceRevenue0>
+ -bind(statement,from,to) : void
+}
+class Database0 {
+ +open() : Connection
+}
+class MovieRevenue0 <<record>> {
+ movieId : long
+title : String
+showtimeCount : long
+ticketCount : long
+revenue : BigDecimal
+}
+class ShowtimeRevenue0 <<record>> {
+ showtimeId : long
+movieTitle : String
+roomName : String
+startsAt : LocalDateTime
+ticketCount : long
+revenue : BigDecimal
+}
+class InvoiceRevenue0 <<record>> {
+ invoiceId : long
+issuedAt : LocalDateTime
+customerName : String
+ticketCount : long
+revenue : BigDecimal
+}
+AppServlet0 ..> RevenueService0
+AppServlet0 --> RevenueDAO0
+RevenueDAO0 --> Database0
+RevenueDAO0 ..> MovieRevenue0
+RevenueDAO0 ..> ShowtimeRevenue0
+RevenueDAO0 ..> InvoiceRevenue0
+note bottom of RevenueDAO0
+from và to: LocalDate; mã đối tượng: long.
+Mọi truy vấn dùng cùng điều kiện PAID và starts_at.
+end note
+@enduml

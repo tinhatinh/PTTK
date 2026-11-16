@@ -1,0 +1,59 @@
+@startuml 04-revenue-analysis
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+top to bottom direction
+class ManagerUI0 <<boundary>> {
+ subViewReport
+}
+class ReportTypeUI0 <<boundary>> {
+ subContinue
+}
+class MovieStatsUI0 <<boundary>> {
+ inFromDate
+inToDate
+outMovieStats
+subViewStatistics
+subMovie
+}
+class ShowtimeStatsUI0 <<boundary>> {
+ outShowtimeStats
+subShowtime
+subBack
+}
+class InvoiceListUI0 <<boundary>> {
+ outInvoices
+subBack
+}
+class Movie0 <<entity>> {
+ getMovieRevenueStats(from,to)
+}
+class Showtime0 <<entity>> {
+ getShowtimeStats(movieId,from,to)
+}
+class Invoice0 <<entity>> {
+ getInvoicesByShowtime(showtimeId,from,to)
+}
+ManagerUI0 --> ReportTypeUI0
+ReportTypeUI0 --> MovieStatsUI0
+MovieStatsUI0 --> ShowtimeStatsUI0
+ShowtimeStatsUI0 --> InvoiceListUI0
+MovieStatsUI0 ..> Movie0
+ShowtimeStatsUI0 ..> Showtime0
+InvoiceListUI0 ..> Invoice0
+Movie0 "1" -- "0..*" Showtime0
+note bottom of Invoice0
+Quan hệ hóa đơn và suất chiếu đi qua Ticket0
+như mô hình thực thể; không tạo FK trực tiếp.
+Các phương thức phân tích chuyển sang RevenueDAO0.
+end note
+@enduml

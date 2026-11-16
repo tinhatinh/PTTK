@@ -1,0 +1,50 @@
+@startuml 03-registration-analysis
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+top to bottom direction
+class HomeUI0 <<boundary>> {
+ subRegisterMember
+}
+class RegistrationUI0 <<boundary>> {
+ inFullName
+inPhone
+inEmail
+inUsername
+inPassword
+inConfirmPassword
+subRegister
+outError
+}
+class RegistrationResultUI0 <<boundary>> {
+ outCustomerId
+outFullName
+}
+class Customer0 <<entity>> {
+ register(info)
+}
+class Account0 <<entity>> {
+ username
+passwordHash
+fullName
+role
+}
+HomeUI0 --> RegistrationUI0
+RegistrationUI0 --> Customer0 : register(info)
+RegistrationUI0 --> RegistrationResultUI0 : thành công
+Customer0 "0..1" -- "1" Account0
+note bottom of Customer0
+Phân tích: register đặt tại thực thể liên quan.
+Thiết kế: tách validation vào service,
+lưu giao dịch vào CustomerDAO0.
+end note
+@enduml

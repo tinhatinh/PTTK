@@ -1,0 +1,46 @@
+@startuml 00-system-overview
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+left to right direction
+actor "Khách hàng" as C
+actor "Nhân viên bán hàng" as S
+actor "Nhân viên quản lý" as M
+rectangle "CineMan — bối cảnh hệ thống theo đề" {
+ usecase "Đăng ký thành viên\n[UC01 đã cài đặt]" as R
+ usecase "Tìm kiếm phim" as F
+ usecase "Mua vé trực tuyến" as O
+ usecase "Mua vé tại quầy" as B
+ usecase "Bán vé tại quầy" as T
+ usecase "Xuất thẻ thành viên" as CARD
+ usecase "Xem thống kê phim theo doanh thu\n[UC02 đã cài đặt]" as V
+ usecase "Xem các thống kê khác\nphim, khách hàng, doanh thu" as OTHER
+ usecase "Lên lịch chiếu" as SCH
+ usecase "Quản lý thông tin phim" as MOV
+ usecase "Quản lý phòng chiếu" as ROOM
+}
+C --> R
+C --> F
+C --> O
+C --> B
+S --> T
+S --> CARD
+M --> V
+M --> OTHER
+M --> SCH
+M --> MOV
+M --> ROOM
+note bottom of OTHER
+Các chức năng còn lại chỉ làm rõ bối cảnh theo đề,
+không thuộc hai mô-đun lập trình của báo cáo này.
+end note
+@enduml

@@ -1,0 +1,66 @@
+@startuml 02-domain
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+top to bottom direction
+class Account0 {
+ id
+username
+passwordHash
+role
+fullName
+}
+class Customer0 {
+ id
+phone
+email
+registeredAt
+}
+class Movie0 {
+ id
+title
+durationMinutes
+}
+class Room0 {
+ id
+name
+}
+class Seat0 {
+ id
+label
+}
+class Showtime0 {
+ id
+startsAt
+}
+class Invoice0 {
+ id
+issuedAt
+status
+}
+class Ticket0 {
+ id
+unitPrice
+}
+Account0 "1" -- "0..1" Customer0 : hồ sơ khách hàng
+Customer0 "0..1" -- "0..*" Invoice0 : đứng tên
+Invoice0 "1" *-- "1..*" Ticket0 : gồm
+Movie0 "1" -- "0..*" Showtime0 : được chiếu
+Room0 "1" -- "0..*" Showtime0 : diễn ra tại
+Room0 "1" *-- "1..*" Seat0 : có
+Showtime0 "1" -- "0..*" Ticket0 : dành cho
+Seat0 "1" -- "0..*" Ticket0 : vị trí ngồi
+note bottom of Ticket0
+Mỗi vé thuộc một suất và một hóa đơn.
+Một hóa đơn có thể chứa vé của nhiều suất.
+end note
+@enduml

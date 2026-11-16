@@ -1,0 +1,30 @@
+@startuml 01b-revenue-use-case
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+left to right direction
+actor "Nhân viên quản lý" as M
+rectangle "Mô-đun thống kê phim theo doanh thu" {
+ usecase "UC02\nXem thống kê phim theo doanh thu" as R
+ usecase "Chọn khoảng ngày" as D
+ usecase "Xem thống kê suất chiếu của phim" as S
+ usecase "Xem hóa đơn bán vé của suất" as I
+}
+M --> R
+R ..> D : <<include>>
+S ..> R : <<extend>>\nchọn một phim
+I ..> S : <<extend>>\nchọn một suất
+note bottom of R
+Tiền điều kiện: MANAGER đã đăng nhập.
+Giữ nguyên khoảng ngày khi xem chi tiết và quay lại.
+end note
+@enduml

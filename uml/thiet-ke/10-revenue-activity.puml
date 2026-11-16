@@ -1,0 +1,40 @@
+@startuml 10-revenue-activity
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+start
+:AppServlet0.service()\nkiểm tra quyền MANAGER;
+if (Có quyền?) then (Có)
+ :AppServlet0.doGet()\nhiển thị trang quản lý và chọn báo cáo;
+ :AppServlet0.reportPage()\nnhận from và to;
+ :range() gọi RevenueService0.validateRange();
+ if (Khoảng ngày hợp lệ?) then (Có)
+  :RevenueDAO0.getMovieRevenueStats();
+  :AppServlet0.reportPage()\nhiển thị bảng phim hoặc danh sách rỗng;
+  if (Chọn một phim?) then (Có)
+   :AppServlet0.showtimesPage();
+   :RevenueDAO0.getShowtimeStats();
+   if (Chọn một suất?) then (Có)
+    :AppServlet0.invoicesPage()\nđối chiếu suất thuộc phim và khoảng ngày;
+    :RevenueDAO0.getInvoicesByShowtime();
+    :Hiển thị hóa đơn và tổng tiền vé của suất;
+   endif
+  endif
+  :Liên kết quay lại mang theo from, to và mã cha; 
+ else (Không)
+  :AppServlet0.service() trả 400\nvà liên kết chọn lại khoảng ngày;
+ endif
+else (Không)
+ :AppServlet0.service() chuyển đến /login;
+endif
+stop
+@enduml

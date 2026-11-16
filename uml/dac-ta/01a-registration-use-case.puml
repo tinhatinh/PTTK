@@ -1,0 +1,30 @@
+@startuml 01a-registration-use-case
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+left to right direction
+actor "Khách hàng" as C
+rectangle "Mô-đun đăng ký thành viên" {
+ usecase "UC01\nĐăng ký thành viên" as R
+ usecase "Kiểm tra thông tin đăng ký" as V
+ usecase "Lưu tài khoản và hồ sơ" as S
+ usecase "Thông báo đăng ký thành công" as N
+}
+C --> R
+R ..> V : <<include>>
+R ..> S : <<include>>
+R ..> N : <<include>>
+note bottom of R
+Các include thuộc luồng thành công.
+Dữ liệu sai hoặc trùng: trả biểu mẫu và thông báo lỗi.
+end note
+@enduml

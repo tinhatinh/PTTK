@@ -1,0 +1,246 @@
+@startuml 02-domain
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+top to bottom direction
+class Account0 {
+ id
+username
+passwordHash
+role
+fullName
+}
+class Customer0 {
+ id
+phone
+email
+registeredAt
+}
+class Movie0 {
+ id
+title
+durationMinutes
+}
+class Room0 {
+ id
+name
+}
+class Seat0 {
+ id
+label
+}
+class Showtime0 {
+ id
+startsAt
+}
+class Invoice0 {
+ id
+issuedAt
+status
+}
+class Ticket0 {
+ id
+unitPrice
+}
+Account0 "1" -- "0..1" Customer0 : hồ sơ khách hàng
+Customer0 "0..1" -- "0..*" Invoice0 : đứng tên
+Invoice0 "1" *-- "1..*" Ticket0 : gồm
+Movie0 "1" -- "0..*" Showtime0 : được chiếu
+Room0 "1" -- "0..*" Showtime0 : diễn ra tại
+Room0 "1" *-- "1..*" Seat0 : có
+Showtime0 "1" -- "0..*" Ticket0 : dành cho
+Seat0 "1" -- "0..*" Ticket0 : vị trí ngồi
+note bottom of Ticket0
+Mỗi vé thuộc một suất và một hóa đơn.
+Một hóa đơn có thể chứa vé của nhiều suất.
+end note
+@enduml
+
+
+@startuml 03-registration-analysis
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+top to bottom direction
+class HomeUI0 <<boundary>> {
+ subRegisterMember
+}
+class RegistrationUI0 <<boundary>> {
+ inFullName
+inPhone
+inEmail
+inUsername
+inPassword
+inConfirmPassword
+subRegister
+outError
+}
+class RegistrationResultUI0 <<boundary>> {
+ outCustomerId
+outFullName
+}
+class Customer0 <<entity>> {
+ register(info)
+}
+class Account0 <<entity>> {
+ username
+passwordHash
+fullName
+role
+}
+HomeUI0 --> RegistrationUI0
+RegistrationUI0 --> Customer0 : register(info)
+RegistrationUI0 --> RegistrationResultUI0 : thành công
+Customer0 "0..1" -- "1" Account0
+note bottom of Customer0
+Phân tích: register đặt tại thực thể liên quan.
+Thiết kế: tách validation vào service,
+lưu giao dịch vào CustomerDAO0.
+end note
+@enduml
+
+
+@startuml 04-revenue-analysis
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+top to bottom direction
+class ManagerUI0 <<boundary>> {
+ subViewReport
+}
+class ReportTypeUI0 <<boundary>> {
+ subContinue
+}
+class MovieStatsUI0 <<boundary>> {
+ inFromDate
+inToDate
+outMovieStats
+subViewStatistics
+subMovie
+}
+class ShowtimeStatsUI0 <<boundary>> {
+ outShowtimeStats
+subShowtime
+subBack
+}
+class InvoiceListUI0 <<boundary>> {
+ outInvoices
+subBack
+}
+class Movie0 <<entity>> {
+ getMovieRevenueStats(from,to)
+}
+class Showtime0 <<entity>> {
+ getShowtimeStats(movieId,from,to)
+}
+class Invoice0 <<entity>> {
+ getInvoicesByShowtime(showtimeId,from,to)
+}
+ManagerUI0 --> ReportTypeUI0
+ReportTypeUI0 --> MovieStatsUI0
+MovieStatsUI0 --> ShowtimeStatsUI0
+ShowtimeStatsUI0 --> InvoiceListUI0
+MovieStatsUI0 ..> Movie0
+ShowtimeStatsUI0 ..> Showtime0
+InvoiceListUI0 ..> Invoice0
+Movie0 "1" -- "0..*" Showtime0
+note bottom of Invoice0
+Quan hệ hóa đơn và suất chiếu đi qua Ticket0
+như mô hình thực thể; không tạo FK trực tiếp.
+Các phương thức phân tích chuyển sang RevenueDAO0.
+end note
+@enduml
+
+
+@startuml 05-registration-communication
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+allowmixing
+top to bottom direction
+actor "Khách hàng" as A
+object ":RegistrationUI0" as UI
+object ":Customer0" as C
+object ":Account0" as AC
+A --> UI : 1: nhập thông tin\n2: subRegister
+UI --> C : 2.1: register(info)
+C --> AC : 2.1.1: tạo dữ liệu tài khoản
+C --> UI : 2.2: trả mã khách hàng hoặc lỗi
+UI --> A : 3: hiển thị kết quả
+note bottom of C
+Thông điệp pha phân tích biểu diễn trách nhiệm,
+chưa gắn JDBC hay HTTP.
+end note
+@enduml
+
+
+@startuml 06-revenue-communication
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+allowmixing
+top to bottom direction
+actor "Quản lý" as A
+object ":MovieStatsUI0" as UI
+object ":Movie0" as M
+object ":ShowtimeStatsUI0" as SU
+object ":Showtime0" as S
+object ":InvoiceListUI0" as IU
+object ":Invoice0" as I
+A --> UI : 1: chọn khoảng ngày\n2: subViewStatistics
+UI --> M : 2.1: getMovieRevenueStats(from,to)
+M --> UI : 2.2: danh sách phim
+A --> UI : 3: subMovie(movieId)
+UI --> SU : 3.1: chuyển movieId, from, to
+SU --> S : 3.2: getShowtimeStats(movieId,from,to)
+S --> SU : 3.3: danh sách suất
+A --> SU : 4: subShowtime(showtimeId)
+SU --> IU : 4.1: chuyển showtimeId, movieId, from, to
+IU --> I : 4.2: getInvoicesByShowtime(showtimeId,from,to)
+I --> IU : 4.3: danh sách hóa đơn
+@enduml

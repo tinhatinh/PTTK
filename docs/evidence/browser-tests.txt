@@ -1,0 +1,14 @@
+PASS WEB01 registration redirects to success
+PASS WEB02 duplicate shows error
+PASS WEB03 unauthenticated manager page redirects to login
+PASS WEB04 wrong password rejected
+PASS WEB05 revenue total is 750000
+PASS WEB06 movie drilldown total is 480000
+PASS WEB07 invoice drilldown total is 160000
+PASS WEB08 back preserves date filter
+PASS WEB09 empty report
+PASS WEB10 invalid range returns 400
+PASS WEB11 mismatched drilldown rejected
+PASS WEB12 CSRF rejected
+PASS WEB13 logout revokes manager access
+TOTAL 13 passed

@@ -1,0 +1,62 @@
+@startuml 07-registration-design
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+top to bottom direction
+class AppServlet0 <<servlet>> {
+ -registration : RegistrationService0
+ -registerPage(q,r,error) : void
+ #doGet(q,r) : void
+ #doPost(q,r) : void
+}
+class View0 <<view>> {
+ +{static} page(title,body,manager,csrf) : String
++{static} e(x) : String
+}
+class RegistrationService0 <<service>> {
+ -dao : CustomerDAO0
+ +normalize(x : Registration0) : Registration0
+ +validate(x : Registration0) : String
+ +register(x : Registration0) : long
+}
+class CustomerDAO0 <<DAO>> {
+ -db : Database0
+ +saveRegistration(input : Registration0, passwordHash : String) : long
+}
+class Database0 {
+ -url : String
++open() : Connection
++initialize() : void
+}
+class Password0 {
+ +{static} hash(value : String) : String
+}
+class Registration0 <<record>> {
+ fullName : String
+phone : String
+email : String
+username : String
+password : String
+confirmPassword : String
+}
+AppServlet0 --> RegistrationService0
+AppServlet0 ..> View0
+AppServlet0 ..> Registration0
+RegistrationService0 --> CustomerDAO0
+RegistrationService0 ..> Password0
+CustomerDAO0 --> Database0
+CustomerDAO0 ..> Registration0
+note bottom of Registration0
+DTO chỉ tồn tại trong request, không lưu vào session.
+passwordHash được lưu; mật khẩu không trả về HTML.
+end note
+@enduml

@@ -1,0 +1,84 @@
+@startuml 13-database
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+hide circle
+hide methods
+entity account {
+ *id : BIGINT <<PK>>
+--
+username : VARCHAR(40) <<UQ>>
+password_hash : VARCHAR(255)
+role : VARCHAR(16)
+full_name : VARCHAR(100)
+}
+entity customer {
+ *id : BIGINT <<PK>>
+--
+account_id : BIGINT <<FK,UQ>>
+phone : VARCHAR(10) <<UQ>>
+email : VARCHAR(120) <<UQ>>
+registered_at : DATE
+}
+entity movie {
+ *id : BIGINT <<PK>>
+--
+title : VARCHAR(150)
+duration_minutes : INT
+}
+entity room {
+ *id : BIGINT <<PK>>
+--
+name : VARCHAR(50) <<UQ>>
+}
+entity seat {
+ *id : BIGINT <<PK>>
+--
+room_id : BIGINT <<FK>>
+label : VARCHAR(8)
+}
+entity showtime {
+ *id : BIGINT <<PK>>
+--
+movie_id : BIGINT <<FK>>
+room_id : BIGINT <<FK>>
+starts_at : TIMESTAMP
+}
+entity invoice {
+ *id : BIGINT <<PK>>
+--
+customer_id : BIGINT <<FK,NULL>>
+issued_at : TIMESTAMP
+status : VARCHAR(12)
+}
+entity ticket {
+ *id : BIGINT <<PK>>
+--
+invoice_id : BIGINT <<FK>>
+showtime_id : BIGINT <<FK>>
+seat_id : BIGINT <<FK>>
+unit_price : DECIMAL(14,0)
+}
+account ||--o| customer
+customer |o--o{ invoice
+invoice ||--o{ ticket
+movie ||--o{ showtime
+room ||--o{ showtime
+room ||--o{ seat
+showtime ||--o{ ticket
+seat ||--o{ ticket
+note bottom of ticket
+UNIQUE(showtime_id, seat_id)
+UNIQUE(room_id, label) thuộc seat
+SQL cho phép hóa đơn tạm chưa có vé.
+end note
+@enduml

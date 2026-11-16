@@ -1,0 +1,40 @@
+@startuml 09-registration-activity
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #33444C
+skinparam classBackgroundColor #F8FBFB
+skinparam classBorderColor #335D64
+skinparam packageBorderColor #60757D
+skinparam roundcorner 6
+skinparam dpi 150
+skinparam maxMessageSize 180
+hide empty members
+start
+:AppServlet0.doGet()\nhiển thị biểu mẫu đăng ký;
+:Khách nhập thông tin và gửi POST /register;
+:AppServlet0.service()\nkiểm tra CSRF;
+if (CSRF hợp lệ?) then (Có)
+ :RegistrationService0.register();
+ :normalize() và validate();
+ if (Dữ liệu hợp lệ?) then (Có)
+  :Password0.hash();
+  :CustomerDAO0.saveRegistration();
+  :INSERT account và customer\ntrong một giao dịch;
+  if (Lưu được cả hai bản ghi?) then (Có)
+   :Connection.commit();
+   :AppServlet0.doPost()\ntrả 303 đến /registered;
+   :AppServlet0.doGet()\nhiển thị mã thành viên;
+  else (Không)
+   :Connection.rollback();
+   :AppServlet0.registerPage()\ngiữ dữ liệu không nhạy cảm và báo lỗi;
+  endif
+ else (Không)
+  :AppServlet0.registerPage()\nhiển thị lỗi kiểm tra;
+ endif
+else (Không)
+ :AppServlet0.service()\ntrả HTTP 403;
+endif
+stop
+@enduml
