@@ -1,0 +1,361 @@
+{
+  "diagramType": "ActivityDiagram",
+  "elements": [
+    {
+      "key": "start",
+      "type": "InitialNode",
+      "name": "",
+      "x": 500,
+      "y": 20,
+      "width": 25,
+      "height": 25,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "get",
+      "type": "ActivityAction",
+      "name": "AppServlet0.doGet()\nHiển thị biểu mẫu",
+      "x": 360,
+      "y": 90,
+      "width": 330,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "input",
+      "type": "ActivityAction",
+      "name": "Khách nhập thông tin\nPOST /register",
+      "x": 360,
+      "y": 235,
+      "width": 330,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "csrf",
+      "type": "ActivityAction",
+      "name": "AppServlet0.service()\nKiểm tra CSRF",
+      "x": 360,
+      "y": 380,
+      "width": 330,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "dcsrf",
+      "type": "DecisionNode",
+      "name": "CSRF hợp lệ?",
+      "x": 470,
+      "y": 520,
+      "width": 110,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "register",
+      "type": "ActivityAction",
+      "name": "RegistrationService0.register()\nnormalize() và validate()",
+      "x": 220,
+      "y": 670,
+      "width": 540,
+      "height": 90,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "valid",
+      "type": "DecisionNode",
+      "name": "Dữ liệu hợp lệ?",
+      "x": 420,
+      "y": 820,
+      "width": 130,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "hash",
+      "type": "ActivityAction",
+      "name": "Password0.hash()",
+      "x": 220,
+      "y": 960,
+      "width": 440,
+      "height": 65,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "save",
+      "type": "ActivityAction",
+      "name": "CustomerDAO0.saveRegistration()\nINSERT account và customer",
+      "x": 220,
+      "y": 1090,
+      "width": 550,
+      "height": 90,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "saved",
+      "type": "DecisionNode",
+      "name": "Lưu thành công?",
+      "x": 420,
+      "y": 1240,
+      "width": 130,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "commit",
+      "type": "ActivityAction",
+      "name": "Connection.commit()",
+      "x": 60,
+      "y": 1380,
+      "width": 350,
+      "height": 65,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "result",
+      "type": "ActivityAction",
+      "name": "AppServlet0.doPost() trả 303\nGET /registered hiển thị thành công",
+      "x": 60,
+      "y": 1500,
+      "width": 560,
+      "height": 90,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "rollback",
+      "type": "ActivityAction",
+      "name": "Connection.rollback()\nregisterPage() báo trùng/lỗi ghi",
+      "x": 780,
+      "y": 1380,
+      "width": 550,
+      "height": 90,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "bad",
+      "type": "ActivityAction",
+      "name": "registerPage() trả HTTP 400\nHiển thị lỗi dữ liệu",
+      "x": 920,
+      "y": 820,
+      "width": 520,
+      "height": 90,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "forbidden",
+      "type": "ActivityAction",
+      "name": "AppServlet0.service()\nTrả HTTP 403",
+      "x": 1100,
+      "y": 520,
+      "width": 380,
+      "height": 90,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "end",
+      "type": "ActivityFinalNode",
+      "name": "",
+      "x": 700,
+      "y": 1680,
+      "width": 35,
+      "height": 35,
+      "view": {
+        "fontSize": 20
+      }
+    }
+  ],
+  "connectors": [
+    {
+      "from": "start",
+      "to": "get",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "get",
+      "to": "input",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "input",
+      "to": "csrf",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "csrf",
+      "to": "dcsrf",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "register",
+      "to": "valid",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "hash",
+      "to": "save",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "save",
+      "to": "saved",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "commit",
+      "to": "result",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "result",
+      "to": "end",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "rollback",
+      "to": "end",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "bad",
+      "to": "end",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "forbidden",
+      "to": "end",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "dcsrf",
+      "to": "register",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      },
+      "properties": {
+        "guard": "Có"
+      }
+    },
+    {
+      "from": "dcsrf",
+      "to": "forbidden",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      },
+      "properties": {
+        "guard": "Không"
+      }
+    },
+    {
+      "from": "valid",
+      "to": "hash",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      },
+      "properties": {
+        "guard": "Có"
+      }
+    },
+    {
+      "from": "valid",
+      "to": "bad",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      },
+      "properties": {
+        "guard": "Không"
+      }
+    },
+    {
+      "from": "saved",
+      "to": "commit",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      },
+      "properties": {
+        "guard": "Có"
+      }
+    },
+    {
+      "from": "saved",
+      "to": "rollback",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      },
+      "properties": {
+        "guard": "Không"
+      }
+    }
+  ]
+}

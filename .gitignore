@@ -2,3 +2,7 @@ build/
 data/
 *.log
 *.zip
+
+*.vpp.bak*
+*.vpp.lck
+*.vpp.backup*

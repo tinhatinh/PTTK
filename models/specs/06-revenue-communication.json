@@ -1,0 +1,247 @@
+{
+  "diagramType": "CommunicationDiagram",
+  "elements": [
+    {
+      "key": "A",
+      "type": "Actor",
+      "name": "Quản lý",
+      "x": 40,
+      "y": 40,
+      "width": 170,
+      "height": 100,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "UI",
+      "type": "InteractionLifeLine",
+      "name": ":MovieStatsUI0",
+      "x": 350,
+      "y": 280,
+      "width": 370,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "M",
+      "type": "InteractionLifeLine",
+      "name": ":Movie0",
+      "x": 20,
+      "y": 560,
+      "width": 240,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "SU",
+      "type": "InteractionLifeLine",
+      "name": ":ShowtimeStatsUI0",
+      "x": 950,
+      "y": 560,
+      "width": 400,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "S",
+      "type": "InteractionLifeLine",
+      "name": ":Showtime0",
+      "x": 540,
+      "y": 850,
+      "width": 270,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "IU",
+      "type": "InteractionLifeLine",
+      "name": ":InvoiceListUI0",
+      "x": 1200,
+      "y": 1030,
+      "width": 380,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "I",
+      "type": "InteractionLifeLine",
+      "name": ":Invoice0",
+      "x": 650,
+      "y": 1330,
+      "width": 270,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    }
+  ],
+  "connectors": [
+    {
+      "from": "A",
+      "to": "UI",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "chọn khoảng ngày",
+      "properties": {
+        "sequenceNumber": "1",
+        "kind": "call"
+      }
+    },
+    {
+      "from": "A",
+      "to": "UI",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "subViewStatistics",
+      "properties": {
+        "sequenceNumber": "2",
+        "kind": "call"
+      }
+    },
+    {
+      "from": "UI",
+      "to": "M",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "getMovieRevenueStats(from,to)",
+      "properties": {
+        "sequenceNumber": "2.1",
+        "kind": "call"
+      }
+    },
+    {
+      "from": "M",
+      "to": "UI",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "danh sách phim",
+      "properties": {
+        "sequenceNumber": "2.2",
+        "kind": "call"
+      }
+    },
+    {
+      "from": "A",
+      "to": "UI",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "subMovie(movieId)",
+      "properties": {
+        "sequenceNumber": "3",
+        "kind": "call"
+      }
+    },
+    {
+      "from": "UI",
+      "to": "SU",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "chuyển movieId, from, to",
+      "properties": {
+        "sequenceNumber": "3.1",
+        "kind": "call"
+      }
+    },
+    {
+      "from": "SU",
+      "to": "S",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "getShowtimeStats(movieId,from,to)",
+      "properties": {
+        "sequenceNumber": "3.2",
+        "kind": "call"
+      }
+    },
+    {
+      "from": "S",
+      "to": "SU",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "danh sách suất",
+      "properties": {
+        "sequenceNumber": "3.3",
+        "kind": "call"
+      }
+    },
+    {
+      "from": "A",
+      "to": "SU",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "subShowtime(showtimeId)",
+      "properties": {
+        "sequenceNumber": "4",
+        "kind": "call"
+      }
+    },
+    {
+      "from": "SU",
+      "to": "IU",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "chuyển showtimeId, movieId, from, to",
+      "properties": {
+        "sequenceNumber": "4.1",
+        "kind": "call"
+      }
+    },
+    {
+      "from": "IU",
+      "to": "I",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "getInvoicesByShowtime(showtimeId,from,to)",
+      "properties": {
+        "sequenceNumber": "4.2",
+        "kind": "call"
+      }
+    },
+    {
+      "from": "I",
+      "to": "IU",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "danh sách hóa đơn",
+      "properties": {
+        "sequenceNumber": "4.3",
+        "kind": "call"
+      }
+    }
+  ]
+}

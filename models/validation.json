@@ -1,0 +1,171 @@
+{
+  "tool": "Visual Paradigm Community Edition 18.1 build 20261101",
+  "diagram_count": 20,
+  "class_member_name_audit_against_corresponding_puml": "PASS (6 class diagrams; no missing or extra member names)",
+  "database_tables": 8,
+  "native_foreign_key_column_bindings": 8,
+  "export_scale_png": 3,
+  "exports": [
+    {
+      "diagram": "00-system-overview",
+      "png_pixels": [
+        3447,
+        2832
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "01a-registration-use-case",
+      "png_pixels": [
+        5112,
+        2517
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "01b-revenue-use-case",
+      "png_pixels": [
+        5562,
+        2697
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "02-domain",
+      "png_pixels": [
+        2898,
+        3168
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "03-registration-analysis",
+      "png_pixels": [
+        2418,
+        3540
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "04-revenue-analysis",
+      "png_pixels": [
+        2910,
+        4368
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "04a-registration-states",
+      "png_pixels": [
+        4188,
+        1908
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "04b-revenue-states",
+      "png_pixels": [
+        6072,
+        3078
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "05-registration-communication",
+      "png_pixels": [
+        4602,
+        2013
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "06-revenue-communication",
+      "png_pixels": [
+        6192,
+        3300
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "07-registration-design",
+      "png_pixels": [
+        3810,
+        3573
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "07a-entities-design",
+      "png_pixels": [
+        2922,
+        3981
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "08-revenue-design",
+      "png_pixels": [
+        4266,
+        3087
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "09-registration-activity",
+      "png_pixels": [
+        4863,
+        5073
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "10-revenue-activity",
+      "png_pixels": [
+        4464,
+        6003
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "11-registration-sequence",
+      "png_pixels": [
+        3711,
+        3258
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "12-revenue-sequence",
+      "png_pixels": [
+        2886,
+        3393
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "13-database",
+      "png_pixels": [
+        4488,
+        5061
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "14-packages",
+      "png_pixels": [
+        3567,
+        3042
+      ],
+      "svg": true
+    },
+    {
+      "diagram": "15-deployment",
+      "png_pixels": [
+        3543,
+        5205
+      ],
+      "svg": true
+    }
+  ],
+  "limits": "Not a formal proof of UML semantics. Compound SQL unique constraints are documented in schema.sql and the ERD note."
+}

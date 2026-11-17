@@ -1,0 +1,133 @@
+{
+  "diagramType": "CommunicationDiagram",
+  "elements": [
+    {
+      "key": "A",
+      "type": "Actor",
+      "name": "Khách hàng",
+      "x": 60,
+      "y": 40,
+      "width": 180,
+      "height": 100,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "UI",
+      "type": "InteractionLifeLine",
+      "name": ":RegistrationUI0",
+      "x": 420,
+      "y": 270,
+      "width": 380,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "C",
+      "type": "InteractionLifeLine",
+      "name": ":Customer0",
+      "x": 420,
+      "y": 550,
+      "width": 380,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "AC",
+      "type": "InteractionLifeLine",
+      "name": ":Account0",
+      "x": 420,
+      "y": 830,
+      "width": 380,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    }
+  ],
+  "connectors": [
+    {
+      "from": "A",
+      "to": "UI",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "nhập thông tin",
+      "properties": {
+        "sequenceNumber": "1",
+        "kind": "call"
+      }
+    },
+    {
+      "from": "A",
+      "to": "UI",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "subRegister",
+      "properties": {
+        "sequenceNumber": "2",
+        "kind": "call"
+      }
+    },
+    {
+      "from": "UI",
+      "to": "C",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "register(info)",
+      "properties": {
+        "sequenceNumber": "2.1",
+        "kind": "call"
+      }
+    },
+    {
+      "from": "C",
+      "to": "AC",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "tạo dữ liệu tài khoản",
+      "properties": {
+        "sequenceNumber": "2.1.1",
+        "kind": "call"
+      }
+    },
+    {
+      "from": "C",
+      "to": "UI",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "trả mã khách hàng hoặc lỗi",
+      "properties": {
+        "sequenceNumber": "2.2",
+        "kind": "call"
+      }
+    },
+    {
+      "from": "UI",
+      "to": "A",
+      "type": "Message",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "hiển thị kết quả",
+      "properties": {
+        "sequenceNumber": "3",
+        "kind": "call"
+      }
+    }
+  ]
+}

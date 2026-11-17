@@ -1,0 +1,375 @@
+{
+  "diagramType": "ActivityDiagram",
+  "elements": [
+    {
+      "key": "start",
+      "type": "InitialNode",
+      "name": "",
+      "x": 520,
+      "y": 20,
+      "width": 25,
+      "height": 25,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "auth",
+      "type": "ActivityAction",
+      "name": "AppServlet0.service()\nKiểm tra MANAGER",
+      "x": 360,
+      "y": 90,
+      "width": 400,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "dauth",
+      "type": "DecisionNode",
+      "name": "Có quyền?",
+      "x": 490,
+      "y": 230,
+      "width": 110,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "choose",
+      "type": "ActivityAction",
+      "name": "doGet() hiển thị trang quản lý\nvà chọn báo cáo",
+      "x": 180,
+      "y": 380,
+      "width": 590,
+      "height": 90,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "range",
+      "type": "ActivityAction",
+      "name": "reportPage() nhận from,to\nrange() → validateRange()",
+      "x": 180,
+      "y": 540,
+      "width": 590,
+      "height": 90,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "drange",
+      "type": "DecisionNode",
+      "name": "Khoảng ngày hợp lệ?",
+      "x": 420,
+      "y": 710,
+      "width": 160,
+      "height": 90,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "movies",
+      "type": "ActivityAction",
+      "name": "getMovieRevenueStats()\nreportPage() hiển thị bảng phim",
+      "x": 120,
+      "y": 870,
+      "width": 650,
+      "height": 90,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "dclick",
+      "type": "DecisionNode",
+      "name": "Chọn phim?",
+      "x": 420,
+      "y": 1030,
+      "width": 150,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "shows",
+      "type": "ActivityAction",
+      "name": "showtimesPage()\ngetShowtimeStats()",
+      "x": 120,
+      "y": 1190,
+      "width": 650,
+      "height": 90,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "dshow",
+      "type": "DecisionNode",
+      "name": "Chọn suất?",
+      "x": 420,
+      "y": 1350,
+      "width": 150,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "invoices",
+      "type": "ActivityAction",
+      "name": "invoicesPage() đối chiếu ngữ cảnh\ngetInvoicesByShowtime()",
+      "x": 120,
+      "y": 1510,
+      "width": 700,
+      "height": 90,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "display",
+      "type": "ActivityAction",
+      "name": "Hiển thị hóa đơn và tổng tiền vé của suất",
+      "x": 120,
+      "y": 1670,
+      "width": 700,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "back",
+      "type": "ActivityAction",
+      "name": "Quay lại giữ from,to và mã cha",
+      "x": 120,
+      "y": 1830,
+      "width": 700,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "error",
+      "type": "ActivityAction",
+      "name": "service() trả HTTP 400\nChọn lại khoảng ngày",
+      "x": 1050,
+      "y": 710,
+      "width": 550,
+      "height": 90,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "login",
+      "type": "ActivityAction",
+      "name": "service() chuyển /login",
+      "x": 1050,
+      "y": 230,
+      "width": 550,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "end",
+      "type": "ActivityFinalNode",
+      "name": "",
+      "x": 860,
+      "y": 1990,
+      "width": 35,
+      "height": 35,
+      "view": {
+        "fontSize": 20
+      }
+    }
+  ],
+  "connectors": [
+    {
+      "from": "start",
+      "to": "auth",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "auth",
+      "to": "dauth",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "choose",
+      "to": "range",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "range",
+      "to": "drange",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "movies",
+      "to": "dclick",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "shows",
+      "to": "dshow",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "invoices",
+      "to": "display",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "display",
+      "to": "back",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "back",
+      "to": "end",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "error",
+      "to": "end",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "login",
+      "to": "end",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "dauth",
+      "to": "choose",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      },
+      "properties": {
+        "guard": "Có"
+      }
+    },
+    {
+      "from": "dauth",
+      "to": "login",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      },
+      "properties": {
+        "guard": "Không"
+      }
+    },
+    {
+      "from": "drange",
+      "to": "movies",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      },
+      "properties": {
+        "guard": "Có"
+      }
+    },
+    {
+      "from": "drange",
+      "to": "error",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      },
+      "properties": {
+        "guard": "Không"
+      }
+    },
+    {
+      "from": "dclick",
+      "to": "shows",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      },
+      "properties": {
+        "guard": "Có"
+      }
+    },
+    {
+      "from": "dclick",
+      "to": "back",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      },
+      "properties": {
+        "guard": "Không"
+      }
+    },
+    {
+      "from": "dshow",
+      "to": "invoices",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      },
+      "properties": {
+        "guard": "Có"
+      }
+    },
+    {
+      "from": "dshow",
+      "to": "back",
+      "type": "ControlFlow",
+      "view": {
+        "fontSize": 18
+      },
+      "properties": {
+        "guard": "Không"
+      }
+    }
+  ]
+}

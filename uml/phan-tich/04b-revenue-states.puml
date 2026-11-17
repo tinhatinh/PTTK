@@ -1,0 +1,26 @@
+@startuml 04b-revenue-states
+skinparam defaultFontName DejaVu Sans
+skinparam shadowing false
+state "Đăng nhập quản lý" as login
+state "Trang quản lý" as home
+state "Chọn loại báo cáo" as type
+state "Chọn khoảng ngày" as date
+state "Bảng thống kê phim" as movies
+state "Bảng thống kê suất chiếu" as shows
+state "Danh sách hóa đơn của suất" as invoices
+state "Lỗi khoảng ngày hoặc ngữ cảnh" as error
+[*] --> login
+login --> home : Tài khoản MANAGER hợp lệ
+login --> login : Xác thực thất bại
+home --> type : Xem báo cáo
+type --> date : Tiếp tục
+date --> movies : Khoảng ngày hợp lệ
+date --> error : Ngày sai
+error --> date : Chọn lại khoảng ngày
+movies --> shows : Chọn phim / giữ from,to
+shows --> invoices : Chọn suất / đối chiếu mã cha
+invoices --> shows : Quay lại / giữ mã phim và ngày
+shows --> movies : Quay lại / giữ ngày
+movies --> type : Chọn loại thống kê
+home --> login : Đăng xuất
+@enduml

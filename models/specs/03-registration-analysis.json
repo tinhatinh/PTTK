@@ -1,0 +1,257 @@
+{
+  "diagramType": "ClassDiagram",
+  "elements": [
+    {
+      "key": "HomeUI0",
+      "type": "Class",
+      "name": "HomeUI0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "subRegisterMember",
+          "properties": {}
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "boundary"
+        ]
+      },
+      "x": 184,
+      "y": 61,
+      "width": 275,
+      "height": 120,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "RegistrationUI0",
+      "type": "Class",
+      "name": "RegistrationUI0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "inFullName",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "inPhone",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "inEmail",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "inUsername",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "inPassword",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "inConfirmPassword",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "subRegister",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "outError",
+          "properties": {}
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "boundary"
+        ]
+      },
+      "x": 190,
+      "y": 266,
+      "width": 264,
+      "height": 311,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "RegistrationResultUI0",
+      "type": "Class",
+      "name": "RegistrationResultUI0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "outCustomerId",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "outFullName",
+          "properties": {}
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "boundary"
+        ]
+      },
+      "x": 61,
+      "y": 691,
+      "width": 325,
+      "height": 147,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "Customer0",
+      "type": "Class",
+      "name": "Customer0",
+      "children": [
+        {
+          "type": "Operation",
+          "name": "register",
+          "properties": {},
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "info"
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
+      "x": 421,
+      "y": 704,
+      "width": 199,
+      "height": 120,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "Account0",
+      "type": "Class",
+      "name": "Account0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "username",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "passwordHash",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "fullName",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "role",
+          "properties": {}
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
+      "x": 200,
+      "y": 923,
+      "width": 209,
+      "height": 202,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "note0",
+      "type": "NOTE",
+      "name": "Phân tích: register đặt tại thực thể liên quan.\nThiết kế: tách validation vào service,\nlưu giao dịch vào CustomerDAO0.",
+      "x": 60,
+      "y": 1185,
+      "width": 800,
+      "height": 98,
+      "view": {
+        "fontSize": 18
+      }
+    }
+  ],
+  "connectors": [
+    {
+      "type": "Association",
+      "from": "HomeUI0",
+      "to": "RegistrationUI0",
+      "properties": {
+        "to.navigable": "navigable"
+      },
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Association",
+      "from": "RegistrationUI0",
+      "to": "Customer0",
+      "properties": {
+        "to.navigable": "navigable"
+      },
+      "view": {
+        "fontSize": 18
+      },
+      "name": "register(info)"
+    },
+    {
+      "type": "Association",
+      "from": "RegistrationUI0",
+      "to": "RegistrationResultUI0",
+      "properties": {
+        "to.navigable": "navigable"
+      },
+      "view": {
+        "fontSize": 18
+      },
+      "name": "thành công"
+    },
+    {
+      "type": "Association",
+      "from": "Customer0",
+      "to": "Account0",
+      "properties": {
+        "from.multiplicity": "0..1",
+        "to.multiplicity": "1"
+      },
+      "view": {
+        "fontSize": 18
+      }
+    }
+  ]
+}

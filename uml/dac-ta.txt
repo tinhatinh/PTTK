@@ -1,3 +1,4 @@
+' FILE: 00-system-overview.puml
 @startuml 00-system-overview
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15
@@ -46,6 +47,7 @@ end note
 @enduml
 
 
+' FILE: 01a-registration-use-case.puml
 @startuml 01a-registration-use-case
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15
@@ -78,6 +80,7 @@ end note
 @enduml
 
 
+' FILE: 01b-revenue-use-case.puml
 @startuml 01b-revenue-use-case
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15

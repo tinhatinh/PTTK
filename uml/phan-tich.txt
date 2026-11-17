@@ -1,3 +1,4 @@
+' FILE: 02-domain.puml
 @startuml 02-domain
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15
@@ -66,6 +67,7 @@ end note
 @enduml
 
 
+' FILE: 03-registration-analysis.puml
 @startuml 03-registration-analysis
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15
@@ -118,6 +120,7 @@ end note
 @enduml
 
 
+' FILE: 04-revenue-analysis.puml
 @startuml 04-revenue-analysis
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15
@@ -179,6 +182,54 @@ end note
 @enduml
 
 
+' FILE: 04a-registration-states.puml
+@startuml 04a-registration-states
+skinparam defaultFontName DejaVu Sans
+skinparam shadowing false
+state "Trang chủ khách hàng" as home
+state "Biểu mẫu đăng ký" as form
+state "Đăng ký thành công" as success
+state "Lỗi phiên biểu mẫu" as forbidden
+[*] --> home
+home --> form : Chọn Đăng ký thành viên
+form --> form : Sai dữ liệu hoặc trùng / báo lỗi
+form --> success : POST hợp lệ / lưu đủ hai bản ghi
+form --> forbidden : CSRF sai / HTTP 403
+success --> home : Về trang chủ
+home --> [*] : Kết thúc phiên xem
+@enduml
+
+
+' FILE: 04b-revenue-states.puml
+@startuml 04b-revenue-states
+skinparam defaultFontName DejaVu Sans
+skinparam shadowing false
+state "Đăng nhập quản lý" as login
+state "Trang quản lý" as home
+state "Chọn loại báo cáo" as type
+state "Chọn khoảng ngày" as date
+state "Bảng thống kê phim" as movies
+state "Bảng thống kê suất chiếu" as shows
+state "Danh sách hóa đơn của suất" as invoices
+state "Lỗi khoảng ngày hoặc ngữ cảnh" as error
+[*] --> login
+login --> home : Tài khoản MANAGER hợp lệ
+login --> login : Xác thực thất bại
+home --> type : Xem báo cáo
+type --> date : Tiếp tục
+date --> movies : Khoảng ngày hợp lệ
+date --> error : Ngày sai
+error --> date : Chọn lại khoảng ngày
+movies --> shows : Chọn phim / giữ from,to
+shows --> invoices : Chọn suất / đối chiếu mã cha
+invoices --> shows : Quay lại / giữ mã phim và ngày
+shows --> movies : Quay lại / giữ ngày
+movies --> type : Chọn loại thống kê
+home --> login : Đăng xuất
+@enduml
+
+
+' FILE: 05-registration-communication.puml
 @startuml 05-registration-communication
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15
@@ -210,6 +261,7 @@ end note
 @enduml
 
 
+' FILE: 06-revenue-communication.puml
 @startuml 06-revenue-communication
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15

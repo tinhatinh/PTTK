@@ -1,0 +1,466 @@
+{
+  "diagramType": "ClassDiagram",
+  "elements": [
+    {
+      "key": "AppServlet0",
+      "type": "Class",
+      "name": "AppServlet0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "registration",
+          "properties": {
+            "visibility": "private",
+            "type": "RegistrationService0"
+          }
+        },
+        {
+          "type": "Operation",
+          "name": "registerPage",
+          "properties": {
+            "visibility": "private",
+            "returnType": "void"
+          },
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "q"
+            },
+            {
+              "type": "Parameter",
+              "name": "r"
+            },
+            {
+              "type": "Parameter",
+              "name": "error"
+            }
+          ]
+        },
+        {
+          "type": "Operation",
+          "name": "doGet",
+          "properties": {
+            "visibility": "protected",
+            "returnType": "void"
+          },
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "q"
+            },
+            {
+              "type": "Parameter",
+              "name": "r"
+            }
+          ]
+        },
+        {
+          "type": "Operation",
+          "name": "doPost",
+          "properties": {
+            "visibility": "protected",
+            "returnType": "void"
+          },
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "q"
+            },
+            {
+              "type": "Parameter",
+              "name": "r"
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "servlet"
+        ]
+      },
+      "x": 832,
+      "y": 61,
+      "width": 463,
+      "height": 214,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "View0",
+      "type": "Class",
+      "name": "View0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "{static",
+          "properties": {
+            "visibility": "public"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "view"
+        ]
+      },
+      "x": 240,
+      "y": 393,
+      "width": 505,
+      "height": 147,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "RegistrationService0",
+      "type": "Class",
+      "name": "RegistrationService0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "dao",
+          "properties": {
+            "visibility": "private",
+            "type": "CustomerDAO0"
+          }
+        },
+        {
+          "type": "Operation",
+          "name": "normalize",
+          "properties": {
+            "visibility": "public",
+            "returnType": "Registration0"
+          },
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "x",
+              "properties": {
+                "type": "Registration0"
+              }
+            }
+          ]
+        },
+        {
+          "type": "Operation",
+          "name": "validate",
+          "properties": {
+            "visibility": "public",
+            "returnType": "String"
+          },
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "x",
+              "properties": {
+                "type": "Registration0"
+              }
+            }
+          ]
+        },
+        {
+          "type": "Operation",
+          "name": "register",
+          "properties": {
+            "visibility": "public",
+            "returnType": "long"
+          },
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "x",
+              "properties": {
+                "type": "Registration0"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "service"
+        ]
+      },
+      "x": 779,
+      "y": 359,
+      "width": 569,
+      "height": 214,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "CustomerDAO0",
+      "type": "Class",
+      "name": "CustomerDAO0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "db",
+          "properties": {
+            "visibility": "private",
+            "type": "Database0"
+          }
+        },
+        {
+          "type": "Operation",
+          "name": "saveRegistration",
+          "properties": {
+            "visibility": "public",
+            "returnType": "long"
+          },
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "input",
+              "properties": {
+                "type": "Registration0"
+              }
+            },
+            {
+              "type": "Parameter",
+              "name": "passwordHash",
+              "properties": {
+                "type": "String"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "DAO"
+        ]
+      },
+      "x": 61,
+      "y": 657,
+      "width": 868,
+      "height": 160,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "Database0",
+      "type": "Class",
+      "name": "Database0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "url",
+          "properties": {
+            "visibility": "private",
+            "type": "String"
+          }
+        },
+        {
+          "type": "Operation",
+          "name": "open",
+          "properties": {
+            "visibility": "public",
+            "returnType": "Connection"
+          },
+          "children": []
+        },
+        {
+          "type": "Operation",
+          "name": "initialize",
+          "properties": {
+            "visibility": "public",
+            "returnType": "void"
+          },
+          "children": []
+        }
+      ],
+      "properties": {},
+      "x": 349,
+      "y": 945,
+      "width": 293,
+      "height": 167,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "Password0",
+      "type": "Class",
+      "name": "Password0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "{static",
+          "properties": {
+            "visibility": "public"
+          }
+        }
+      ],
+      "properties": {},
+      "x": 964,
+      "y": 687,
+      "width": 385,
+      "height": 100,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "Registration0",
+      "type": "Class",
+      "name": "Registration0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "fullName",
+          "properties": {
+            "type": "String"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "phone",
+          "properties": {
+            "type": "String"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "email",
+          "properties": {
+            "type": "String"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "username",
+          "properties": {
+            "type": "String"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "password",
+          "properties": {
+            "type": "String"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "confirmPassword",
+          "properties": {
+            "type": "String"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "record"
+        ]
+      },
+      "x": 965,
+      "y": 901,
+      "width": 332,
+      "height": 256,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "note0",
+      "type": "NOTE",
+      "name": "DTO chỉ tồn tại trong request, không lưu vào session.\npasswordHash được lưu; mật khẩu không trả về HTML.",
+      "x": 60,
+      "y": 1217,
+      "width": 800,
+      "height": 90,
+      "view": {
+        "fontSize": 18
+      }
+    }
+  ],
+  "connectors": [
+    {
+      "type": "Association",
+      "from": "AppServlet0",
+      "to": "RegistrationService0",
+      "properties": {
+        "to.navigable": "navigable"
+      },
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Dependency",
+      "from": "AppServlet0",
+      "to": "View0",
+      "properties": {},
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Dependency",
+      "from": "AppServlet0",
+      "to": "Registration0",
+      "properties": {},
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Association",
+      "from": "RegistrationService0",
+      "to": "CustomerDAO0",
+      "properties": {
+        "to.navigable": "navigable"
+      },
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Dependency",
+      "from": "RegistrationService0",
+      "to": "Password0",
+      "properties": {},
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Association",
+      "from": "CustomerDAO0",
+      "to": "Database0",
+      "properties": {
+        "to.navigable": "navigable"
+      },
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Dependency",
+      "from": "CustomerDAO0",
+      "to": "Registration0",
+      "properties": {},
+      "view": {
+        "fontSize": 18
+      }
+    }
+  ]
+}

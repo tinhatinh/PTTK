@@ -1,0 +1,534 @@
+{
+  "diagramType": "ClassDiagram",
+  "elements": [
+    {
+      "key": "AppServlet0",
+      "type": "Class",
+      "name": "AppServlet0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "revenue",
+          "properties": {
+            "visibility": "private",
+            "type": "RevenueDAO0"
+          }
+        },
+        {
+          "type": "Operation",
+          "name": "reportPage",
+          "properties": {
+            "visibility": "private",
+            "returnType": "void"
+          },
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "q"
+            },
+            {
+              "type": "Parameter",
+              "name": "r"
+            }
+          ]
+        },
+        {
+          "type": "Operation",
+          "name": "showtimesPage",
+          "properties": {
+            "visibility": "private",
+            "returnType": "void"
+          },
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "q"
+            },
+            {
+              "type": "Parameter",
+              "name": "r"
+            }
+          ]
+        },
+        {
+          "type": "Operation",
+          "name": "invoicesPage",
+          "properties": {
+            "visibility": "private",
+            "returnType": "void"
+          },
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "q"
+            },
+            {
+              "type": "Parameter",
+              "name": "r"
+            }
+          ]
+        },
+        {
+          "type": "Operation",
+          "name": "range",
+          "properties": {
+            "visibility": "private",
+            "returnType": "LocalDate[]"
+          },
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "q"
+            }
+          ]
+        },
+        {
+          "type": "Operation",
+          "name": "id",
+          "properties": {
+            "visibility": "private",
+            "returnType": "long"
+          },
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "q"
+            },
+            {
+              "type": "Parameter",
+              "name": "name"
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "servlet"
+        ]
+      },
+      "x": 423,
+      "y": 61,
+      "width": 367,
+      "height": 269,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "RevenueService0",
+      "type": "Class",
+      "name": "RevenueService0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "{static",
+          "properties": {
+            "visibility": "public"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "validation"
+        ]
+      },
+      "x": 61,
+      "y": 474,
+      "width": 406,
+      "height": 120,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "RevenueDAO0",
+      "type": "Class",
+      "name": "RevenueDAO0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "db",
+          "properties": {
+            "visibility": "private",
+            "type": "Database0"
+          }
+        },
+        {
+          "type": "Operation",
+          "name": "getMovieRevenueStats",
+          "properties": {
+            "visibility": "public",
+            "returnType": "List<MovieRevenue0>"
+          },
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "from"
+            },
+            {
+              "type": "Parameter",
+              "name": "to"
+            }
+          ]
+        },
+        {
+          "type": "Operation",
+          "name": "getShowtimeStats",
+          "properties": {
+            "visibility": "public",
+            "returnType": "List<ShowtimeRevenue0>"
+          },
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "movieId"
+            },
+            {
+              "type": "Parameter",
+              "name": "from"
+            },
+            {
+              "type": "Parameter",
+              "name": "to"
+            }
+          ]
+        },
+        {
+          "type": "Operation",
+          "name": "getInvoicesByShowtime",
+          "properties": {
+            "visibility": "public",
+            "returnType": "List<InvoiceRevenue0>"
+          },
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "showtimeId"
+            },
+            {
+              "type": "Parameter",
+              "name": "from"
+            },
+            {
+              "type": "Parameter",
+              "name": "to"
+            }
+          ]
+        },
+        {
+          "type": "Operation",
+          "name": "bind",
+          "properties": {
+            "visibility": "private",
+            "returnType": "void"
+          },
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "statement"
+            },
+            {
+              "type": "Parameter",
+              "name": "from"
+            },
+            {
+              "type": "Parameter",
+              "name": "to"
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "DAO"
+        ]
+      },
+      "x": 502,
+      "y": 414,
+      "width": 893,
+      "height": 242,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "Database0",
+      "type": "Class",
+      "name": "Database0",
+      "children": [
+        {
+          "type": "Operation",
+          "name": "open",
+          "properties": {
+            "visibility": "public",
+            "returnType": "Connection"
+          },
+          "children": []
+        }
+      ],
+      "properties": {},
+      "x": 127,
+      "y": 817,
+      "width": 293,
+      "height": 100,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "MovieRevenue0",
+      "type": "Class",
+      "name": "MovieRevenue0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "movieId",
+          "properties": {
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "title",
+          "properties": {
+            "type": "String"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "showtimeCount",
+          "properties": {
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "ticketCount",
+          "properties": {
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "revenue",
+          "properties": {
+            "type": "BigDecimal"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "record"
+        ]
+      },
+      "x": 454,
+      "y": 753,
+      "width": 295,
+      "height": 229,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "ShowtimeRevenue0",
+      "type": "Class",
+      "name": "ShowtimeRevenue0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "showtimeId",
+          "properties": {
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "movieTitle",
+          "properties": {
+            "type": "String"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "roomName",
+          "properties": {
+            "type": "String"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "startsAt",
+          "properties": {
+            "type": "LocalDateTime"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "ticketCount",
+          "properties": {
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "revenue",
+          "properties": {
+            "type": "BigDecimal"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "record"
+        ]
+      },
+      "x": 784,
+      "y": 739,
+      "width": 329,
+      "height": 256,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "InvoiceRevenue0",
+      "type": "Class",
+      "name": "InvoiceRevenue0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "invoiceId",
+          "properties": {
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "issuedAt",
+          "properties": {
+            "type": "LocalDateTime"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "customerName",
+          "properties": {
+            "type": "String"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "ticketCount",
+          "properties": {
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "revenue",
+          "properties": {
+            "type": "BigDecimal"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "record"
+        ]
+      },
+      "x": 1147,
+      "y": 753,
+      "width": 337,
+      "height": 229,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "note0",
+      "type": "NOTE",
+      "name": "from và to: LocalDate; mã đối tượng: long.\nMọi truy vấn dùng cùng điều kiện PAID và starts_at.",
+      "x": 60,
+      "y": 1055,
+      "width": 800,
+      "height": 90,
+      "view": {
+        "fontSize": 18
+      }
+    }
+  ],
+  "connectors": [
+    {
+      "type": "Dependency",
+      "from": "AppServlet0",
+      "to": "RevenueService0",
+      "properties": {},
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Association",
+      "from": "AppServlet0",
+      "to": "RevenueDAO0",
+      "properties": {
+        "to.navigable": "navigable"
+      },
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Association",
+      "from": "RevenueDAO0",
+      "to": "Database0",
+      "properties": {
+        "to.navigable": "navigable"
+      },
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Dependency",
+      "from": "RevenueDAO0",
+      "to": "MovieRevenue0",
+      "properties": {},
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Dependency",
+      "from": "RevenueDAO0",
+      "to": "ShowtimeRevenue0",
+      "properties": {},
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Dependency",
+      "from": "RevenueDAO0",
+      "to": "InvoiceRevenue0",
+      "properties": {},
+      "view": {
+        "fontSize": 18
+      }
+    }
+  ]
+}

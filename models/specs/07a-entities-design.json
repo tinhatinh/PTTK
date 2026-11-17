@@ -1,0 +1,541 @@
+{
+  "diagramType": "ClassDiagram",
+  "elements": [
+    {
+      "key": "Account0",
+      "type": "Class",
+      "name": "Account0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "id",
+          "properties": {
+            "visibility": "private",
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "username",
+          "properties": {
+            "visibility": "private",
+            "type": "String"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "passwordHash",
+          "properties": {
+            "visibility": "private",
+            "type": "String"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "role",
+          "properties": {
+            "visibility": "private",
+            "type": "String"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "fullName",
+          "properties": {
+            "visibility": "private",
+            "type": "String"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "record"
+        ]
+      },
+      "x": 78,
+      "y": 61,
+      "width": 324,
+      "height": 229,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "Customer0",
+      "type": "Class",
+      "name": "Customer0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "id",
+          "properties": {
+            "visibility": "private",
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "accountId",
+          "properties": {
+            "visibility": "private",
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "phone",
+          "properties": {
+            "visibility": "private",
+            "type": "String"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "email",
+          "properties": {
+            "visibility": "private",
+            "type": "String"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "registeredAt",
+          "properties": {
+            "visibility": "private",
+            "type": "LocalDate"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "record"
+        ]
+      },
+      "x": 67,
+      "y": 403,
+      "width": 346,
+      "height": 229,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "Movie0",
+      "type": "Class",
+      "name": "Movie0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "id",
+          "properties": {
+            "visibility": "private",
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "title",
+          "properties": {
+            "visibility": "private",
+            "type": "String"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "durationMinutes",
+          "properties": {
+            "visibility": "private",
+            "type": "int"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "record"
+        ]
+      },
+      "x": 729,
+      "y": 431,
+      "width": 305,
+      "height": 175,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "Room0",
+      "type": "Class",
+      "name": "Room0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "id",
+          "properties": {
+            "visibility": "private",
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "name",
+          "properties": {
+            "visibility": "private",
+            "type": "String"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "record"
+        ]
+      },
+      "x": 468,
+      "y": 444,
+      "width": 220,
+      "height": 147,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "Seat0",
+      "type": "Class",
+      "name": "Seat0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "id",
+          "properties": {
+            "visibility": "private",
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "roomId",
+          "properties": {
+            "visibility": "private",
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "label",
+          "properties": {
+            "visibility": "private",
+            "type": "String"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "record"
+        ]
+      },
+      "x": 454,
+      "y": 760,
+      "width": 217,
+      "height": 175,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "Showtime0",
+      "type": "Class",
+      "name": "Showtime0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "id",
+          "properties": {
+            "visibility": "private",
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "movieId",
+          "properties": {
+            "visibility": "private",
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "roomId",
+          "properties": {
+            "visibility": "private",
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "startsAt",
+          "properties": {
+            "visibility": "private",
+            "type": "LocalDateTime"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "record"
+        ]
+      },
+      "x": 706,
+      "y": 746,
+      "width": 351,
+      "height": 202,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "Invoice0",
+      "type": "Class",
+      "name": "Invoice0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "id",
+          "properties": {
+            "visibility": "private",
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "customerId",
+          "properties": {
+            "visibility": "private",
+            "type": "Long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "issuedAt",
+          "properties": {
+            "visibility": "private",
+            "type": "LocalDateTime"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "status",
+          "properties": {
+            "visibility": "private",
+            "type": "String"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "record"
+        ]
+      },
+      "x": 61,
+      "y": 746,
+      "width": 359,
+      "height": 202,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "Ticket0",
+      "type": "Class",
+      "name": "Ticket0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "id",
+          "properties": {
+            "visibility": "private",
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "invoiceId",
+          "properties": {
+            "visibility": "private",
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "showtimeId",
+          "properties": {
+            "visibility": "private",
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "seatId",
+          "properties": {
+            "visibility": "private",
+            "type": "long"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "unitPrice",
+          "properties": {
+            "visibility": "private",
+            "type": "BigDecimal"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "record"
+        ]
+      },
+      "x": 403,
+      "y": 1061,
+      "width": 319,
+      "height": 229,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "note0",
+      "type": "NOTE",
+      "name": "Record components private final; accessors public.\nCác ID liên kết là thành phần record trong code.",
+      "x": 60,
+      "y": 1350,
+      "width": 800,
+      "height": 90,
+      "view": {
+        "fontSize": 18
+      }
+    }
+  ],
+  "connectors": [
+    {
+      "type": "Association",
+      "from": "Account0",
+      "to": "Customer0",
+      "properties": {
+        "from.multiplicity": "1",
+        "to.multiplicity": "0..1"
+      },
+      "view": {
+        "fontSize": 18
+      },
+      "name": "hồ sơ khách hàng"
+    },
+    {
+      "type": "Association",
+      "from": "Customer0",
+      "to": "Invoice0",
+      "properties": {
+        "from.multiplicity": "0..1",
+        "to.multiplicity": "0..*"
+      },
+      "view": {
+        "fontSize": 18
+      },
+      "name": "đứng tên"
+    },
+    {
+      "type": "Association",
+      "from": "Invoice0",
+      "to": "Ticket0",
+      "properties": {
+        "from.multiplicity": "1",
+        "to.multiplicity": "1..*",
+        "from.aggregationKind": "composite"
+      },
+      "view": {
+        "fontSize": 18
+      },
+      "name": "gồm"
+    },
+    {
+      "type": "Association",
+      "from": "Movie0",
+      "to": "Showtime0",
+      "properties": {
+        "from.multiplicity": "1",
+        "to.multiplicity": "0..*"
+      },
+      "view": {
+        "fontSize": 18
+      },
+      "name": "được chiếu"
+    },
+    {
+      "type": "Association",
+      "from": "Room0",
+      "to": "Showtime0",
+      "properties": {
+        "from.multiplicity": "1",
+        "to.multiplicity": "0..*"
+      },
+      "view": {
+        "fontSize": 18
+      },
+      "name": "diễn ra tại"
+    },
+    {
+      "type": "Association",
+      "from": "Room0",
+      "to": "Seat0",
+      "properties": {
+        "from.multiplicity": "1",
+        "to.multiplicity": "1..*",
+        "from.aggregationKind": "composite"
+      },
+      "view": {
+        "fontSize": 18
+      },
+      "name": "có"
+    },
+    {
+      "type": "Association",
+      "from": "Showtime0",
+      "to": "Ticket0",
+      "properties": {
+        "from.multiplicity": "1",
+        "to.multiplicity": "0..*"
+      },
+      "view": {
+        "fontSize": 18
+      },
+      "name": "dành cho"
+    },
+    {
+      "type": "Association",
+      "from": "Seat0",
+      "to": "Ticket0",
+      "properties": {
+        "from.multiplicity": "1",
+        "to.multiplicity": "0..*"
+      },
+      "view": {
+        "fontSize": 18
+      },
+      "name": "vị trí ngồi"
+    }
+  ]
+}

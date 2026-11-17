@@ -43,7 +43,7 @@ Khoảng 01/11/2026–30/11/2026: phim Hành trình bình minh 480.000 đồng/6
 - `model`: 8 record thực thể và 4 record dữ liệu truyền/đọc kết quả.
 - `src/main/resources`: schema, seed và CSS được ứng dụng dùng thật.
 - `src/test/java`: kiểm tra chức năng bằng Java, CSDL riêng trong bộ nhớ.
-- `uml`: mã PlantUML và ảnh render tương ứng, chia theo ba giai đoạn.
+- `uml`: mã PlantUML tương ứng, chia theo ba giai đoạn; ảnh xuất Visual Paradigm ở `models/export`.
 - `docs/evidence`: ảnh chụp ứng dụng/VS Code và log kiểm tra thực tế.
 
 Tomcat 10.1.61 triển khai Jakarta Servlet 6.0. Ba tầng logic chạy trong cùng JVM ở bản demo; H2 là CSDL nhúng, không có máy chủ CSDL rời. `Database0` được truyền vào DAO qua constructor; mỗi thao tác mở/đóng kết nối riêng bằng try-with-resources. Không giữ kết nối dùng chung trong servlet.
@@ -66,7 +66,7 @@ Script đăng ký một người dùng minh họa và cập nhật ảnh trong `
 
 ## PlantUML và biểu mẫu
 
-Mỗi `.puml` là một sơ đồ độc lập, render bằng PlantUML 1.2025.2 và Graphviz. Không dùng công cụ tạo ảnh AI. Xem `docs/FORM_MAPPING.md` để biết dán file nào vào từng trường Google Form. Không dán link thay cho code. Tự chấm điểm do sinh viên quyết định; các form chưa được gửi thay sinh viên.
+Mỗi `.puml` là một sơ đồ độc lập, đã kiểm tra cú pháp bằng PlantUML 1.2025.2. Ảnh trong báo cáo xuất trực tiếp từ project Visual Paradigm. Không dùng công cụ tạo ảnh AI. Xem `docs/FORM_MAPPING.md` để biết dán file nào vào từng trường Google Form. Không dán link thay cho code. Tự chấm điểm do sinh viên quyết định; các form chưa được gửi thay sinh viên.
 
 ## Giới hạn được công bố
 
@@ -77,3 +77,7 @@ Mật khẩu dùng PBKDF2-HMAC-SHA256, salt ngẫu nhiên, 120.000 vòng. Có CS
 ## Tài liệu và quyền truy cập
 
 Repository: https://github.com/tinhatinh/PTTK . Đây là repository công khai để giảng viên đọc source. Bản báo cáo nằm trong `docs/report/` sau khi hoàn thiện. Bản ZIP chứa source, thư viện chạy, sơ đồ, ảnh và kết quả kiểm tra; không chứa CSDL sử dụng, token hoặc thư mục build.
+
+## Project Visual Paradigm
+
+Mở `models/CineMan_De16_B23DCAT040.vpp` để chỉnh sửa 20 sơ đồ. PNG 3× và SVG vector xuất trực tiếp từ Visual Paradigm ở `models/export`; mã PlantUML nộp form ở `uml`. Xem `models/README.md` để đối chiếu.

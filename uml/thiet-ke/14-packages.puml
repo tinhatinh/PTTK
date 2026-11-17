@@ -1,49 +1,23 @@
 @startuml 14-packages
 skinparam defaultFontName DejaVu Sans
-skinparam defaultFontSize 15
 skinparam shadowing false
-skinparam backgroundColor white
-skinparam ArrowColor #33444C
-skinparam classBackgroundColor #F8FBFB
-skinparam classBorderColor #335D64
-skinparam packageBorderColor #60757D
-skinparam roundcorner 6
-skinparam dpi 150
-skinparam maxMessageSize 180
-hide empty members
-top to bottom direction
-package "vn.cineman" {
- class Main0
+package "vn.cineman" as main {
 }
-package "vn.cineman.web" as W {
- class AppServlet0
-class View0
+package "vn.cineman.web" as web {
 }
-package "vn.cineman.service" as S {
- class RegistrationService0
-class RevenueService0
-class Password0
+package "vn.cineman.service" as service {
 }
-package "vn.cineman.dao" as D {
- class Database0
-class AccountDAO0
-class CustomerDAO0
-class RevenueDAO0
+package "vn.cineman.dao" as dao {
 }
-package "vn.cineman.model" as M {
- class "12 records dữ liệu" as Records
+package "vn.cineman.model" as model {
 }
-Main0 ..> W
-Main0 ..> D
-W ..> S
-W ..> D
-W ..> M
-S ..> D
-S ..> M
-D ..> M
-Database0 ..> Password0 : băm mật khẩu tài khoản demo\nlúc khởi tạo
-note bottom of Database0
-Phụ thuộc dao → Password0 chỉ ở bootstrap dữ liệu mẫu.
-Không có truy vấn JDBC trong lớp View0.
-end note
+main ..> web
+main ..> dao
+web ..> service
+web ..> dao
+web ..> model
+service ..> dao
+service ..> model
+dao ..> model
+dao ..> service : Database0 → Password0\nchỉ khi khởi tạo seed
 @enduml

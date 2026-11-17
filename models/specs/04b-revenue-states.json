@@ -1,0 +1,240 @@
+{
+  "diagramType": "StateDiagram",
+  "elements": [
+    {
+      "key": "start",
+      "type": "InitialPseudoState",
+      "name": "",
+      "x": 45,
+      "y": 55,
+      "width": 25,
+      "height": 25,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "login",
+      "type": "State2",
+      "name": "Đăng nhập quản lý",
+      "x": 180,
+      "y": 30,
+      "width": 340,
+      "height": 85,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "home",
+      "type": "State2",
+      "name": "Trang quản lý",
+      "x": 180,
+      "y": 210,
+      "width": 340,
+      "height": 85,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "type",
+      "type": "State2",
+      "name": "Chọn loại báo cáo",
+      "x": 180,
+      "y": 390,
+      "width": 340,
+      "height": 85,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "date",
+      "type": "State2",
+      "name": "Chọn khoảng ngày",
+      "x": 180,
+      "y": 570,
+      "width": 340,
+      "height": 85,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "movies",
+      "type": "State2",
+      "name": "Bảng thống kê phim",
+      "x": 740,
+      "y": 570,
+      "width": 340,
+      "height": 85,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "shows",
+      "type": "State2",
+      "name": "Bảng thống kê suất chiếu",
+      "x": 740,
+      "y": 790,
+      "width": 340,
+      "height": 85,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "invoices",
+      "type": "State2",
+      "name": "Danh sách hóa đơn của suất",
+      "x": 740,
+      "y": 1010,
+      "width": 340,
+      "height": 85,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "error",
+      "type": "State2",
+      "name": "Lỗi khoảng ngày hoặc ngữ cảnh",
+      "x": 180,
+      "y": 790,
+      "width": 350,
+      "height": 85,
+      "view": {
+        "fontSize": 20
+      }
+    }
+  ],
+  "connectors": [
+    {
+      "from": "start",
+      "to": "login",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "login",
+      "to": "home",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Tài khoản MANAGER hợp lệ"
+    },
+    {
+      "from": "login",
+      "to": "login",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Xác thực thất bại"
+    },
+    {
+      "from": "home",
+      "to": "type",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Xem báo cáo"
+    },
+    {
+      "from": "type",
+      "to": "date",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Tiếp tục"
+    },
+    {
+      "from": "date",
+      "to": "movies",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Khoảng ngày hợp lệ"
+    },
+    {
+      "from": "date",
+      "to": "error",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Ngày sai"
+    },
+    {
+      "from": "error",
+      "to": "date",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Chọn lại khoảng ngày"
+    },
+    {
+      "from": "movies",
+      "to": "shows",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Chọn phim / giữ from,to"
+    },
+    {
+      "from": "shows",
+      "to": "invoices",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Chọn suất / đối chiếu mã cha"
+    },
+    {
+      "from": "invoices",
+      "to": "shows",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Quay lại / giữ mã phim và ngày"
+    },
+    {
+      "from": "shows",
+      "to": "movies",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Quay lại / giữ ngày"
+    },
+    {
+      "from": "movies",
+      "to": "type",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Chọn loại thống kê"
+    },
+    {
+      "from": "home",
+      "to": "login",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Đăng xuất"
+    }
+  ]
+}

@@ -1,0 +1,383 @@
+{
+  "diagramType": "ClassDiagram",
+  "elements": [
+    {
+      "key": "ManagerUI0",
+      "type": "Class",
+      "name": "ManagerUI0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "subViewReport",
+          "properties": {}
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "boundary"
+        ]
+      },
+      "x": 500,
+      "y": 61,
+      "width": 216,
+      "height": 120,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "ReportTypeUI0",
+      "type": "Class",
+      "name": "ReportTypeUI0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "subContinue",
+          "properties": {}
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "boundary"
+        ]
+      },
+      "x": 485,
+      "y": 265,
+      "width": 245,
+      "height": 120,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "MovieStatsUI0",
+      "type": "Class",
+      "name": "MovieStatsUI0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "inFromDate",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "inToDate",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "outMovieStats",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "subViewStatistics",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "subMovie",
+          "properties": {}
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "boundary"
+        ]
+      },
+      "x": 485,
+      "y": 468,
+      "width": 244,
+      "height": 229,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "ShowtimeStatsUI0",
+      "type": "Class",
+      "name": "ShowtimeStatsUI0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "outShowtimeStats",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "subShowtime",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "subBack",
+          "properties": {}
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "boundary"
+        ]
+      },
+      "x": 273,
+      "y": 781,
+      "width": 285,
+      "height": 175,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "InvoiceListUI0",
+      "type": "Class",
+      "name": "InvoiceListUI0",
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "outInvoices",
+          "properties": {}
+        },
+        {
+          "type": "Attribute",
+          "name": "subBack",
+          "properties": {}
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "boundary"
+        ]
+      },
+      "x": 298,
+      "y": 1040,
+      "width": 234,
+      "height": 147,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "Movie0",
+      "type": "Class",
+      "name": "Movie0",
+      "children": [
+        {
+          "type": "Operation",
+          "name": "getMovieRevenueStats",
+          "properties": {},
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "from"
+            },
+            {
+              "type": "Parameter",
+              "name": "to"
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
+      "x": 593,
+      "y": 809,
+      "width": 414,
+      "height": 120,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "Showtime0",
+      "type": "Class",
+      "name": "Showtime0",
+      "children": [
+        {
+          "type": "Operation",
+          "name": "getShowtimeStats",
+          "properties": {},
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "movieId"
+            },
+            {
+              "type": "Parameter",
+              "name": "from"
+            },
+            {
+              "type": "Parameter",
+              "name": "to"
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
+      "x": 569,
+      "y": 1053,
+      "width": 459,
+      "height": 120,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "Invoice0",
+      "type": "Class",
+      "name": "Invoice0",
+      "children": [
+        {
+          "type": "Operation",
+          "name": "getInvoicesByShowtime",
+          "properties": {},
+          "children": [
+            {
+              "type": "Parameter",
+              "name": "showtimeId"
+            },
+            {
+              "type": "Parameter",
+              "name": "from"
+            },
+            {
+              "type": "Parameter",
+              "name": "to"
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
+      "x": 132,
+      "y": 1271,
+      "width": 566,
+      "height": 120,
+      "view": {
+        "fontSize": 20,
+        "displayStereotypeIcon": false,
+        "background": "#FFFFFF"
+      }
+    },
+    {
+      "key": "note0",
+      "type": "NOTE",
+      "name": "Quan hệ hóa đơn và suất chiếu đi qua Ticket0\nnhư mô hình thực thể; không tạo FK trực tiếp.\nCác phương thức phân tích chuyển sang RevenueDAO0.",
+      "x": 60,
+      "y": 1451,
+      "width": 800,
+      "height": 98,
+      "view": {
+        "fontSize": 18
+      }
+    }
+  ],
+  "connectors": [
+    {
+      "type": "Association",
+      "from": "ManagerUI0",
+      "to": "ReportTypeUI0",
+      "properties": {
+        "to.navigable": "navigable"
+      },
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Association",
+      "from": "ReportTypeUI0",
+      "to": "MovieStatsUI0",
+      "properties": {
+        "to.navigable": "navigable"
+      },
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Association",
+      "from": "MovieStatsUI0",
+      "to": "ShowtimeStatsUI0",
+      "properties": {
+        "to.navigable": "navigable"
+      },
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Association",
+      "from": "ShowtimeStatsUI0",
+      "to": "InvoiceListUI0",
+      "properties": {
+        "to.navigable": "navigable"
+      },
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Dependency",
+      "from": "MovieStatsUI0",
+      "to": "Movie0",
+      "properties": {},
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Dependency",
+      "from": "ShowtimeStatsUI0",
+      "to": "Showtime0",
+      "properties": {},
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Dependency",
+      "from": "InvoiceListUI0",
+      "to": "Invoice0",
+      "properties": {},
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "type": "Association",
+      "from": "Movie0",
+      "to": "Showtime0",
+      "properties": {
+        "from.multiplicity": "1",
+        "to.multiplicity": "0..*"
+      },
+      "view": {
+        "fontSize": 18
+      }
+    }
+  ]
+}

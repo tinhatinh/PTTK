@@ -44,3 +44,5 @@ Biểu đồ activity, gói và triển khai nằm trong cùng thư mục và đ
 https://forms.gle/yuLGeZZtWheGsnPu5
 
 Mã sinh viên B23DCAT040; họ và đệm Phan Thành; tên Danh. Sinh viên tự chọn điểm cho bốn phần và tự xác nhận mức độ hiểu bài. Dữ kiện hỗ trợ: có đặc tả 2 UC, phân tích thực thể/lớp/giao tiếp, thiết kế lớp/CSDL/activity/sequence/gói/triển khai; Java đã chạy 25 kiểm tra và trình duyệt 13 kiểm tra. Hạn chế ở cuối README là cơ sở để viết phần thiếu/chưa chắc chắn. Không có form nào được tự gửi trong phiên tạo project.
+
+Hai statechart bổ sung nằm tại `uml/phan-tich/04a-registration-states.puml` và `04b-revenue-states.puml`; form phân tích hiện không có trường riêng. Các ảnh sơ đồ trong báo cáo xuất từ Visual Paradigm; xem `models/README.md`.

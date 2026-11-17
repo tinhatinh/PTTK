@@ -1,0 +1,15 @@
+@startuml 04a-registration-states
+skinparam defaultFontName DejaVu Sans
+skinparam shadowing false
+state "Trang chủ khách hàng" as home
+state "Biểu mẫu đăng ký" as form
+state "Đăng ký thành công" as success
+state "Lỗi phiên biểu mẫu" as forbidden
+[*] --> home
+home --> form : Chọn Đăng ký thành viên
+form --> form : Sai dữ liệu hoặc trùng / báo lỗi
+form --> success : POST hợp lệ / lưu đủ hai bản ghi
+form --> forbidden : CSRF sai / HTTP 403
+success --> home : Về trang chủ
+home --> [*] : Kết thúc phiên xem
+@enduml

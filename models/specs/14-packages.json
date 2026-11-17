@@ -1,0 +1,140 @@
+{
+  "diagramType": "PackageDiagram",
+  "elements": [
+    {
+      "key": "main",
+      "type": "Package",
+      "name": "vn.cineman\nMain0",
+      "x": 630,
+      "y": 40,
+      "width": 380,
+      "height": 120,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "web",
+      "type": "Package",
+      "name": "vn.cineman.web\nAppServlet0, View0",
+      "x": 630,
+      "y": 280,
+      "width": 480,
+      "height": 150,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "service",
+      "type": "Package",
+      "name": "vn.cineman.service\nRegistrationService0\nRevenueService0, Password0",
+      "x": 40,
+      "y": 590,
+      "width": 520,
+      "height": 190,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "dao",
+      "type": "Package",
+      "name": "vn.cineman.dao\nDatabase0, AccountDAO0\nCustomerDAO0, RevenueDAO0",
+      "x": 900,
+      "y": 590,
+      "width": 610,
+      "height": 190,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "model",
+      "type": "Package",
+      "name": "vn.cineman.model\n8 record thực thể và 4 record dữ liệu",
+      "x": 440,
+      "y": 980,
+      "width": 700,
+      "height": 170,
+      "view": {
+        "fontSize": 20
+      }
+    }
+  ],
+  "connectors": [
+    {
+      "from": "main",
+      "to": "web",
+      "type": "Dependency",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "main",
+      "to": "dao",
+      "type": "Dependency",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "web",
+      "to": "service",
+      "type": "Dependency",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "web",
+      "to": "dao",
+      "type": "Dependency",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "web",
+      "to": "model",
+      "type": "Dependency",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "service",
+      "to": "dao",
+      "type": "Dependency",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "service",
+      "to": "model",
+      "type": "Dependency",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "dao",
+      "to": "model",
+      "type": "Dependency",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "dao",
+      "to": "service",
+      "type": "Dependency",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Database0 → Password0\nchỉ khi khởi tạo seed"
+    }
+  ]
+}

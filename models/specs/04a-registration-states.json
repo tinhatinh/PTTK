@@ -1,0 +1,141 @@
+{
+  "diagramType": "StateDiagram",
+  "elements": [
+    {
+      "key": "start",
+      "type": "InitialPseudoState",
+      "name": "",
+      "x": 60,
+      "y": 50,
+      "width": 25,
+      "height": 25,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "home",
+      "type": "State2",
+      "name": "Trang chủ khách hàng",
+      "x": 220,
+      "y": 40,
+      "width": 350,
+      "height": 80,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "form",
+      "type": "State2",
+      "name": "Biểu mẫu đăng ký",
+      "x": 220,
+      "y": 220,
+      "width": 350,
+      "height": 90,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "success",
+      "type": "State2",
+      "name": "Đăng ký thành công",
+      "x": 220,
+      "y": 440,
+      "width": 350,
+      "height": 90,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "forbidden",
+      "type": "State2",
+      "name": "Lỗi phiên biểu mẫu",
+      "x": 760,
+      "y": 220,
+      "width": 350,
+      "height": 90,
+      "view": {
+        "fontSize": 20
+      }
+    },
+    {
+      "key": "end",
+      "type": "FinalState2",
+      "name": "",
+      "x": 380,
+      "y": 650,
+      "width": 25,
+      "height": 25,
+      "view": {
+        "fontSize": 20
+      }
+    }
+  ],
+  "connectors": [
+    {
+      "from": "start",
+      "to": "home",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "home",
+      "to": "form",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Chọn Đăng ký thành viên"
+    },
+    {
+      "from": "form",
+      "to": "form",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Sai dữ liệu hoặc trùng / báo lỗi"
+    },
+    {
+      "from": "form",
+      "to": "success",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "POST hợp lệ / lưu đủ hai bản ghi"
+    },
+    {
+      "from": "form",
+      "to": "forbidden",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "CSRF sai / HTTP 403"
+    },
+    {
+      "from": "success",
+      "to": "home",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Về trang chủ"
+    },
+    {
+      "from": "home",
+      "to": "end",
+      "type": "Transition2",
+      "view": {
+        "fontSize": 18
+      },
+      "name": "Kết thúc phiên xem"
+    }
+  ]
+}
