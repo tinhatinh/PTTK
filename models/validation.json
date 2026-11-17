@@ -9,8 +9,8 @@
     {
       "diagram": "00-system-overview",
       "png_pixels": [
-        3447,
-        2832
+        4731,
+        3858
       ],
       "svg": true
     },
@@ -121,7 +121,7 @@
     {
       "diagram": "10-revenue-activity",
       "png_pixels": [
-        4464,
+        5193,
         6003
       ],
       "svg": true
@@ -129,15 +129,15 @@
     {
       "diagram": "11-registration-sequence",
       "png_pixels": [
-        3711,
-        3258
+        3741,
+        3648
       ],
       "svg": true
     },
     {
       "diagram": "12-revenue-sequence",
       "png_pixels": [
-        2886,
+        2895,
         3393
       ],
       "svg": true
@@ -167,5 +167,6 @@
       "svg": true
     }
   ],
-  "limits": "Not a formal proof of UML semantics. Compound SQL unique constraints are documented in schema.sql and the ERD note."
+  "limits": "Not a formal proof of UML semantics. Compound SQL unique constraints are documented in schema.sql and the ERD note.",
+  "registration_sequence_check": "Two native nested alt fragments; outer valid/invalid and inner SQL success/error guards. Captions and branches reviewed after export."
 }

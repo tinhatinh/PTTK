@@ -87,52 +87,67 @@
               "kind": "call"
             },
             {
-              "from": "D",
-              "to": "DB",
-              "name": "commit()",
-              "kind": "call"
-            },
-            {
-              "from": "D",
-              "to": "S",
-              "name": "customerId",
-              "kind": "return"
-            },
-            {
-              "from": "S",
-              "to": "UI",
-              "name": "customerId",
-              "kind": "return"
-            },
-            {
-              "from": "UI",
-              "to": "A",
-              "name": "HTTP 303 /registered",
-              "kind": "return"
-            },
-            {
-              "from": "D",
-              "to": "DB",
-              "name": "rollback()",
-              "kind": "call"
-            },
-            {
-              "from": "D",
-              "to": "S",
-              "name": "SQLException",
-              "kind": "return"
-            },
-            {
-              "from": "S",
-              "to": "UI",
-              "name": "SQLException",
-              "kind": "return"
-            },
-            {
-              "from": "UI",
-              "to": "A",
-              "name": "HTTP 409 hoặc 500 + biểu mẫu",
-              "kind": "return"
+              "fragment": "alt",
+              "operands": [
+                {
+                  "guard": "không có lỗi SQL",
+                  "steps": [
+                    {
+                      "from": "D",
+                      "to": "DB",
+                      "name": "commit()",
+                      "kind": "call"
+                    },
+                    {
+                      "from": "D",
+                      "to": "S",
+                      "name": "customerId",
+                      "kind": "return"
+                    },
+                    {
+                      "from": "S",
+                      "to": "UI",
+                      "name": "customerId",
+                      "kind": "return"
+                    },
+                    {
+                      "from": "UI",
+                      "to": "A",
+                      "name": "HTTP 303 /registered",
+                      "kind": "return"
+                    }
+                  ]
+                },
+                {
+                  "guard": "trùng hoặc lỗi ghi",
+                  "steps": [
+                    {
+                      "from": "D",
+                      "to": "DB",
+                      "name": "rollback()",
+                      "kind": "call"
+                    },
+                    {
+                      "from": "D",
+                      "to": "S",
+                      "name": "SQLException",
+                      "kind": "return"
+                    },
+                    {
+                      "from": "S",
+                      "to": "UI",
+                      "name": "SQLException",
+                      "kind": "return"
+                    },
+                    {
+                      "from": "UI",
+                      "to": "A",
+                      "name": "HTTP 409 hoặc 500 + biểu mẫu",
+                      "kind": "return"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
