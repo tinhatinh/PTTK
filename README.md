@@ -1,93 +1,78 @@
 # CineMan — Đề 16
 
-**Phan Thành Danh — B23DCAT040 — lớp 09.** Bản hoàn thiện cho Đề 16.
+Bài tập lớn Phân tích và thiết kế hệ thống thông tin.
+**Phan Thành Danh · B23DCAT040 · Lớp 09**
 
-Project thực hành học phần Phân tích và thiết kế hệ thống thông tin. Hai mô-đun được cài đặt:
+Ứng dụng Java web gồm hai mô-đun:
 
-1. Khách hàng đăng ký thành viên: nhập thông tin → lưu CSDL → thông báo thành công.
-2. Quản lý xem thống kê phim theo doanh thu: chọn báo cáo → khoảng ngày → phim → suất chiếu → hóa đơn.
+- **Đăng ký thành viên:** kiểm tra thông tin, lưu tài khoản và hồ sơ trong một giao dịch, hiển thị mã thành viên.
+- **Thống kê phim theo doanh thu:** quản lý chọn khoảng ngày, xem phim → suất chiếu → hóa đơn.
 
-Đăng nhập quản lý là chức năng hỗ trợ tiền điều kiện. Các chức năng bối cảnh như bán vé, thanh toán trực tuyến, quản lý phim/phòng, xuất thẻ không được cài đặt. Dữ liệu bán vé là dữ liệu mẫu trong `seed.sql`.
+Đăng nhập quản lý hỗ trợ việc truy cập báo cáo. Các chức năng khác trong mô hình tổng quan chưa được cài đặt; vé và hóa đơn được cung cấp bằng dữ liệu mẫu.
 
-## Chạy trên Linux hoặc macOS
+## Chạy ứng dụng
 
-Cần **JDK 17 trở lên** (`java` và `javac` trong PATH). Các JAR phụ thuộc đã có trong `lib/`; không cần cài Maven hay tải thêm thư viện để chạy bản ZIP.
+Cài **JDK 17 trở lên**, bảo đảm `java` và `javac` có trong PATH. Thư viện cần thiết có sẵn trong `lib/`.
+
+Linux/macOS:
 
 ```bash
 bash scripts/run.sh
 ```
 
-Mở http://127.0.0.1:8080/ . Tài khoản quản lý mẫu: `manager` / `Manager@123`. Máy chủ chỉ lắng nghe địa chỉ loopback. Dừng bằng Ctrl+C. Cổng khác: `PORT=8081 bash scripts/run.sh`.
-
-## Chạy trên Windows PowerShell
+Windows PowerShell:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/run.ps1
 ```
 
-CSDL H2 được tạo trong `data/cineman.mv.db` ở lần chạy đầu. Đăng ký mới được lưu qua các lần khởi động. Để tạo lại dữ liệu minh họa, dừng ứng dụng và **di chuyển thư mục `data/` sang một thư mục dự phòng** trước khi chạy lại. Không ghi đè dữ liệu cần giữ.
+Mở **http://127.0.0.1:8080/**. Tài khoản quản lý mẫu: `manager` / `Manager@123`. Dừng bằng Ctrl+C. Trên Linux/macOS có thể đổi cổng bằng `PORT=8081 bash scripts/run.sh`.
 
-## Quy tắc được lựa chọn cho bản cài đặt
+H2 tự tạo `data/cineman.mv.db` ở lần chạy đầu. Dữ liệu đăng ký được giữ qua các lần khởi động. Muốn khởi tạo lại dữ liệu mẫu, dừng ứng dụng rồi chuyển thư mục `data/` sang nơi dự phòng trước khi chạy lại.
 
-Đề chưa quy định bộ trường đăng ký hoặc cách xác định thời gian doanh thu. Bản này chọn họ tên, điện thoại, email, tên đăng nhập và mật khẩu; điện thoại/email/tên đăng nhập là duy nhất. Username và email chuyển chữ thường. Tên người trùng nhau được phép. Không thêm màn hình xác nhận, in hóa đơn hoặc ưu đãi thành viên.
+## Cấu trúc
 
-Doanh thu lọc theo **ngày bắt đầu suất chiếu**, từ 00:00 ngày bắt đầu đến trước 00:00 ngày kế tiếp ngày kết thúc. Chỉ tính vé trong hóa đơn `PAID`. Cột tiền vé ở cấp hóa đơn chỉ cộng vé của suất được chọn; tránh cộng cả hóa đơn khi hóa đơn có nhiều suất. Tiền dùng `DECIMAL(14,0)` và `BigDecimal`. Phim/suất không có vé PAID không xuất hiện trong kết quả.
+```text
+src/main/java/vn/cineman/
+  Main0.java          Khởi tạo Tomcat và kết nối các lớp
+  web/                Servlet điều phối và xuất HTML
+  service/            Kiểm tra dữ liệu và xử lý mật khẩu
+  dao/                Giao dịch JDBC và truy vấn thống kê
+  model/              Các record thực thể và kết quả
+src/main/resources/   Schema, dữ liệu mẫu và CSS
+src/test/java/        Kiểm thử Java với H2 trong bộ nhớ
+scripts/              Build, chạy và kiểm thử
+lib/                  Thư viện chạy và mã SHA-256
+models/               Project Visual Paradigm
+uml/                  Mã PlantUML theo từng pha
+docs/report/          Báo cáo Word và PDF
+```
 
-Khoảng 01/11/2026–30/11/2026: phim Hành trình bình minh 480.000 đồng/6 vé/3 suất; Thành phố mùa hạ 270.000 đồng/3 vé/1 suất; tổng 750.000 đồng/9 vé. Mọi tên phim, hóa đơn, vé và người dùng mẫu đều do project tạo để kiểm thử.
+Tomcat 10.1.61 sử dụng Jakarta Servlet 6.0; H2 2.3.232 chạy nhúng. Servlet, service và DAO cùng chạy trong một JVM. Giao diện được xuất bằng Java, không dùng JSP.
 
-Hồ sơ nhân viên Employee0 và kết quả CustomerRevenue0 mô tả bối cảnh toàn hệ thống; chưa có màn hình quản lý nhân viên hoặc thống kê khách hàng. Schema có bảng employee và dữ liệu mẫu NV001 liên kết với quản lý. Mã thành viên KH<id> được suy ra từ Customer0, không lưu thêm cột trùng khóa. Ba kết quả thống kê đang dùng đều giữ fromDate/toDate.
+## Quy tắc dữ liệu
 
-## Kiến trúc và cây thư mục
+Tên đăng nhập, email và điện thoại là duy nhất; tên đăng nhập/email được chuyển chữ thường. Mật khẩu dùng PBKDF2-HMAC-SHA256 với salt ngẫu nhiên. Đăng ký lưu tài khoản và hồ sơ cùng giao dịch; lỗi ghi sẽ rollback.
 
-- `src/main/java/vn/cineman/web`: Servlet điều phối HTTP và lớp xuất HTML; không dùng JSP.
-- `service`: kiểm tra đăng ký/khoảng ngày và băm mật khẩu.
-- `dao`: JDBC, giao dịch đăng ký, truy vấn tổng hợp.
-- `model`: 9 record thực thể và 5 record dữ liệu truyền/đọc kết quả.
-- `src/main/resources`: schema, seed và CSS được ứng dụng dùng thật.
-- `src/test/java`: kiểm tra chức năng bằng Java, CSDL riêng trong bộ nhớ.
-- `uml`: mã PlantUML tương ứng, chia theo ba giai đoạn; ảnh xuất Visual Paradigm ở `models/export`.
-- `docs/evidence`: ảnh chụp ứng dụng/VS Code và log kiểm tra thực tế.
+Doanh thu chỉ tính vé thuộc hóa đơn `PAID`, lọc theo **ngày bắt đầu suất chiếu**, lấy cả ngày đầu và ngày cuối. Tiền dùng `BigDecimal` và `DECIMAL(14,0)`. Ở cấp hóa đơn, mỗi dòng chỉ cộng vé của suất đang xem. Phim/suất không có vé đã thanh toán không xuất hiện.
 
-Tomcat 10.1.61 triển khai Jakarta Servlet 6.0. Ba tầng logic chạy trong cùng JVM ở bản demo; H2 là CSDL nhúng, không có máy chủ CSDL rời. `Database0` được truyền vào DAO qua constructor; mỗi thao tác mở/đóng kết nối riêng bằng try-with-resources. Không giữ kết nối dùng chung trong servlet.
+Với dữ liệu mẫu từ 01/11/2026 đến 30/11/2026: Hành trình bình minh đạt 480.000 đồng, 6 vé, 3 suất; Thành phố mùa hạ đạt 270.000 đồng, 3 vé, 1 suất. Tổng cộng 750.000 đồng và 9 vé.
 
-## Kiểm tra
+Schema có khóa ngoại, UNIQUE và CHECK. Điều kiện ghế thuộc phòng của suất và hóa đơn có ít nhất một vé được bảo đảm trong dữ liệu mẫu; chưa có chức năng tạo vé/hóa đơn để xử lý các điều kiện này.
+
+## Kiểm thử
 
 ```bash
 bash scripts/test.sh
 ```
 
-Kết quả đã chạy: **29 kiểm tra Java PASS**. `docs/evidence/java-tests.txt` ghi kết quả. Chương trình không cần JUnit; ném `AssertionError` nếu điều kiện sai và trả mã lỗi.
+Bộ kiểm thử gồm 29 điều kiện về đăng ký, giao dịch, truy vấn và tính doanh thu. Mỗi lần chạy dùng CSDL riêng trong bộ nhớ.
 
-Kiểm tra trình duyệt và chụp ảnh bằng Playwright (13 kiểm tra): bắt đầu từ CSDL dữ liệu mẫu chưa đăng ký `nguyenan`, chạy app ở cổng 8080; cung cấp module Playwright và Chromium trên máy:
-
-```bash
-PLAYWRIGHT_MODULE=/absolute/path/to/playwright CHROMIUM_PATH=/usr/bin/chromium node scripts/browser-check.cjs
-```
-
-Script đăng ký một người dùng minh họa và cập nhật ảnh trong `docs/evidence/`. Đây là script kiểm tra, không nằm trong luồng ứng dụng. Ảnh editor `14-project-editor.png` được chụp VS Code for the Web qua code-server mở đúng project.
-
-Bố cục đơn sắc ở pha thiết kế lấy từ chính DOM đang chạy, giữ nguyên nội dung và vị trí; xem `docs/ui-design/README.md`. `scripts/capture-ui-design.cjs` kiểm tra thêm 23 điều kiện và chụp 13 trạng thái. Bản khung không dùng HTML dựng riêng. Ngày sai trả trang lỗi riêng có liên kết nhập lại; kết quả rỗng vẫn ở trang thống kê với ba chỉ số bằng 0.
-
-## PlantUML và biểu mẫu
-
-Mỗi `.puml` là một sơ đồ độc lập, đã kiểm tra cú pháp bằng PlantUML 1.2025.2. Ảnh trong báo cáo xuất trực tiếp từ project Visual Paradigm. Không dùng công cụ tạo ảnh AI. Xem `docs/FORM_MAPPING.md` để biết dán file nào vào từng trường Google Form. Không dán link thay cho code. Tự chấm điểm do sinh viên quyết định; các form chưa được gửi thay sinh viên.
-
-## Giới hạn được công bố
-
-Bản chạy là demo cục bộ của hai mô-đun, chưa triển khai Internet. Chưa đo tải, chưa kiểm tra đa trình duyệt, chưa thử phục hồi khi tiến trình bị tắt giữa giao dịch. Schema có khóa ngoại/duy nhất/miền giá trị; ràng buộc ghế thuộc phòng của suất và hóa đơn phải có ít nhất một vé không được DB cưỡng chế, vì luồng tạo vé/hóa đơn nằm ngoài phạm vi. Bộ seed được đối chiếu theo các quan hệ này. Không tuyên bố đã kiểm thử toàn bộ hệ thống CineMan.
-
-Mật khẩu dùng PBKDF2-HMAC-SHA256, salt ngẫu nhiên, 120.000 vòng. Có CSRF, escape HTML, PreparedStatement và kiểm tra quyền server cho tuyến quản lý. Những cơ chế này hỗ trợ demo; không dùng tài khoản/mật khẩu mẫu cho môi trường công khai.
-
-## Tài liệu và quyền truy cập
-
-Repository: https://github.com/tinhatinh/PTTK . Đây là repository công khai để giảng viên đọc source. Bản báo cáo nằm trong `docs/report/` sau khi hoàn thiện. Bản ZIP chứa source, thư viện chạy, sơ đồ, ảnh và kết quả kiểm tra; không chứa CSDL sử dụng, token hoặc thư mục build.
-
-## Project Visual Paradigm
-
-Mở `models/CineMan_De16_B23DCAT040.vpp` để chỉnh sửa 22 sơ đồ. PNG 3× và SVG vector xuất trực tiếp từ Visual Paradigm ở `models/export`; mã PlantUML nộp form ở `uml`. Xem `models/README.md` để đối chiếu.
-
-## Báo cáo cuối
+## Tài liệu
 
 - [Báo cáo PDF](docs/report/16B23DCAT040.pdf)
 - [Báo cáo Word](docs/report/16B23DCAT040.docx)
-- [Danh mục bàn giao](docs/HANDOFF.md)
+- [Project Visual Paradigm](models/CineMan_De16_B23DCAT040.vpp) gồm 22 sơ đồ có thể chỉnh sửa.
+- [PlantUML](uml/) tương ứng với các sơ đồ trong báo cáo.
+
+Ảnh UML trong báo cáo được xuất từ Visual Paradigm. Ảnh giao diện được chụp từ ứng dụng chạy thực tế.
