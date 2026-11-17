@@ -1,247 +1,344 @@
 {
-  "diagramType": "CommunicationDiagram",
   "elements": [
     {
       "key": "A",
-      "type": "Actor",
-      "name": "Quản lý",
-      "x": 40,
-      "y": 40,
-      "width": 170,
-      "height": 100,
+      "type": "InteractionActor",
+      "name": "Nhân viên quản lý",
+      "x": 900,
+      "y": 20,
+      "width": 65,
+      "height": 75,
       "view": {
-        "fontSize": 20
+        "fontSize": 18
       }
     },
     {
-      "key": "UI",
+      "key": "H",
       "type": "InteractionLifeLine",
-      "name": ":MovieStatsUI0",
-      "x": 350,
-      "y": 280,
-      "width": 370,
-      "height": 80,
+      "name": ":ManagerUI0",
+      "x": 40,
+      "y": 440,
+      "width": 65,
+      "height": 75,
       "view": {
-        "fontSize": 20
+        "fontSize": 18
+      }
+    },
+    {
+      "key": "T",
+      "type": "InteractionLifeLine",
+      "name": ":ReportTypeUI0",
+      "x": 460,
+      "y": 440,
+      "width": 65,
+      "height": 75,
+      "view": {
+        "fontSize": 18
       }
     },
     {
       "key": "M",
       "type": "InteractionLifeLine",
-      "name": ":Movie0",
-      "x": 20,
-      "y": 560,
-      "width": 240,
-      "height": 80,
+      "name": ":MovieStatsUI0",
+      "x": 900,
+      "y": 440,
+      "width": 65,
+      "height": 75,
       "view": {
-        "fontSize": 20
-      }
-    },
-    {
-      "key": "SU",
-      "type": "InteractionLifeLine",
-      "name": ":ShowtimeStatsUI0",
-      "x": 950,
-      "y": 560,
-      "width": 400,
-      "height": 80,
-      "view": {
-        "fontSize": 20
+        "fontSize": 18
       }
     },
     {
       "key": "S",
       "type": "InteractionLifeLine",
-      "name": ":Showtime0",
-      "x": 540,
-      "y": 850,
-      "width": 270,
-      "height": 80,
+      "name": ":ShowtimeStatsUI0",
+      "x": 1400,
+      "y": 440,
+      "width": 65,
+      "height": 75,
       "view": {
-        "fontSize": 20
-      }
-    },
-    {
-      "key": "IU",
-      "type": "InteractionLifeLine",
-      "name": ":InvoiceListUI0",
-      "x": 1200,
-      "y": 1030,
-      "width": 380,
-      "height": 80,
-      "view": {
-        "fontSize": 20
+        "fontSize": 18
       }
     },
     {
       "key": "I",
       "type": "InteractionLifeLine",
-      "name": ":Invoice0",
-      "x": 650,
-      "y": 1330,
-      "width": 270,
-      "height": 80,
+      "name": ":InvoiceListUI0",
+      "x": 1900,
+      "y": 440,
+      "width": 65,
+      "height": 75,
       "view": {
-        "fontSize": 20
+        "fontSize": 18
+      }
+    },
+    {
+      "key": "MS",
+      "type": "InteractionLifeLine",
+      "name": ":MovieRevenue0",
+      "x": 900,
+      "y": 1050,
+      "width": 65,
+      "height": 75,
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "key": "SS",
+      "type": "InteractionLifeLine",
+      "name": ":ShowtimeRevenue0",
+      "x": 1400,
+      "y": 1050,
+      "width": 65,
+      "height": 75,
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "key": "IS",
+      "type": "InteractionLifeLine",
+      "name": ":InvoiceRevenue0",
+      "x": 1900,
+      "y": 1050,
+      "width": 65,
+      "height": 75,
+      "view": {
+        "fontSize": 18
       }
     }
   ],
-  "connectors": [
+  "messages": [
     {
-      "from": "A",
-      "to": "UI",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
-      "name": "chọn khoảng ngày",
-      "properties": {
-        "sequenceNumber": "1",
-        "kind": "call"
-      }
+      "from": "rv_KF4WD.AACAROC",
+      "to": "fv_KF4WD.AACAROI",
+      "name": "Chọn Xem báo cáo",
+      "number": "1",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     },
     {
-      "from": "A",
-      "to": "UI",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
-      "name": "subViewStatistics",
-      "properties": {
-        "sequenceNumber": "2",
-        "kind": "call"
-      }
+      "from": "fv_KF4WD.AACAROI",
+      "to": "Mf_KF4WD.AACAROQ",
+      "name": "Mở chọn loại báo cáo",
+      "number": "2",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     },
     {
-      "from": "UI",
-      "to": "M",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
+      "from": "Mf_KF4WD.AACAROQ",
+      "to": "rv_KF4WD.AACAROC",
+      "name": "Hiển thị loại báo cáo",
+      "number": "3",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
+    },
+    {
+      "from": "rv_KF4WD.AACAROC",
+      "to": "Mf_KF4WD.AACAROQ",
+      "name": "Chọn thống kê và Tiếp tục",
+      "number": "4",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
+    },
+    {
+      "from": "Mf_KF4WD.AACAROQ",
+      "to": "mf_KF4WD.AACAROY",
+      "name": "Mở biểu mẫu ngày",
+      "number": "5",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
+    },
+    {
+      "from": "mf_KF4WD.AACAROY",
+      "to": "rv_KF4WD.AACAROC",
+      "name": "Hiển thị biểu mẫu ngày",
+      "number": "6",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
+    },
+    {
+      "from": "rv_KF4WD.AACAROC",
+      "to": "mf_KF4WD.AACAROY",
+      "name": "Nhập ngày và Xem thống kê",
+      "number": "7",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
+    },
+    {
+      "from": "mf_KF4WD.AACAROY",
+      "to": "Pf_KF4WD.AACAROw",
+      "name": "Yêu cầu thống kê phim",
+      "number": "8",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
+    },
+    {
+      "from": "Pf_KF4WD.AACAROw",
+      "to": "Pf_KF4WD.AACAROw",
       "name": "getMovieRevenueStats(from,to)",
-      "properties": {
-        "sequenceNumber": "2.1",
-        "kind": "call"
-      }
+      "number": "9",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     },
     {
-      "from": "M",
-      "to": "UI",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
-      "name": "danh sách phim",
-      "properties": {
-        "sequenceNumber": "2.2",
-        "kind": "call"
-      }
+      "from": "Pf_KF4WD.AACAROw",
+      "to": "mf_KF4WD.AACAROY",
+      "name": "Trả danh sách thống kê phim",
+      "number": "10",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     },
     {
-      "from": "A",
-      "to": "UI",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
-      "name": "subMovie(movieId)",
-      "properties": {
-        "sequenceNumber": "3",
-        "kind": "call"
-      }
+      "from": "mf_KF4WD.AACAROY",
+      "to": "rv_KF4WD.AACAROC",
+      "name": "Hiển thị bảng phim",
+      "number": "11",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     },
     {
-      "from": "UI",
-      "to": "SU",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
-      "name": "chuyển movieId, from, to",
-      "properties": {
-        "sequenceNumber": "3.1",
-        "kind": "call"
-      }
+      "from": "rv_KF4WD.AACAROC",
+      "to": "mf_KF4WD.AACAROY",
+      "name": "Chọn một phim",
+      "number": "12",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     },
     {
-      "from": "SU",
-      "to": "S",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
-      "name": "getShowtimeStats(movieId,from,to)",
-      "properties": {
-        "sequenceNumber": "3.2",
-        "kind": "call"
-      }
+      "from": "mf_KF4WD.AACAROY",
+      "to": "pf_KF4WD.AACAROg",
+      "name": "Chuyển phim và khoảng ngày",
+      "number": "13",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     },
     {
-      "from": "S",
-      "to": "SU",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
-      "name": "danh sách suất",
-      "properties": {
-        "sequenceNumber": "3.3",
-        "kind": "call"
-      }
+      "from": "pf_KF4WD.AACAROg",
+      "to": "Y__KF4WD.AACARO4",
+      "name": "Yêu cầu thống kê suất",
+      "number": "14",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     },
     {
-      "from": "A",
-      "to": "SU",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
-      "name": "subShowtime(showtimeId)",
-      "properties": {
-        "sequenceNumber": "4",
-        "kind": "call"
-      }
+      "from": "Y__KF4WD.AACARO4",
+      "to": "Y__KF4WD.AACARO4",
+      "name": "getShowtimeStats(movie,from,to)",
+      "number": "15",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     },
     {
-      "from": "SU",
-      "to": "IU",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
-      "name": "chuyển showtimeId, movieId, from, to",
-      "properties": {
-        "sequenceNumber": "4.1",
-        "kind": "call"
-      }
+      "from": "Y__KF4WD.AACARO4",
+      "to": "pf_KF4WD.AACAROg",
+      "name": "Trả danh sách thống kê suất",
+      "number": "16",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     },
     {
-      "from": "IU",
-      "to": "I",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
-      "name": "getInvoicesByShowtime(showtimeId,from,to)",
-      "properties": {
-        "sequenceNumber": "4.2",
-        "kind": "call"
-      }
+      "from": "pf_KF4WD.AACAROg",
+      "to": "rv_KF4WD.AACAROC",
+      "name": "Hiển thị bảng suất chiếu",
+      "number": "17",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     },
     {
-      "from": "I",
-      "to": "IU",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
-      "name": "danh sách hóa đơn",
-      "properties": {
-        "sequenceNumber": "4.3",
-        "kind": "call"
-      }
+      "from": "rv_KF4WD.AACAROC",
+      "to": "pf_KF4WD.AACAROg",
+      "name": "Chọn một suất",
+      "number": "18",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
+    },
+    {
+      "from": "pf_KF4WD.AACAROg",
+      "to": "jf_KF4WD.AACAROo",
+      "name": "Chuyển suất và ngữ cảnh",
+      "number": "19",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
+    },
+    {
+      "from": "jf_KF4WD.AACAROo",
+      "to": "i__KF4WD.AACARPA",
+      "name": "Yêu cầu hóa đơn của suất",
+      "number": "20",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
+    },
+    {
+      "from": "i__KF4WD.AACARPA",
+      "to": "i__KF4WD.AACARPA",
+      "name": "getInvoicesByShowtime(showtime,from,to)",
+      "number": "21",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
+    },
+    {
+      "from": "i__KF4WD.AACARPA",
+      "to": "jf_KF4WD.AACAROo",
+      "name": "Trả danh sách hóa đơn",
+      "number": "22",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
+    },
+    {
+      "from": "jf_KF4WD.AACAROo",
+      "to": "rv_KF4WD.AACAROC",
+      "name": "Hiển thị hóa đơn và tổng",
+      "number": "23",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     }
   ]
 }

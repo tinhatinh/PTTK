@@ -1,6 +1,6 @@
 # CineMan — Đề 16
 
-**Phan Thành Danh — B23DCAT040 — lớp 09.** Bản 2.0, ngày 17/11/2026.
+**Phan Thành Danh — B23DCAT040 — lớp 09.** Bản hoàn thiện cho Đề 16.
 
 Project thực hành học phần Phân tích và thiết kế hệ thống thông tin. Hai mô-đun được cài đặt:
 
@@ -82,8 +82,8 @@ Repository: https://github.com/tinhatinh/PTTK . Đây là repository công khai 
 
 Mở `models/CineMan_De16_B23DCAT040.vpp` để chỉnh sửa 20 sơ đồ. PNG 3× và SVG vector xuất trực tiếp từ Visual Paradigm ở `models/export`; mã PlantUML nộp form ở `uml`. Xem `models/README.md` để đối chiếu.
 
-## Báo cáo cuối phiên bản 2.0
+## Báo cáo cuối
 
-- [Báo cáo PDF 55 trang](docs/report/16B23DCAT040v2.0.pdf)
-- [Báo cáo Word](docs/report/16B23DCAT040v2.0.docx)
+- [Báo cáo PDF 55 trang](docs/report/16B23DCAT040.pdf)
+- [Báo cáo Word](docs/report/16B23DCAT040.docx)
 - [Danh mục bàn giao](docs/HANDOFF.md)

@@ -1,4 +1,3 @@
-' FILE: 00-system-overview.puml
 @startuml 00-system-overview
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15
@@ -46,8 +45,6 @@ không thuộc hai mô-đun lập trình của báo cáo này.
 end note
 @enduml
 
-
-' FILE: 01a-registration-use-case.puml
 @startuml 01a-registration-use-case
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15
@@ -79,8 +76,6 @@ Dữ liệu sai hoặc trùng: trả biểu mẫu và thông báo lỗi.
 end note
 @enduml
 
-
-' FILE: 01b-revenue-use-case.puml
 @startuml 01b-revenue-use-case
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15

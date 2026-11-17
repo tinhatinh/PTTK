@@ -33,6 +33,12 @@ Mở `CineMan_De16_B23DCAT040.vpp` bằng Visual Paradigm 18.1. Đây là projec
 | Thiết kế | `14-packages` |
 | Thiết kế | `15-deployment` |
 
+## Nội dung pha phân tích
+
+Bảy sơ đồ phân tích được dựng lại theo tiến trình của bài mẫu LibMan: trích thực thể qua danh từ, quan hệ và lớp thống kê; trích lớp biên in/out/sub từ kịch bản; gán trách nhiệm xử lý cho lớp thực thể hoặc lớp kết quả; trạng thái điều hướng giao diện; giao tiếp với đủ 11 và 23 thông điệp tương ứng các kịch bản đánh số trong báo cáo. Pha thiết kế có bảng chuyển các trách nhiệm này sang service/DAO và các record Java thực tế.
+
+Đường nối đã được chỉnh trong mô hình native để tránh vùng che nhãn và các lớp cản đường. Nhãn giao tiếp được rút gọn để đọc rõ trong trang in; số và hướng đối chiếu với nội dung đầy đủ trong kịch bản và các IMessage native.
+
 ## Quy ước mô hình
 
 Các package `Scope_*` tổ chức các phiên bản lớp theo pha để tên lớp phân tích không bị ghi đè bởi lớp thiết kế. Chúng không phải package Java triển khai. Sơ đồ `14-packages` thể hiện các package Java thực tế.

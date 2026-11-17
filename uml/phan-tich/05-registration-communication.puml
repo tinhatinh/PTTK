@@ -1,29 +1,24 @@
 @startuml 05-registration-communication
 skinparam defaultFontName DejaVu Sans
-skinparam defaultFontSize 15
 skinparam shadowing false
-skinparam backgroundColor white
-skinparam ArrowColor #33444C
-skinparam classBackgroundColor #F8FBFB
-skinparam classBorderColor #335D64
-skinparam packageBorderColor #60757D
-skinparam roundcorner 6
-skinparam dpi 150
-skinparam maxMessageSize 180
+skinparam classAttributeIconSize 0
 hide empty members
 allowmixing
-top to bottom direction
 actor "Khách hàng" as A
-object ":RegistrationUI0" as UI
+object ":HomeUI0" as H
+object ":RegistrationUI0" as F
+object ":RegistrationResultUI0" as R
 object ":Customer0" as C
 object ":Account0" as AC
-A --> UI : 1: nhập thông tin\n2: subRegister
-UI --> C : 2.1: register(info)
-C --> AC : 2.1.1: tạo dữ liệu tài khoản
-C --> UI : 2.2: trả mã khách hàng hoặc lỗi
-UI --> A : 3: hiển thị kết quả
-note bottom of C
-Thông điệp pha phân tích biểu diễn trách nhiệm,
-chưa gắn JDBC hay HTTP.
-end note
+A --> H : 1: Chọn đăng ký
+H --> F : 2: Mở biểu mẫu
+F --> A : 3: Hiển thị biểu mẫu
+A --> F : 4: Nhập thông tin và Đăng ký
+F --> C : 5: register(info)
+C --> AC : 6: Tạo thông tin tài khoản
+AC --> C : 7: Thông tin tài khoản
+C --> C : 8: Lưu tài khoản và hồ sơ
+C --> F : 9: Trả kết quả đăng ký
+F --> R : 10: Chuyển mã và họ tên
+R --> A : 11: Thông báo thành công
 @enduml

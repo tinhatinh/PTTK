@@ -5,8 +5,8 @@
       "key": "start",
       "type": "InitialPseudoState",
       "name": "",
-      "x": 60,
-      "y": 50,
+      "x": 180,
+      "y": 20,
       "width": 25,
       "height": 25,
       "view": {
@@ -16,11 +16,11 @@
     {
       "key": "home",
       "type": "State2",
-      "name": "Trang chủ khách hàng",
-      "x": 220,
-      "y": 40,
-      "width": 350,
-      "height": 80,
+      "name": "Hiển thị trang chủ",
+      "x": 70,
+      "y": 100,
+      "width": 330,
+      "height": 85,
       "view": {
         "fontSize": 20
       }
@@ -28,47 +28,23 @@
     {
       "key": "form",
       "type": "State2",
-      "name": "Biểu mẫu đăng ký",
-      "x": 220,
-      "y": 220,
-      "width": 350,
-      "height": 90,
+      "name": "Hiển thị biểu mẫu đăng ký",
+      "x": 70,
+      "y": 350,
+      "width": 410,
+      "height": 85,
       "view": {
         "fontSize": 20
       }
     },
     {
-      "key": "success",
+      "key": "result",
       "type": "State2",
-      "name": "Đăng ký thành công",
-      "x": 220,
-      "y": 440,
-      "width": 350,
-      "height": 90,
-      "view": {
-        "fontSize": 20
-      }
-    },
-    {
-      "key": "forbidden",
-      "type": "State2",
-      "name": "Lỗi phiên biểu mẫu",
-      "x": 760,
-      "y": 220,
-      "width": 350,
-      "height": 90,
-      "view": {
-        "fontSize": 20
-      }
-    },
-    {
-      "key": "end",
-      "type": "FinalState2",
-      "name": "",
-      "x": 380,
+      "name": "Hiển thị đăng ký thành công",
+      "x": 70,
       "y": 650,
-      "width": 25,
-      "height": 25,
+      "width": 440,
+      "height": 85,
       "view": {
         "fontSize": 20
       }
@@ -99,28 +75,19 @@
       "view": {
         "fontSize": 18
       },
-      "name": "Sai dữ liệu hoặc trùng / báo lỗi"
+      "name": "Nhập sai hoặc trùng / báo lỗi"
     },
     {
       "from": "form",
-      "to": "success",
+      "to": "result",
       "type": "Transition2",
       "view": {
         "fontSize": 18
       },
-      "name": "POST hợp lệ / lưu đủ hai bản ghi"
+      "name": "Đăng ký hợp lệ / lưu thành công"
     },
     {
       "from": "form",
-      "to": "forbidden",
-      "type": "Transition2",
-      "view": {
-        "fontSize": 18
-      },
-      "name": "CSRF sai / HTTP 403"
-    },
-    {
-      "from": "success",
       "to": "home",
       "type": "Transition2",
       "view": {
@@ -129,13 +96,13 @@
       "name": "Về trang chủ"
     },
     {
-      "from": "home",
-      "to": "end",
+      "from": "result",
+      "to": "home",
       "type": "Transition2",
       "view": {
         "fontSize": 18
       },
-      "name": "Kết thúc phiên xem"
+      "name": "Về trang chủ"
     }
   ]
 }

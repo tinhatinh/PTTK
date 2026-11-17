@@ -5,372 +5,521 @@
       "key": "Account0",
       "type": "Class",
       "name": "Account0",
+      "x": 40,
+      "y": 40,
+      "width": 280,
+      "height": 80,
       "children": [
         {
           "type": "Attribute",
-          "name": "id",
-          "properties": {}
-        },
-        {
-          "type": "Attribute",
           "name": "username",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
-          "name": "passwordHash",
-          "properties": {}
-        },
-        {
-          "type": "Attribute",
-          "name": "role",
-          "properties": {}
+          "name": "password",
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
           "name": "fullName",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "role",
+          "properties": {
+            "visibility": "private"
+          }
         }
       ],
-      "properties": {},
-      "x": 60,
-      "y": 40,
-      "width": 260,
-      "height": 210,
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_02-domain"
     },
     {
       "key": "Customer0",
       "type": "Class",
       "name": "Customer0",
+      "x": 40,
+      "y": 290,
+      "width": 280,
+      "height": 80,
       "children": [
         {
           "type": "Attribute",
-          "name": "id",
-          "properties": {}
-        },
-        {
-          "type": "Attribute",
           "name": "phone",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
           "name": "email",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
           "name": "registeredAt",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         }
       ],
-      "properties": {},
-      "x": 60,
-      "y": 350,
-      "width": 260,
-      "height": 210,
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_02-domain"
     },
     {
       "key": "Movie0",
       "type": "Class",
       "name": "Movie0",
+      "x": 620,
+      "y": 40,
+      "width": 280,
+      "height": 80,
       "children": [
         {
           "type": "Attribute",
-          "name": "id",
-          "properties": {}
-        },
-        {
-          "type": "Attribute",
           "name": "title",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
           "name": "durationMinutes",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         }
       ],
-      "properties": {},
-      "x": 820,
-      "y": 350,
-      "width": 260,
-      "height": 155,
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_02-domain"
+    },
+    {
+      "key": "MovieRevenue0",
+      "type": "Class",
+      "name": "MovieRevenue0",
+      "x": 1040,
+      "y": 40,
+      "width": 280,
+      "height": 80,
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "showtimeCount",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "ticketCount",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "revenue",
+          "properties": {
+            "visibility": "private"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
+      "view": {
+        "fontSize": 18,
+        "displayStereotypeIcon": false,
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_02-domain"
     },
     {
       "key": "Room0",
       "type": "Class",
       "name": "Room0",
+      "x": 620,
+      "y": 310,
+      "width": 280,
+      "height": 80,
       "children": [
         {
           "type": "Attribute",
-          "name": "id",
-          "properties": {}
-        },
-        {
-          "type": "Attribute",
           "name": "name",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         }
       ],
-      "properties": {},
-      "x": 440,
-      "y": 350,
-      "width": 260,
-      "height": 135,
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_02-domain"
     },
     {
       "key": "Seat0",
       "type": "Class",
       "name": "Seat0",
+      "x": 1040,
+      "y": 310,
+      "width": 280,
+      "height": 80,
       "children": [
         {
           "type": "Attribute",
-          "name": "id",
-          "properties": {}
-        },
-        {
-          "type": "Attribute",
           "name": "label",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         }
       ],
-      "properties": {},
-      "x": 440,
-      "y": 700,
-      "width": 260,
-      "height": 150,
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_02-domain"
     },
     {
       "key": "Showtime0",
       "type": "Class",
       "name": "Showtime0",
+      "x": 620,
+      "y": 550,
+      "width": 280,
+      "height": 80,
       "children": [
         {
           "type": "Attribute",
-          "name": "id",
-          "properties": {}
+          "name": "startsAt",
+          "properties": {
+            "visibility": "private"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
+      "view": {
+        "fontSize": 18,
+        "displayStereotypeIcon": false,
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_02-domain"
+    },
+    {
+      "key": "ShowtimeRevenue0",
+      "type": "Class",
+      "name": "ShowtimeRevenue0",
+      "x": 1040,
+      "y": 550,
+      "width": 280,
+      "height": 80,
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "ticketCount",
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
-          "name": "startsAt",
-          "properties": {}
+          "name": "revenue",
+          "properties": {
+            "visibility": "private"
+          }
         }
       ],
-      "properties": {},
-      "x": 820,
-      "y": 700,
-      "width": 260,
-      "height": 150,
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_02-domain"
     },
     {
       "key": "Invoice0",
       "type": "Class",
       "name": "Invoice0",
+      "x": 40,
+      "y": 610,
+      "width": 280,
+      "height": 80,
       "children": [
         {
           "type": "Attribute",
-          "name": "id",
-          "properties": {}
-        },
-        {
-          "type": "Attribute",
           "name": "issuedAt",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
           "name": "status",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         }
       ],
-      "properties": {},
-      "x": 60,
-      "y": 700,
-      "width": 260,
-      "height": 170,
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_02-domain"
+    },
+    {
+      "key": "InvoiceRevenue0",
+      "type": "Class",
+      "name": "InvoiceRevenue0",
+      "x": 40,
+      "y": 910,
+      "width": 280,
+      "height": 80,
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "ticketCount",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "revenue",
+          "properties": {
+            "visibility": "private"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
+      "view": {
+        "fontSize": 18,
+        "displayStereotypeIcon": false,
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_02-domain"
     },
     {
       "key": "Ticket0",
       "type": "Class",
       "name": "Ticket0",
+      "x": 620,
+      "y": 910,
+      "width": 280,
+      "height": 80,
       "children": [
         {
           "type": "Attribute",
-          "name": "id",
-          "properties": {}
-        },
-        {
-          "type": "Attribute",
           "name": "unitPrice",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         }
       ],
-      "properties": {},
-      "x": 420,
-      "y": 1040,
-      "width": 300,
-      "height": 150,
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
-    },
-    {
-      "key": "note0",
-      "type": "NOTE",
-      "name": "Mỗi vé thuộc một suất và một hóa đơn.\nMột hóa đơn có thể chứa vé của nhiều suất.",
-      "x": 140,
-      "y": 1300,
-      "width": 880,
-      "height": 100,
-      "view": {
-        "fontSize": 18
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_02-domain"
     }
   ],
   "connectors": [
     {
-      "type": "Association",
       "from": "Account0",
       "to": "Customer0",
+      "type": "Association",
+      "view": {
+        "fontSize": 18
+      },
       "properties": {
         "from.multiplicity": "1",
         "to.multiplicity": "0..1"
-      },
+      }
+    },
+    {
+      "from": "Customer0",
+      "to": "Invoice0",
+      "type": "Association",
       "view": {
         "fontSize": 18
       },
-      "name": "hồ sơ khách hàng"
-    },
-    {
-      "type": "Association",
-      "from": "Customer0",
-      "to": "Invoice0",
       "properties": {
         "from.multiplicity": "0..1",
         "to.multiplicity": "0..*"
-      },
-      "view": {
-        "fontSize": 18
-      },
-      "name": "đứng tên"
+      }
     },
     {
-      "type": "Association",
-      "from": "Invoice0",
-      "to": "Ticket0",
-      "properties": {
-        "from.multiplicity": "1",
-        "to.multiplicity": "1..*",
-        "from.aggregationKind": "composite"
-      },
-      "view": {
-        "fontSize": 18
-      },
-      "name": "gồm"
-    },
-    {
-      "type": "Association",
       "from": "Movie0",
       "to": "Showtime0",
-      "properties": {
-        "from.multiplicity": "1",
-        "to.multiplicity": "0..*"
-      },
+      "type": "Association",
       "view": {
         "fontSize": 18
       },
-      "name": "được chiếu"
-    },
-    {
-      "type": "Association",
-      "from": "Room0",
-      "to": "Showtime0",
       "properties": {
         "from.multiplicity": "1",
         "to.multiplicity": "0..*"
-      },
-      "view": {
-        "fontSize": 18
-      },
-      "name": "diễn ra tại"
+      }
     },
     {
-      "type": "Association",
       "from": "Room0",
       "to": "Seat0",
+      "type": "Association",
+      "view": {
+        "fontSize": 18
+      },
       "properties": {
         "from.multiplicity": "1",
         "to.multiplicity": "1..*",
         "from.aggregationKind": "composite"
-      },
+      }
+    },
+    {
+      "from": "Room0",
+      "to": "Showtime0",
+      "type": "Association",
       "view": {
         "fontSize": 18
       },
-      "name": "có"
+      "properties": {
+        "from.multiplicity": "1",
+        "to.multiplicity": "0..*"
+      }
     },
     {
+      "from": "Invoice0",
+      "to": "Ticket0",
       "type": "Association",
+      "view": {
+        "fontSize": 18
+      },
+      "properties": {
+        "from.multiplicity": "1",
+        "to.multiplicity": "1..*",
+        "from.aggregationKind": "composite"
+      }
+    },
+    {
       "from": "Showtime0",
       "to": "Ticket0",
-      "properties": {
-        "from.multiplicity": "1",
-        "to.multiplicity": "0..*"
-      },
+      "type": "Association",
       "view": {
         "fontSize": 18
       },
-      "name": "dành cho"
+      "properties": {
+        "from.multiplicity": "1",
+        "to.multiplicity": "0..*"
+      }
     },
     {
-      "type": "Association",
       "from": "Seat0",
       "to": "Ticket0",
-      "properties": {
-        "from.multiplicity": "1",
-        "to.multiplicity": "0..*"
-      },
+      "type": "Association",
       "view": {
         "fontSize": 18
       },
-      "name": "vị trí ngồi"
+      "properties": {
+        "from.multiplicity": "1",
+        "to.multiplicity": "0..*"
+      }
+    },
+    {
+      "from": "MovieRevenue0",
+      "to": "Movie0",
+      "type": "Generalization",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "ShowtimeRevenue0",
+      "to": "Showtime0",
+      "type": "Generalization",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "InvoiceRevenue0",
+      "to": "Invoice0",
+      "type": "Generalization",
+      "view": {
+        "fontSize": 18
+      }
     }
   ]
 }

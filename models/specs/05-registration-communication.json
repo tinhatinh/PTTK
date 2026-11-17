@@ -1,133 +1,188 @@
 {
-  "diagramType": "CommunicationDiagram",
   "elements": [
     {
       "key": "A",
-      "type": "Actor",
+      "type": "InteractionActor",
       "name": "Khách hàng",
-      "x": 60,
-      "y": 40,
-      "width": 180,
-      "height": 100,
+      "x": 740,
+      "y": 20,
+      "width": 65,
+      "height": 75,
       "view": {
-        "fontSize": 20
+        "fontSize": 18
       }
     },
     {
-      "key": "UI",
+      "key": "H",
+      "type": "InteractionLifeLine",
+      "name": ":HomeUI0",
+      "x": 80,
+      "y": 400,
+      "width": 65,
+      "height": 75,
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "key": "F",
       "type": "InteractionLifeLine",
       "name": ":RegistrationUI0",
-      "x": 420,
-      "y": 270,
-      "width": 380,
-      "height": 80,
+      "x": 740,
+      "y": 400,
+      "width": 65,
+      "height": 75,
       "view": {
-        "fontSize": 20
+        "fontSize": 18
+      }
+    },
+    {
+      "key": "R",
+      "type": "InteractionLifeLine",
+      "name": ":RegistrationResultUI0",
+      "x": 1420,
+      "y": 400,
+      "width": 65,
+      "height": 75,
+      "view": {
+        "fontSize": 18
       }
     },
     {
       "key": "C",
       "type": "InteractionLifeLine",
       "name": ":Customer0",
-      "x": 420,
-      "y": 550,
-      "width": 380,
-      "height": 80,
+      "x": 740,
+      "y": 950,
+      "width": 65,
+      "height": 75,
       "view": {
-        "fontSize": 20
+        "fontSize": 18
       }
     },
     {
       "key": "AC",
       "type": "InteractionLifeLine",
       "name": ":Account0",
-      "x": 420,
-      "y": 830,
-      "width": 380,
-      "height": 80,
+      "x": 80,
+      "y": 950,
+      "width": 65,
+      "height": 75,
       "view": {
-        "fontSize": 20
+        "fontSize": 18
       }
     }
   ],
-  "connectors": [
+  "messages": [
     {
-      "from": "A",
-      "to": "UI",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
-      "name": "nhập thông tin",
-      "properties": {
-        "sequenceNumber": "1",
-        "kind": "call"
-      }
+      "from": "T5_KF4WD.AACARKW",
+      "to": "YF_KF4WD.AACARKc",
+      "name": "Chọn đăng ký",
+      "number": "1",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     },
     {
-      "from": "A",
-      "to": "UI",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
-      "name": "subRegister",
-      "properties": {
-        "sequenceNumber": "2",
-        "kind": "call"
-      }
+      "from": "YF_KF4WD.AACARKc",
+      "to": "xF_KF4WD.AACARKk",
+      "name": "Mở biểu mẫu",
+      "number": "2",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     },
     {
-      "from": "UI",
-      "to": "C",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
+      "from": "xF_KF4WD.AACARKk",
+      "to": "T5_KF4WD.AACARKW",
+      "name": "Hiển thị biểu mẫu",
+      "number": "3",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
+    },
+    {
+      "from": "T5_KF4WD.AACARKW",
+      "to": "xF_KF4WD.AACARKk",
+      "name": "Nhập thông tin và Đăng ký",
+      "number": "4",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
+    },
+    {
+      "from": "xF_KF4WD.AACARKk",
+      "to": "gl_KF4WD.AACARK0",
       "name": "register(info)",
-      "properties": {
-        "sequenceNumber": "2.1",
-        "kind": "call"
-      }
+      "number": "5",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     },
     {
-      "from": "C",
-      "to": "AC",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
-      "name": "tạo dữ liệu tài khoản",
-      "properties": {
-        "sequenceNumber": "2.1.1",
-        "kind": "call"
-      }
+      "from": "gl_KF4WD.AACARK0",
+      "to": "Cl_KF4WD.AACARK8",
+      "name": "Tạo thông tin tài khoản",
+      "number": "6",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     },
     {
-      "from": "C",
-      "to": "UI",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
-      "name": "trả mã khách hàng hoặc lỗi",
-      "properties": {
-        "sequenceNumber": "2.2",
-        "kind": "call"
-      }
+      "from": "Cl_KF4WD.AACARK8",
+      "to": "gl_KF4WD.AACARK0",
+      "name": "Thông tin tài khoản",
+      "number": "7",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     },
     {
-      "from": "UI",
-      "to": "A",
-      "type": "Message",
-      "view": {
-        "fontSize": 18
-      },
-      "name": "hiển thị kết quả",
-      "properties": {
-        "sequenceNumber": "3",
-        "kind": "call"
-      }
+      "from": "gl_KF4WD.AACARK0",
+      "to": "gl_KF4WD.AACARK0",
+      "name": "Lưu tài khoản và hồ sơ",
+      "number": "8",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
+    },
+    {
+      "from": "gl_KF4WD.AACARK0",
+      "to": "xF_KF4WD.AACARKk",
+      "name": "Trả kết quả đăng ký",
+      "number": "9",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
+    },
+    {
+      "from": "xF_KF4WD.AACARKk",
+      "to": "zF_KF4WD.AACARKs",
+      "name": "Chuyển mã và họ tên",
+      "number": "10",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
+    },
+    {
+      "from": "zF_KF4WD.AACARKs",
+      "to": "T5_KF4WD.AACARKW",
+      "name": "Thông báo thành công",
+      "number": "11",
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 35
     }
   ]
 }

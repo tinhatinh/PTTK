@@ -5,11 +5,17 @@
       "key": "ManagerUI0",
       "type": "Class",
       "name": "ManagerUI0",
+      "x": 30,
+      "y": 30,
+      "width": 280,
+      "height": 80,
       "children": [
         {
           "type": "Attribute",
           "name": "subViewReport",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         }
       ],
       "properties": {
@@ -17,25 +23,42 @@
           "boundary"
         ]
       },
-      "x": 500,
-      "y": 61,
-      "width": 216,
-      "height": 120,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_04-revenue-analysis"
     },
     {
       "key": "ReportTypeUI0",
       "type": "Class",
       "name": "ReportTypeUI0",
+      "x": 340,
+      "y": 30,
+      "width": 280,
+      "height": 80,
       "children": [
         {
           "type": "Attribute",
+          "name": "outReportType",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
           "name": "subContinue",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "subBack",
+          "properties": {
+            "visibility": "private"
+          }
         }
       ],
       "properties": {
@@ -43,45 +66,63 @@
           "boundary"
         ]
       },
-      "x": 485,
-      "y": 265,
-      "width": 245,
-      "height": 120,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_04-revenue-analysis"
     },
     {
       "key": "MovieStatsUI0",
       "type": "Class",
       "name": "MovieStatsUI0",
+      "x": 680,
+      "y": 30,
+      "width": 280,
+      "height": 80,
       "children": [
         {
           "type": "Attribute",
           "name": "inFromDate",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
           "name": "inToDate",
-          "properties": {}
-        },
-        {
-          "type": "Attribute",
-          "name": "outMovieStats",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
           "name": "subViewStatistics",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
-          "name": "subMovie",
-          "properties": {}
+          "name": "outsubMovieStats",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "outError",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "subBack",
+          "properties": {
+            "visibility": "private"
+          }
         }
       ],
       "properties": {
@@ -89,35 +130,49 @@
           "boundary"
         ]
       },
-      "x": 485,
-      "y": 468,
-      "width": 244,
-      "height": 229,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_04-revenue-analysis"
     },
     {
       "key": "ShowtimeStatsUI0",
       "type": "Class",
       "name": "ShowtimeStatsUI0",
+      "x": 1150,
+      "y": 30,
+      "width": 280,
+      "height": 80,
       "children": [
         {
           "type": "Attribute",
-          "name": "outShowtimeStats",
-          "properties": {}
+          "name": "outMovieTitle",
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
-          "name": "subShowtime",
-          "properties": {}
+          "name": "outPeriod",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "outsubShowtimeStats",
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
           "name": "subBack",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         }
       ],
       "properties": {
@@ -125,30 +180,49 @@
           "boundary"
         ]
       },
-      "x": 273,
-      "y": 781,
-      "width": 285,
-      "height": 175,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_04-revenue-analysis"
     },
     {
       "key": "InvoiceListUI0",
       "type": "Class",
       "name": "InvoiceListUI0",
+      "x": 1580,
+      "y": 30,
+      "width": 280,
+      "height": 80,
       "children": [
         {
           "type": "Attribute",
+          "name": "outShowtimeContext",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
           "name": "outInvoices",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "outTotal",
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
           "name": "subBack",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         }
       ],
       "properties": {
@@ -156,25 +230,85 @@
           "boundary"
         ]
       },
-      "x": 298,
-      "y": 1040,
-      "width": 234,
-      "height": 147,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_04-revenue-analysis"
     },
     {
       "key": "Movie0",
       "type": "Class",
       "name": "Movie0",
+      "x": 680,
+      "y": 440,
+      "width": 280,
+      "height": 80,
       "children": [
+        {
+          "type": "Attribute",
+          "name": "title",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "durationMinutes",
+          "properties": {
+            "visibility": "private"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
+      "view": {
+        "fontSize": 18,
+        "displayStereotypeIcon": false,
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_04-revenue-analysis"
+    },
+    {
+      "key": "MovieRevenue0",
+      "type": "Class",
+      "name": "MovieRevenue0",
+      "x": 680,
+      "y": 660,
+      "width": 280,
+      "height": 80,
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "showtimeCount",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "ticketCount",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "revenue",
+          "properties": {
+            "visibility": "private"
+          }
+        },
         {
           "type": "Operation",
           "name": "getMovieRevenueStats",
-          "properties": {},
+          "properties": {
+            "visibility": "public"
+          },
           "children": [
             {
               "type": "Parameter",
@@ -192,29 +326,75 @@
           "entity"
         ]
       },
-      "x": 593,
-      "y": 809,
-      "width": 414,
-      "height": 120,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_04-revenue-analysis"
     },
     {
       "key": "Showtime0",
       "type": "Class",
       "name": "Showtime0",
+      "x": 1180,
+      "y": 440,
+      "width": 280,
+      "height": 80,
       "children": [
+        {
+          "type": "Attribute",
+          "name": "startsAt",
+          "properties": {
+            "visibility": "private"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
+      "view": {
+        "fontSize": 18,
+        "displayStereotypeIcon": false,
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_04-revenue-analysis"
+    },
+    {
+      "key": "ShowtimeRevenue0",
+      "type": "Class",
+      "name": "ShowtimeRevenue0",
+      "x": 1180,
+      "y": 660,
+      "width": 280,
+      "height": 80,
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "ticketCount",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "revenue",
+          "properties": {
+            "visibility": "private"
+          }
+        },
         {
           "type": "Operation",
           "name": "getShowtimeStats",
-          "properties": {},
+          "properties": {
+            "visibility": "public"
+          },
           "children": [
             {
               "type": "Parameter",
-              "name": "movieId"
+              "name": "movie"
             },
             {
               "type": "Parameter",
@@ -232,29 +412,82 @@
           "entity"
         ]
       },
-      "x": 569,
-      "y": 1053,
-      "width": 459,
-      "height": 120,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_04-revenue-analysis"
     },
     {
       "key": "Invoice0",
       "type": "Class",
       "name": "Invoice0",
+      "x": 1620,
+      "y": 440,
+      "width": 280,
+      "height": 80,
       "children": [
+        {
+          "type": "Attribute",
+          "name": "issuedAt",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "status",
+          "properties": {
+            "visibility": "private"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
+      "view": {
+        "fontSize": 18,
+        "displayStereotypeIcon": false,
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_04-revenue-analysis"
+    },
+    {
+      "key": "InvoiceRevenue0",
+      "type": "Class",
+      "name": "InvoiceRevenue0",
+      "x": 1620,
+      "y": 660,
+      "width": 280,
+      "height": 80,
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "ticketCount",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "revenue",
+          "properties": {
+            "visibility": "private"
+          }
+        },
         {
           "type": "Operation",
           "name": "getInvoicesByShowtime",
-          "properties": {},
+          "properties": {
+            "visibility": "public"
+          },
           "children": [
             {
               "type": "Parameter",
-              "name": "showtimeId"
+              "name": "showtime"
             },
             {
               "type": "Parameter",
@@ -272,111 +505,159 @@
           "entity"
         ]
       },
-      "x": 132,
-      "y": 1271,
-      "width": 566,
-      "height": 120,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_04-revenue-analysis"
     },
     {
-      "key": "note0",
-      "type": "NOTE",
-      "name": "Quan hệ hóa đơn và suất chiếu đi qua Ticket0\nnhư mô hình thực thể; không tạo FK trực tiếp.\nCác phương thức phân tích chuyển sang RevenueDAO0.",
-      "x": 60,
-      "y": 1451,
-      "width": 800,
-      "height": 98,
+      "key": "Ticket0",
+      "type": "Class",
+      "name": "Ticket0",
+      "x": 1200,
+      "y": 940,
+      "width": 280,
+      "height": 80,
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "unitPrice",
+          "properties": {
+            "visibility": "private"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
       "view": {
-        "fontSize": 18
-      }
+        "fontSize": 18,
+        "displayStereotypeIcon": false,
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_04-revenue-analysis"
     }
   ],
   "connectors": [
     {
-      "type": "Association",
       "from": "ManagerUI0",
       "to": "ReportTypeUI0",
-      "properties": {
-        "to.navigable": "navigable"
-      },
+      "type": "Association",
       "view": {
         "fontSize": 18
       }
     },
     {
-      "type": "Association",
       "from": "ReportTypeUI0",
       "to": "MovieStatsUI0",
-      "properties": {
-        "to.navigable": "navigable"
-      },
+      "type": "Association",
       "view": {
         "fontSize": 18
       }
     },
     {
-      "type": "Association",
       "from": "MovieStatsUI0",
       "to": "ShowtimeStatsUI0",
-      "properties": {
-        "to.navigable": "navigable"
-      },
+      "type": "Association",
       "view": {
         "fontSize": 18
       }
     },
     {
-      "type": "Association",
       "from": "ShowtimeStatsUI0",
       "to": "InvoiceListUI0",
-      "properties": {
-        "to.navigable": "navigable"
-      },
-      "view": {
-        "fontSize": 18
-      }
-    },
-    {
-      "type": "Dependency",
-      "from": "MovieStatsUI0",
-      "to": "Movie0",
-      "properties": {},
-      "view": {
-        "fontSize": 18
-      }
-    },
-    {
-      "type": "Dependency",
-      "from": "ShowtimeStatsUI0",
-      "to": "Showtime0",
-      "properties": {},
-      "view": {
-        "fontSize": 18
-      }
-    },
-    {
-      "type": "Dependency",
-      "from": "InvoiceListUI0",
-      "to": "Invoice0",
-      "properties": {},
-      "view": {
-        "fontSize": 18
-      }
-    },
-    {
       "type": "Association",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "MovieStatsUI0",
+      "to": "MovieRevenue0",
+      "type": "Association",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "ShowtimeStatsUI0",
+      "to": "ShowtimeRevenue0",
+      "type": "Association",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "InvoiceListUI0",
+      "to": "InvoiceRevenue0",
+      "type": "Association",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "MovieRevenue0",
+      "to": "Movie0",
+      "type": "Generalization",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "ShowtimeRevenue0",
+      "to": "Showtime0",
+      "type": "Generalization",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
+      "from": "InvoiceRevenue0",
+      "to": "Invoice0",
+      "type": "Generalization",
+      "view": {
+        "fontSize": 18
+      }
+    },
+    {
       "from": "Movie0",
       "to": "Showtime0",
+      "type": "Association",
+      "view": {
+        "fontSize": 18
+      },
       "properties": {
         "from.multiplicity": "1",
         "to.multiplicity": "0..*"
-      },
+      }
+    },
+    {
+      "from": "Invoice0",
+      "to": "Ticket0",
+      "type": "Association",
       "view": {
         "fontSize": 18
+      },
+      "properties": {
+        "from.multiplicity": "1",
+        "to.multiplicity": "1..*",
+        "from.aggregationKind": "composite"
+      }
+    },
+    {
+      "from": "Showtime0",
+      "to": "Ticket0",
+      "type": "Association",
+      "view": {
+        "fontSize": 18
+      },
+      "properties": {
+        "from.multiplicity": "1",
+        "to.multiplicity": "0..*"
       }
     }
   ]

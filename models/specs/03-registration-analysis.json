@@ -5,11 +5,17 @@
       "key": "HomeUI0",
       "type": "Class",
       "name": "HomeUI0",
+      "x": 40,
+      "y": 40,
+      "width": 280,
+      "height": 80,
       "children": [
         {
           "type": "Attribute",
           "name": "subRegisterMember",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         }
       ],
       "properties": {
@@ -17,60 +23,84 @@
           "boundary"
         ]
       },
-      "x": 184,
-      "y": 61,
-      "width": 275,
-      "height": 120,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_03-registration-analysis"
     },
     {
       "key": "RegistrationUI0",
       "type": "Class",
       "name": "RegistrationUI0",
+      "x": 430,
+      "y": 40,
+      "width": 280,
+      "height": 80,
       "children": [
         {
           "type": "Attribute",
           "name": "inFullName",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
           "name": "inPhone",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
           "name": "inEmail",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
           "name": "inUsername",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
           "name": "inPassword",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
           "name": "inConfirmPassword",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
           "name": "subRegister",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "subHome",
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
           "name": "outError",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         }
       ],
       "properties": {
@@ -78,30 +108,42 @@
           "boundary"
         ]
       },
-      "x": 190,
-      "y": 266,
-      "width": 264,
-      "height": 311,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_03-registration-analysis"
     },
     {
       "key": "RegistrationResultUI0",
       "type": "Class",
       "name": "RegistrationResultUI0",
+      "x": 940,
+      "y": 40,
+      "width": 280,
+      "height": 80,
       "children": [
         {
           "type": "Attribute",
           "name": "outCustomerId",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
         },
         {
           "type": "Attribute",
           "name": "outFullName",
-          "properties": {}
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "subHome",
+          "properties": {
+            "visibility": "private"
+          }
         }
       ],
       "properties": {
@@ -109,25 +151,99 @@
           "boundary"
         ]
       },
-      "x": 61,
-      "y": 691,
-      "width": 325,
-      "height": 147,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_03-registration-analysis"
+    },
+    {
+      "key": "Account0",
+      "type": "Class",
+      "name": "Account0",
+      "x": 40,
+      "y": 460,
+      "width": 280,
+      "height": 80,
+      "children": [
+        {
+          "type": "Attribute",
+          "name": "username",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "password",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "fullName",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "role",
+          "properties": {
+            "visibility": "private"
+          }
+        }
+      ],
+      "properties": {
+        "stereotypes": [
+          "entity"
+        ]
+      },
+      "view": {
+        "fontSize": 18,
+        "displayStereotypeIcon": false,
+        "fillColor": "#CFEAF7"
+      },
+      "modelNamespace": "analysis_v3_03-registration-analysis"
     },
     {
       "key": "Customer0",
       "type": "Class",
       "name": "Customer0",
+      "x": 530,
+      "y": 460,
+      "width": 280,
+      "height": 80,
       "children": [
+        {
+          "type": "Attribute",
+          "name": "phone",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "email",
+          "properties": {
+            "visibility": "private"
+          }
+        },
+        {
+          "type": "Attribute",
+          "name": "registeredAt",
+          "properties": {
+            "visibility": "private"
+          }
+        },
         {
           "type": "Operation",
           "name": "register",
-          "properties": {},
+          "properties": {
+            "visibility": "public"
+          },
           "children": [
             {
               "type": "Parameter",
@@ -141,116 +257,49 @@
           "entity"
         ]
       },
-      "x": 421,
-      "y": 704,
-      "width": 199,
-      "height": 120,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
-    },
-    {
-      "key": "Account0",
-      "type": "Class",
-      "name": "Account0",
-      "children": [
-        {
-          "type": "Attribute",
-          "name": "username",
-          "properties": {}
-        },
-        {
-          "type": "Attribute",
-          "name": "passwordHash",
-          "properties": {}
-        },
-        {
-          "type": "Attribute",
-          "name": "fullName",
-          "properties": {}
-        },
-        {
-          "type": "Attribute",
-          "name": "role",
-          "properties": {}
-        }
-      ],
-      "properties": {
-        "stereotypes": [
-          "entity"
-        ]
+        "fillColor": "#CFEAF7"
       },
-      "x": 200,
-      "y": 923,
-      "width": 209,
-      "height": 202,
-      "view": {
-        "fontSize": 20,
-        "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
-    },
-    {
-      "key": "note0",
-      "type": "NOTE",
-      "name": "Phân tích: register đặt tại thực thể liên quan.\nThiết kế: tách validation vào service,\nlưu giao dịch vào CustomerDAO0.",
-      "x": 60,
-      "y": 1185,
-      "width": 800,
-      "height": 98,
-      "view": {
-        "fontSize": 18
-      }
+      "modelNamespace": "analysis_v3_03-registration-analysis"
     }
   ],
   "connectors": [
     {
-      "type": "Association",
       "from": "HomeUI0",
       "to": "RegistrationUI0",
-      "properties": {
-        "to.navigable": "navigable"
-      },
+      "type": "Association",
       "view": {
         "fontSize": 18
       }
     },
     {
-      "type": "Association",
-      "from": "RegistrationUI0",
-      "to": "Customer0",
-      "properties": {
-        "to.navigable": "navigable"
-      },
-      "view": {
-        "fontSize": 18
-      },
-      "name": "register(info)"
-    },
-    {
-      "type": "Association",
       "from": "RegistrationUI0",
       "to": "RegistrationResultUI0",
-      "properties": {
-        "to.navigable": "navigable"
-      },
+      "type": "Association",
       "view": {
         "fontSize": 18
-      },
-      "name": "thành công"
+      }
     },
     {
+      "from": "RegistrationUI0",
+      "to": "Customer0",
       "type": "Association",
-      "from": "Customer0",
-      "to": "Account0",
-      "properties": {
-        "from.multiplicity": "0..1",
-        "to.multiplicity": "1"
-      },
       "view": {
         "fontSize": 18
+      }
+    },
+    {
+      "from": "Account0",
+      "to": "Customer0",
+      "type": "Association",
+      "view": {
+        "fontSize": 18
+      },
+      "properties": {
+        "from.multiplicity": "1",
+        "to.multiplicity": "0..1"
       }
     }
   ]

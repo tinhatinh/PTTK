@@ -1,298 +1,280 @@
-' FILE: 02-domain.puml
 @startuml 02-domain
 skinparam defaultFontName DejaVu Sans
-skinparam defaultFontSize 15
 skinparam shadowing false
-skinparam backgroundColor white
-skinparam ArrowColor #33444C
-skinparam classBackgroundColor #F8FBFB
-skinparam classBorderColor #335D64
-skinparam packageBorderColor #60757D
-skinparam roundcorner 6
-skinparam dpi 150
-skinparam maxMessageSize 180
+skinparam classAttributeIconSize 0
 hide empty members
-top to bottom direction
-class Account0 {
- id
-username
-passwordHash
-role
-fullName
-}
-class Customer0 {
- id
-phone
-email
-registeredAt
-}
-class Movie0 {
- id
-title
-durationMinutes
-}
-class Room0 {
- id
-name
-}
-class Seat0 {
- id
-label
-}
-class Showtime0 {
- id
-startsAt
-}
-class Invoice0 {
- id
-issuedAt
-status
-}
-class Ticket0 {
- id
-unitPrice
-}
-Account0 "1" -- "0..1" Customer0 : hồ sơ khách hàng
-Customer0 "0..1" -- "0..*" Invoice0 : đứng tên
-Invoice0 "1" *-- "1..*" Ticket0 : gồm
-Movie0 "1" -- "0..*" Showtime0 : được chiếu
-Room0 "1" -- "0..*" Showtime0 : diễn ra tại
-Room0 "1" *-- "1..*" Seat0 : có
-Showtime0 "1" -- "0..*" Ticket0 : dành cho
-Seat0 "1" -- "0..*" Ticket0 : vị trí ngồi
-note bottom of Ticket0
-Mỗi vé thuộc một suất và một hóa đơn.
-Một hóa đơn có thể chứa vé của nhiều suất.
-end note
-@enduml
-
-
-' FILE: 03-registration-analysis.puml
-@startuml 03-registration-analysis
-skinparam defaultFontName DejaVu Sans
-skinparam defaultFontSize 15
-skinparam shadowing false
-skinparam backgroundColor white
-skinparam ArrowColor #33444C
-skinparam classBackgroundColor #F8FBFB
-skinparam classBorderColor #335D64
-skinparam packageBorderColor #60757D
-skinparam roundcorner 6
-skinparam dpi 150
-skinparam maxMessageSize 180
-hide empty members
-top to bottom direction
-class HomeUI0 <<boundary>> {
- subRegisterMember
-}
-class RegistrationUI0 <<boundary>> {
- inFullName
-inPhone
-inEmail
-inUsername
-inPassword
-inConfirmPassword
-subRegister
-outError
-}
-class RegistrationResultUI0 <<boundary>> {
- outCustomerId
-outFullName
+class Account0 <<entity>> {
+ -username
+ -password
+ -fullName
+ -role
 }
 class Customer0 <<entity>> {
- register(info)
-}
-class Account0 <<entity>> {
- username
-passwordHash
-fullName
-role
-}
-HomeUI0 --> RegistrationUI0
-RegistrationUI0 --> Customer0 : register(info)
-RegistrationUI0 --> RegistrationResultUI0 : thành công
-Customer0 "0..1" -- "1" Account0
-note bottom of Customer0
-Phân tích: register đặt tại thực thể liên quan.
-Thiết kế: tách validation vào service,
-lưu giao dịch vào CustomerDAO0.
-end note
-@enduml
-
-
-' FILE: 04-revenue-analysis.puml
-@startuml 04-revenue-analysis
-skinparam defaultFontName DejaVu Sans
-skinparam defaultFontSize 15
-skinparam shadowing false
-skinparam backgroundColor white
-skinparam ArrowColor #33444C
-skinparam classBackgroundColor #F8FBFB
-skinparam classBorderColor #335D64
-skinparam packageBorderColor #60757D
-skinparam roundcorner 6
-skinparam dpi 150
-skinparam maxMessageSize 180
-hide empty members
-top to bottom direction
-class ManagerUI0 <<boundary>> {
- subViewReport
-}
-class ReportTypeUI0 <<boundary>> {
- subContinue
-}
-class MovieStatsUI0 <<boundary>> {
- inFromDate
-inToDate
-outMovieStats
-subViewStatistics
-subMovie
-}
-class ShowtimeStatsUI0 <<boundary>> {
- outShowtimeStats
-subShowtime
-subBack
-}
-class InvoiceListUI0 <<boundary>> {
- outInvoices
-subBack
+ -phone
+ -email
+ -registeredAt
 }
 class Movie0 <<entity>> {
- getMovieRevenueStats(from,to)
+ -title
+ -durationMinutes
+}
+class Room0 <<entity>> {
+ -name
+}
+class Seat0 <<entity>> {
+ -label
 }
 class Showtime0 <<entity>> {
- getShowtimeStats(movieId,from,to)
+ -startsAt
 }
 class Invoice0 <<entity>> {
- getInvoicesByShowtime(showtimeId,from,to)
+ -issuedAt
+ -status
 }
-ManagerUI0 --> ReportTypeUI0
-ReportTypeUI0 --> MovieStatsUI0
-MovieStatsUI0 --> ShowtimeStatsUI0
-ShowtimeStatsUI0 --> InvoiceListUI0
-MovieStatsUI0 ..> Movie0
-ShowtimeStatsUI0 ..> Showtime0
-InvoiceListUI0 ..> Invoice0
+class Ticket0 <<entity>> {
+ -unitPrice
+}
+class MovieRevenue0 <<entity>> {
+ -showtimeCount
+ -ticketCount
+ -revenue
+}
+class ShowtimeRevenue0 <<entity>> {
+ -ticketCount
+ -revenue
+}
+class InvoiceRevenue0 <<entity>> {
+ -ticketCount
+ -revenue
+}
+Account0 "1" -- "0..1" Customer0
+Customer0 "0..1" -- "0..*" Invoice0
 Movie0 "1" -- "0..*" Showtime0
-note bottom of Invoice0
-Quan hệ hóa đơn và suất chiếu đi qua Ticket0
-như mô hình thực thể; không tạo FK trực tiếp.
-Các phương thức phân tích chuyển sang RevenueDAO0.
-end note
+Room0 "1" *-- "1..*" Seat0
+Room0 "1" -- "0..*" Showtime0
+Invoice0 "1" *-- "1..*" Ticket0
+Showtime0 "1" -- "0..*" Ticket0
+Seat0 "1" -- "0..*" Ticket0
+MovieRevenue0 --|> Movie0
+ShowtimeRevenue0 --|> Showtime0
+InvoiceRevenue0 --|> Invoice0
 @enduml
 
+@startuml 03-registration-analysis
+skinparam defaultFontName DejaVu Sans
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+hide empty members
+class HomeUI0 <<boundary>> {
+ -subRegisterMember
+}
+class RegistrationUI0 <<boundary>> {
+ -inFullName
+ -inPhone
+ -inEmail
+ -inUsername
+ -inPassword
+ -inConfirmPassword
+ -subRegister
+ -subHome
+ -outError
+}
+class RegistrationResultUI0 <<boundary>> {
+ -outCustomerId
+ -outFullName
+ -subHome
+}
+class Account0 <<entity>> {
+ -username
+ -password
+ -fullName
+ -role
+}
+class Customer0 <<entity>> {
+ -phone
+ -email
+ -registeredAt
+ +register(info)
+}
+Account0 "1" -- "0..1" Customer0
+HomeUI0 -- RegistrationUI0
+RegistrationUI0 -- RegistrationResultUI0
+RegistrationUI0 -- Customer0
+@enduml
 
-' FILE: 04a-registration-states.puml
+@startuml 04-revenue-analysis
+skinparam defaultFontName DejaVu Sans
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+hide empty members
+class ManagerUI0 <<boundary>> {
+ -subViewReport
+}
+class ReportTypeUI0 <<boundary>> {
+ -outReportType
+ -subContinue
+ -subBack
+}
+class MovieStatsUI0 <<boundary>> {
+ -inFromDate
+ -inToDate
+ -subViewStatistics
+ -outsubMovieStats
+ -outError
+ -subBack
+}
+class ShowtimeStatsUI0 <<boundary>> {
+ -outMovieTitle
+ -outPeriod
+ -outsubShowtimeStats
+ -subBack
+}
+class InvoiceListUI0 <<boundary>> {
+ -outShowtimeContext
+ -outInvoices
+ -outTotal
+ -subBack
+}
+class Movie0 <<entity>> {
+ -title
+ -durationMinutes
+}
+class Showtime0 <<entity>> {
+ -startsAt
+}
+class Invoice0 <<entity>> {
+ -issuedAt
+ -status
+}
+class Ticket0 <<entity>> {
+ -unitPrice
+}
+class MovieRevenue0 <<entity>> {
+ -showtimeCount
+ -ticketCount
+ -revenue
+ +getMovieRevenueStats(from,to)
+}
+class ShowtimeRevenue0 <<entity>> {
+ -ticketCount
+ -revenue
+ +getShowtimeStats(movie,from,to)
+}
+class InvoiceRevenue0 <<entity>> {
+ -ticketCount
+ -revenue
+ +getInvoicesByShowtime(showtime,from,to)
+}
+Movie0 "1" -- "0..*" Showtime0
+Invoice0 "1" *-- "1..*" Ticket0
+Showtime0 "1" -- "0..*" Ticket0
+MovieRevenue0 --|> Movie0
+ShowtimeRevenue0 --|> Showtime0
+InvoiceRevenue0 --|> Invoice0
+ManagerUI0 -- ReportTypeUI0
+ReportTypeUI0 -- MovieStatsUI0
+MovieStatsUI0 -- ShowtimeStatsUI0
+ShowtimeStatsUI0 -- InvoiceListUI0
+MovieStatsUI0 -- MovieRevenue0
+ShowtimeStatsUI0 -- ShowtimeRevenue0
+InvoiceListUI0 -- InvoiceRevenue0
+@enduml
+
 @startuml 04a-registration-states
 skinparam defaultFontName DejaVu Sans
 skinparam shadowing false
-state "Trang chủ khách hàng" as home
-state "Biểu mẫu đăng ký" as form
-state "Đăng ký thành công" as success
-state "Lỗi phiên biểu mẫu" as forbidden
+state "Hiển thị trang chủ" as home
+state "Hiển thị biểu mẫu đăng ký" as form
+state "Hiển thị đăng ký thành công" as result
 [*] --> home
 home --> form : Chọn Đăng ký thành viên
-form --> form : Sai dữ liệu hoặc trùng / báo lỗi
-form --> success : POST hợp lệ / lưu đủ hai bản ghi
-form --> forbidden : CSRF sai / HTTP 403
-success --> home : Về trang chủ
-home --> [*] : Kết thúc phiên xem
+form --> form : Nhập sai hoặc trùng / báo lỗi
+form --> result : Đăng ký hợp lệ / lưu thành công
+form --> home : Về trang chủ
+result --> home : Về trang chủ
 @enduml
 
-
-' FILE: 04b-revenue-states.puml
 @startuml 04b-revenue-states
 skinparam defaultFontName DejaVu Sans
 skinparam shadowing false
-state "Đăng nhập quản lý" as login
-state "Trang quản lý" as home
-state "Chọn loại báo cáo" as type
-state "Chọn khoảng ngày" as date
-state "Bảng thống kê phim" as movies
-state "Bảng thống kê suất chiếu" as shows
-state "Danh sách hóa đơn của suất" as invoices
-state "Lỗi khoảng ngày hoặc ngữ cảnh" as error
-[*] --> login
-login --> home : Tài khoản MANAGER hợp lệ
-login --> login : Xác thực thất bại
-home --> type : Xem báo cáo
-type --> date : Tiếp tục
-date --> movies : Khoảng ngày hợp lệ
-date --> error : Ngày sai
-error --> date : Chọn lại khoảng ngày
-movies --> shows : Chọn phim / giữ from,to
-shows --> invoices : Chọn suất / đối chiếu mã cha
-invoices --> shows : Quay lại / giữ mã phim và ngày
-shows --> movies : Quay lại / giữ ngày
+state "Hiển thị trang quản lý" as home
+state "Hiển thị chọn loại báo cáo" as type
+state "Hiển thị thống kê phim" as movies
+state "Hiển thị thống kê suất chiếu" as shows
+state "Hiển thị hóa đơn của suất" as invoices
+[*] --> home
+home --> type : Chọn Xem báo cáo
+type --> movies : Chọn thống kê / Tiếp tục
+movies --> movies : Nhập ngày / Xem thống kê
+movies --> shows : Chọn một phim
+shows --> invoices : Chọn một suất
+invoices --> shows : Các suất chiếu
+shows --> movies : Thống kê phim
 movies --> type : Chọn loại thống kê
-home --> login : Đăng xuất
+type --> home : Trang quản lý
 @enduml
 
-
-' FILE: 05-registration-communication.puml
 @startuml 05-registration-communication
 skinparam defaultFontName DejaVu Sans
-skinparam defaultFontSize 15
 skinparam shadowing false
-skinparam backgroundColor white
-skinparam ArrowColor #33444C
-skinparam classBackgroundColor #F8FBFB
-skinparam classBorderColor #335D64
-skinparam packageBorderColor #60757D
-skinparam roundcorner 6
-skinparam dpi 150
-skinparam maxMessageSize 180
+skinparam classAttributeIconSize 0
 hide empty members
 allowmixing
-top to bottom direction
 actor "Khách hàng" as A
-object ":RegistrationUI0" as UI
+object ":HomeUI0" as H
+object ":RegistrationUI0" as F
+object ":RegistrationResultUI0" as R
 object ":Customer0" as C
 object ":Account0" as AC
-A --> UI : 1: nhập thông tin\n2: subRegister
-UI --> C : 2.1: register(info)
-C --> AC : 2.1.1: tạo dữ liệu tài khoản
-C --> UI : 2.2: trả mã khách hàng hoặc lỗi
-UI --> A : 3: hiển thị kết quả
-note bottom of C
-Thông điệp pha phân tích biểu diễn trách nhiệm,
-chưa gắn JDBC hay HTTP.
-end note
+A --> H : 1: Chọn đăng ký
+H --> F : 2: Mở biểu mẫu
+F --> A : 3: Hiển thị biểu mẫu
+A --> F : 4: Nhập thông tin và Đăng ký
+F --> C : 5: register(info)
+C --> AC : 6: Tạo thông tin tài khoản
+AC --> C : 7: Thông tin tài khoản
+C --> C : 8: Lưu tài khoản và hồ sơ
+C --> F : 9: Trả kết quả đăng ký
+F --> R : 10: Chuyển mã và họ tên
+R --> A : 11: Thông báo thành công
 @enduml
 
-
-' FILE: 06-revenue-communication.puml
 @startuml 06-revenue-communication
 skinparam defaultFontName DejaVu Sans
-skinparam defaultFontSize 15
 skinparam shadowing false
-skinparam backgroundColor white
-skinparam ArrowColor #33444C
-skinparam classBackgroundColor #F8FBFB
-skinparam classBorderColor #335D64
-skinparam packageBorderColor #60757D
-skinparam roundcorner 6
-skinparam dpi 150
-skinparam maxMessageSize 180
+skinparam classAttributeIconSize 0
 hide empty members
 allowmixing
-top to bottom direction
-actor "Quản lý" as A
-object ":MovieStatsUI0" as UI
-object ":Movie0" as M
-object ":ShowtimeStatsUI0" as SU
-object ":Showtime0" as S
-object ":InvoiceListUI0" as IU
-object ":Invoice0" as I
-A --> UI : 1: chọn khoảng ngày\n2: subViewStatistics
-UI --> M : 2.1: getMovieRevenueStats(from,to)
-M --> UI : 2.2: danh sách phim
-A --> UI : 3: subMovie(movieId)
-UI --> SU : 3.1: chuyển movieId, from, to
-SU --> S : 3.2: getShowtimeStats(movieId,from,to)
-S --> SU : 3.3: danh sách suất
-A --> SU : 4: subShowtime(showtimeId)
-SU --> IU : 4.1: chuyển showtimeId, movieId, from, to
-IU --> I : 4.2: getInvoicesByShowtime(showtimeId,from,to)
-I --> IU : 4.3: danh sách hóa đơn
+actor "Nhân viên quản lý" as A
+object ":ManagerUI0" as H
+object ":ReportTypeUI0" as T
+object ":MovieStatsUI0" as M
+object ":ShowtimeStatsUI0" as S
+object ":InvoiceListUI0" as I
+object ":MovieRevenue0" as MS
+object ":ShowtimeRevenue0" as SS
+object ":InvoiceRevenue0" as IS
+A --> H : 1: Chọn Xem báo cáo
+H --> T : 2: Mở chọn loại báo cáo
+T --> A : 3: Hiển thị loại báo cáo
+A --> T : 4: Chọn thống kê và Tiếp tục
+T --> M : 5: Mở biểu mẫu ngày
+M --> A : 6: Hiển thị biểu mẫu ngày
+A --> M : 7: Nhập ngày và Xem thống kê
+M --> MS : 8: Yêu cầu thống kê phim
+MS --> MS : 9: getMovieRevenueStats(from,to)
+MS --> M : 10: Trả danh sách thống kê phim
+M --> A : 11: Hiển thị bảng phim
+A --> M : 12: Chọn một phim
+M --> S : 13: Chuyển phim và khoảng ngày
+S --> SS : 14: Yêu cầu thống kê suất
+SS --> SS : 15: getShowtimeStats(movie,from,to)
+SS --> S : 16: Trả danh sách thống kê suất
+S --> A : 17: Hiển thị bảng suất chiếu
+A --> S : 18: Chọn một suất
+S --> I : 19: Chuyển suất và ngữ cảnh
+I --> IS : 20: Yêu cầu hóa đơn của suất
+IS --> IS : 21: getInvoicesByShowtime(showtime,from,to)
+IS --> I : 22: Trả danh sách hóa đơn
+I --> A : 23: Hiển thị hóa đơn và tổng
 @enduml

@@ -1,59 +1,77 @@
 @startuml 04-revenue-analysis
 skinparam defaultFontName DejaVu Sans
-skinparam defaultFontSize 15
 skinparam shadowing false
-skinparam backgroundColor white
-skinparam ArrowColor #33444C
-skinparam classBackgroundColor #F8FBFB
-skinparam classBorderColor #335D64
-skinparam packageBorderColor #60757D
-skinparam roundcorner 6
-skinparam dpi 150
-skinparam maxMessageSize 180
+skinparam classAttributeIconSize 0
 hide empty members
-top to bottom direction
 class ManagerUI0 <<boundary>> {
- subViewReport
+ -subViewReport
 }
 class ReportTypeUI0 <<boundary>> {
- subContinue
+ -outReportType
+ -subContinue
+ -subBack
 }
 class MovieStatsUI0 <<boundary>> {
- inFromDate
-inToDate
-outMovieStats
-subViewStatistics
-subMovie
+ -inFromDate
+ -inToDate
+ -subViewStatistics
+ -outsubMovieStats
+ -outError
+ -subBack
 }
 class ShowtimeStatsUI0 <<boundary>> {
- outShowtimeStats
-subShowtime
-subBack
+ -outMovieTitle
+ -outPeriod
+ -outsubShowtimeStats
+ -subBack
 }
 class InvoiceListUI0 <<boundary>> {
- outInvoices
-subBack
+ -outShowtimeContext
+ -outInvoices
+ -outTotal
+ -subBack
 }
 class Movie0 <<entity>> {
- getMovieRevenueStats(from,to)
+ -title
+ -durationMinutes
 }
 class Showtime0 <<entity>> {
- getShowtimeStats(movieId,from,to)
+ -startsAt
 }
 class Invoice0 <<entity>> {
- getInvoicesByShowtime(showtimeId,from,to)
+ -issuedAt
+ -status
 }
-ManagerUI0 --> ReportTypeUI0
-ReportTypeUI0 --> MovieStatsUI0
-MovieStatsUI0 --> ShowtimeStatsUI0
-ShowtimeStatsUI0 --> InvoiceListUI0
-MovieStatsUI0 ..> Movie0
-ShowtimeStatsUI0 ..> Showtime0
-InvoiceListUI0 ..> Invoice0
+class Ticket0 <<entity>> {
+ -unitPrice
+}
+class MovieRevenue0 <<entity>> {
+ -showtimeCount
+ -ticketCount
+ -revenue
+ +getMovieRevenueStats(from,to)
+}
+class ShowtimeRevenue0 <<entity>> {
+ -ticketCount
+ -revenue
+ +getShowtimeStats(movie,from,to)
+}
+class InvoiceRevenue0 <<entity>> {
+ -ticketCount
+ -revenue
+ +getInvoicesByShowtime(showtime,from,to)
+}
 Movie0 "1" -- "0..*" Showtime0
-note bottom of Invoice0
-Quan hệ hóa đơn và suất chiếu đi qua Ticket0
-như mô hình thực thể; không tạo FK trực tiếp.
-Các phương thức phân tích chuyển sang RevenueDAO0.
-end note
+Invoice0 "1" *-- "1..*" Ticket0
+Showtime0 "1" -- "0..*" Ticket0
+MovieRevenue0 --|> Movie0
+ShowtimeRevenue0 --|> Showtime0
+InvoiceRevenue0 --|> Invoice0
+ManagerUI0 -- ReportTypeUI0
+ReportTypeUI0 -- MovieStatsUI0
+MovieStatsUI0 -- ShowtimeStatsUI0
+ShowtimeStatsUI0 -- InvoiceListUI0
+MovieStatsUI0 -- MovieRevenue0
+ShowtimeStatsUI0 -- ShowtimeRevenue0
+InvoiceListUI0 -- InvoiceRevenue0
 @enduml

@@ -1,4 +1,3 @@
-' FILE: 07-registration-design.puml
 @startuml 07-registration-design
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15
@@ -62,8 +61,6 @@ passwordHash được lưu; mật khẩu không trả về HTML.
 end note
 @enduml
 
-
-' FILE: 07a-entities-design.puml
 @startuml 07a-entities-design
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15
@@ -139,8 +136,6 @@ Các ID liên kết là thành phần record trong code.
 end note
 @enduml
 
-
-' FILE: 08-revenue-design.puml
 @startuml 08-revenue-design
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15
@@ -210,8 +205,6 @@ Mọi truy vấn dùng cùng điều kiện PAID và starts_at.
 end note
 @enduml
 
-
-' FILE: 09-registration-activity.puml
 @startuml 09-registration-activity
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15
@@ -253,8 +246,6 @@ endif
 stop
 @enduml
 
-
-' FILE: 10-revenue-activity.puml
 @startuml 10-revenue-activity
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15
@@ -296,8 +287,6 @@ endif
 stop
 @enduml
 
-
-' FILE: 11-registration-sequence.puml
 @startuml 11-registration-sequence
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15
@@ -353,8 +342,6 @@ không chuyển mật khẩu vào session.
 end note
 @enduml
 
-
-' FILE: 12-revenue-sequence.puml
 @startuml 12-revenue-sequence
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15
@@ -410,8 +397,6 @@ Sơ đồ biểu diễn nhánh thành công; nhánh sai xem activity.
 end note
 @enduml
 
-
-' FILE: 13-database.puml
 @startuml 13-database
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15
@@ -497,8 +482,6 @@ SQL cho phép hóa đơn tạm chưa có vé.
 end note
 @enduml
 
-
-' FILE: 14-packages.puml
 @startuml 14-packages
 skinparam defaultFontName DejaVu Sans
 skinparam shadowing false
@@ -523,8 +506,6 @@ dao ..> model
 dao ..> service : Database0 → Password0\nchỉ khi khởi tạo seed
 @enduml
 
-
-' FILE: 15-deployment.puml
 @startuml 15-deployment
 skinparam defaultFontName DejaVu Sans
 skinparam defaultFontSize 15

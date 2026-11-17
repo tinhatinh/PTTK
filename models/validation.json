@@ -1,9 +1,182 @@
 {
   "tool": "Visual Paradigm Community Edition 18.1 build 20261101",
   "diagram_count": 20,
-  "class_member_name_audit_against_corresponding_puml": "PASS (6 class diagrams; no missing or extra member names)",
+  "class_diagrams": [
+    {
+      "diagram": "02-domain",
+      "class_count": 11,
+      "member_names": "PASS exact multiset against PlantUML"
+    },
+    {
+      "diagram": "03-registration-analysis",
+      "class_count": 5,
+      "member_names": "PASS exact multiset against PlantUML"
+    },
+    {
+      "diagram": "04-revenue-analysis",
+      "class_count": 12,
+      "member_names": "PASS exact multiset against PlantUML"
+    },
+    {
+      "diagram": "07-registration-design",
+      "class_count": 7,
+      "member_names": "PASS exact multiset against PlantUML"
+    },
+    {
+      "diagram": "07a-entities-design",
+      "class_count": 8,
+      "member_names": "PASS exact multiset against PlantUML"
+    },
+    {
+      "diagram": "08-revenue-design",
+      "class_count": 7,
+      "member_names": "PASS exact multiset against PlantUML"
+    }
+  ],
+  "communications": [
+    {
+      "diagram": "05-registration-communication",
+      "native_message_count": 11,
+      "visible_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "native_message_names_match_canonical_scenario": true
+    },
+    {
+      "diagram": "06-revenue-communication",
+      "native_message_count": 23,
+      "visible_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "native_message_names_match_canonical_scenario": true
+    }
+  ],
   "database_tables": 8,
-  "native_foreign_key_column_bindings": 8,
+  "database_column_count": 31,
+  "exact_database_columns": {
+    "ticket": [
+      "id",
+      "invoice_id",
+      "showtime_id",
+      "seat_id",
+      "unit_price"
+    ],
+    "invoice": [
+      "id",
+      "customer_id",
+      "issued_at",
+      "status"
+    ],
+    "showtime": [
+      "id",
+      "movie_id",
+      "room_id",
+      "starts_at"
+    ],
+    "seat": [
+      "id",
+      "room_id",
+      "label"
+    ],
+    "room": [
+      "id",
+      "name"
+    ],
+    "movie": [
+      "id",
+      "title",
+      "duration_minutes"
+    ],
+    "customer": [
+      "id",
+      "account_id",
+      "phone",
+      "email",
+      "registered_at"
+    ],
+    "account": [
+      "id",
+      "username",
+      "password_hash",
+      "role",
+      "full_name"
+    ]
+  },
+  "foreign_key_bindings": [
+    {
+      "table": "customer",
+      "column": "account_id",
+      "references": "account.id"
+    },
+    {
+      "table": "invoice",
+      "column": "customer_id",
+      "references": "customer.id"
+    },
+    {
+      "table": "seat",
+      "column": "room_id",
+      "references": "room.id"
+    },
+    {
+      "table": "showtime",
+      "column": "movie_id",
+      "references": "movie.id"
+    },
+    {
+      "table": "showtime",
+      "column": "room_id",
+      "references": "room.id"
+    },
+    {
+      "table": "ticket",
+      "column": "invoice_id",
+      "references": "invoice.id"
+    },
+    {
+      "table": "ticket",
+      "column": "showtime_id",
+      "references": "showtime.id"
+    },
+    {
+      "table": "ticket",
+      "column": "seat_id",
+      "references": "seat.id"
+    }
+  ],
+  "saved_project_sqlite_integrity": "ok",
   "export_scale_png": 3,
   "exports": [
     {
@@ -33,63 +206,63 @@
     {
       "diagram": "02-domain",
       "png_pixels": [
-        2898,
-        3168
+        3651,
+        2916
       ],
       "svg": true
     },
     {
       "diagram": "03-registration-analysis",
       "png_pixels": [
-        2418,
-        3540
+        3420,
+        1710
       ],
       "svg": true
     },
     {
       "diagram": "04-revenue-analysis",
       "png_pixels": [
-        2910,
-        4368
+        6054,
+        3210
       ],
       "svg": true
     },
     {
       "diagram": "04a-registration-states",
       "png_pixels": [
-        4188,
-        1908
+        3672,
+        2028
       ],
       "svg": true
     },
     {
       "diagram": "04b-revenue-states",
       "png_pixels": [
-        6072,
-        3078
+        5442,
+        3378
       ],
       "svg": true
     },
     {
       "diagram": "05-registration-communication",
       "png_pixels": [
-        4602,
-        2013
+        3108,
+        1953
       ],
       "svg": true
     },
     {
       "diagram": "06-revenue-communication",
       "png_pixels": [
-        6192,
-        3300
+        4446,
+        2379
       ],
       "svg": true
     },
     {
       "diagram": "07-registration-design",
       "png_pixels": [
-        3810,
+        4008,
         3573
       ],
       "svg": true
@@ -167,110 +340,7 @@
       "svg": true
     }
   ],
-  "limits": "Not a formal proof of UML semantics. Compound SQL unique constraints are documented in schema.sql and the ERD note.",
-  "registration_sequence_check": "Two native nested alt fragments; outer valid/invalid and inner SQL success/error guards. Captions and branches reviewed after export.",
-  "saved_project_sqlite_integrity": "ok",
-  "exact_database_column_audit": {
-    "result": "PASS after close and reopen",
-    "column_count": 31,
-    "tables": {
-      "ticket": [
-        "id",
-        "invoice_id",
-        "showtime_id",
-        "seat_id",
-        "unit_price"
-      ],
-      "invoice": [
-        "id",
-        "customer_id",
-        "issued_at",
-        "status"
-      ],
-      "showtime": [
-        "id",
-        "movie_id",
-        "room_id",
-        "starts_at"
-      ],
-      "seat": [
-        "id",
-        "room_id",
-        "label"
-      ],
-      "room": [
-        "id",
-        "name"
-      ],
-      "movie": [
-        "id",
-        "title",
-        "duration_minutes"
-      ],
-      "customer": [
-        "id",
-        "account_id",
-        "phone",
-        "email",
-        "registered_at"
-      ],
-      "account": [
-        "id",
-        "username",
-        "password_hash",
-        "role",
-        "full_name"
-      ]
-    }
-  },
-  "foreign_key_bindings_audit": [
-    {
-      "table": "customer",
-      "column": "account_id",
-      "references": "account.id",
-      "native_constraint_count": 1
-    },
-    {
-      "table": "invoice",
-      "column": "customer_id",
-      "references": "customer.id",
-      "native_constraint_count": 1
-    },
-    {
-      "table": "seat",
-      "column": "room_id",
-      "references": "room.id",
-      "native_constraint_count": 1
-    },
-    {
-      "table": "showtime",
-      "column": "movie_id",
-      "references": "movie.id",
-      "native_constraint_count": 1
-    },
-    {
-      "table": "showtime",
-      "column": "room_id",
-      "references": "room.id",
-      "native_constraint_count": 1
-    },
-    {
-      "table": "ticket",
-      "column": "invoice_id",
-      "references": "invoice.id",
-      "native_constraint_count": 1
-    },
-    {
-      "table": "ticket",
-      "column": "showtime_id",
-      "references": "showtime.id",
-      "native_constraint_count": 1
-    },
-    {
-      "table": "ticket",
-      "column": "seat_id",
-      "references": "seat.id",
-      "native_constraint_count": 1
-    }
-  ]
+  "removed_unused_analysis_relationships": 13,
+  "scope": "Structural audit of visible UML, native messages and saved ERD; not a proof of all business semantics.",
+  "reopened_saved_project": "PASS: all 20 diagrams reopened and exported through Visual Paradigm; class/message/ERD structure audited separately. Caption placement can be recalculated by VP when reopening; report uses the reviewed exports."
 }

@@ -1,34 +1,39 @@
 @startuml 06-revenue-communication
 skinparam defaultFontName DejaVu Sans
-skinparam defaultFontSize 15
 skinparam shadowing false
-skinparam backgroundColor white
-skinparam ArrowColor #33444C
-skinparam classBackgroundColor #F8FBFB
-skinparam classBorderColor #335D64
-skinparam packageBorderColor #60757D
-skinparam roundcorner 6
-skinparam dpi 150
-skinparam maxMessageSize 180
+skinparam classAttributeIconSize 0
 hide empty members
 allowmixing
-top to bottom direction
-actor "Quản lý" as A
-object ":MovieStatsUI0" as UI
-object ":Movie0" as M
-object ":ShowtimeStatsUI0" as SU
-object ":Showtime0" as S
-object ":InvoiceListUI0" as IU
-object ":Invoice0" as I
-A --> UI : 1: chọn khoảng ngày\n2: subViewStatistics
-UI --> M : 2.1: getMovieRevenueStats(from,to)
-M --> UI : 2.2: danh sách phim
-A --> UI : 3: subMovie(movieId)
-UI --> SU : 3.1: chuyển movieId, from, to
-SU --> S : 3.2: getShowtimeStats(movieId,from,to)
-S --> SU : 3.3: danh sách suất
-A --> SU : 4: subShowtime(showtimeId)
-SU --> IU : 4.1: chuyển showtimeId, movieId, from, to
-IU --> I : 4.2: getInvoicesByShowtime(showtimeId,from,to)
-I --> IU : 4.3: danh sách hóa đơn
+actor "Nhân viên quản lý" as A
+object ":ManagerUI0" as H
+object ":ReportTypeUI0" as T
+object ":MovieStatsUI0" as M
+object ":ShowtimeStatsUI0" as S
+object ":InvoiceListUI0" as I
+object ":MovieRevenue0" as MS
+object ":ShowtimeRevenue0" as SS
+object ":InvoiceRevenue0" as IS
+A --> H : 1: Chọn Xem báo cáo
+H --> T : 2: Mở chọn loại báo cáo
+T --> A : 3: Hiển thị loại báo cáo
+A --> T : 4: Chọn thống kê và Tiếp tục
+T --> M : 5: Mở biểu mẫu ngày
+M --> A : 6: Hiển thị biểu mẫu ngày
+A --> M : 7: Nhập ngày và Xem thống kê
+M --> MS : 8: Yêu cầu thống kê phim
+MS --> MS : 9: getMovieRevenueStats(from,to)
+MS --> M : 10: Trả danh sách thống kê phim
+M --> A : 11: Hiển thị bảng phim
+A --> M : 12: Chọn một phim
+M --> S : 13: Chuyển phim và khoảng ngày
+S --> SS : 14: Yêu cầu thống kê suất
+SS --> SS : 15: getShowtimeStats(movie,from,to)
+SS --> S : 16: Trả danh sách thống kê suất
+S --> A : 17: Hiển thị bảng suất chiếu
+A --> S : 18: Chọn một suất
+S --> I : 19: Chuyển suất và ngữ cảnh
+I --> IS : 20: Yêu cầu hóa đơn của suất
+IS --> IS : 21: getInvoicesByShowtime(showtime,from,to)
+IS --> I : 22: Trả danh sách hóa đơn
+I --> A : 23: Hiển thị hóa đơn và tổng
 @enduml

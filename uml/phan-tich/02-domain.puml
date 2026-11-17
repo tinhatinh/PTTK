@@ -1,66 +1,61 @@
 @startuml 02-domain
 skinparam defaultFontName DejaVu Sans
-skinparam defaultFontSize 15
 skinparam shadowing false
-skinparam backgroundColor white
-skinparam ArrowColor #33444C
-skinparam classBackgroundColor #F8FBFB
-skinparam classBorderColor #335D64
-skinparam packageBorderColor #60757D
-skinparam roundcorner 6
-skinparam dpi 150
-skinparam maxMessageSize 180
+skinparam classAttributeIconSize 0
 hide empty members
-top to bottom direction
-class Account0 {
- id
-username
-passwordHash
-role
-fullName
+class Account0 <<entity>> {
+ -username
+ -password
+ -fullName
+ -role
 }
-class Customer0 {
- id
-phone
-email
-registeredAt
+class Customer0 <<entity>> {
+ -phone
+ -email
+ -registeredAt
 }
-class Movie0 {
- id
-title
-durationMinutes
+class Movie0 <<entity>> {
+ -title
+ -durationMinutes
 }
-class Room0 {
- id
-name
+class Room0 <<entity>> {
+ -name
 }
-class Seat0 {
- id
-label
+class Seat0 <<entity>> {
+ -label
 }
-class Showtime0 {
- id
-startsAt
+class Showtime0 <<entity>> {
+ -startsAt
 }
-class Invoice0 {
- id
-issuedAt
-status
+class Invoice0 <<entity>> {
+ -issuedAt
+ -status
 }
-class Ticket0 {
- id
-unitPrice
+class Ticket0 <<entity>> {
+ -unitPrice
 }
-Account0 "1" -- "0..1" Customer0 : hồ sơ khách hàng
-Customer0 "0..1" -- "0..*" Invoice0 : đứng tên
-Invoice0 "1" *-- "1..*" Ticket0 : gồm
-Movie0 "1" -- "0..*" Showtime0 : được chiếu
-Room0 "1" -- "0..*" Showtime0 : diễn ra tại
-Room0 "1" *-- "1..*" Seat0 : có
-Showtime0 "1" -- "0..*" Ticket0 : dành cho
-Seat0 "1" -- "0..*" Ticket0 : vị trí ngồi
-note bottom of Ticket0
-Mỗi vé thuộc một suất và một hóa đơn.
-Một hóa đơn có thể chứa vé của nhiều suất.
-end note
+class MovieRevenue0 <<entity>> {
+ -showtimeCount
+ -ticketCount
+ -revenue
+}
+class ShowtimeRevenue0 <<entity>> {
+ -ticketCount
+ -revenue
+}
+class InvoiceRevenue0 <<entity>> {
+ -ticketCount
+ -revenue
+}
+Account0 "1" -- "0..1" Customer0
+Customer0 "0..1" -- "0..*" Invoice0
+Movie0 "1" -- "0..*" Showtime0
+Room0 "1" *-- "1..*" Seat0
+Room0 "1" -- "0..*" Showtime0
+Invoice0 "1" *-- "1..*" Ticket0
+Showtime0 "1" -- "0..*" Ticket0
+Seat0 "1" -- "0..*" Ticket0
+MovieRevenue0 --|> Movie0
+ShowtimeRevenue0 --|> Showtime0
+InvoiceRevenue0 --|> Invoice0
 @enduml
