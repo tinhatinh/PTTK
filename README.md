@@ -81,3 +81,9 @@ Repository: https://github.com/tinhatinh/PTTK . Đây là repository công khai 
 ## Project Visual Paradigm
 
 Mở `models/CineMan_De16_B23DCAT040.vpp` để chỉnh sửa 20 sơ đồ. PNG 3× và SVG vector xuất trực tiếp từ Visual Paradigm ở `models/export`; mã PlantUML nộp form ở `uml`. Xem `models/README.md` để đối chiếu.
+
+## Báo cáo cuối phiên bản 2.0
+
+- [Báo cáo PDF 55 trang](docs/report/16B23DCAT040v2.0.pdf)
+- [Báo cáo Word](docs/report/16B23DCAT040v2.0.docx)
+- [Danh mục bàn giao](docs/HANDOFF.md)
