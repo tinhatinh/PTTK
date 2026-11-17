@@ -2,13 +2,13 @@
 
 Mở `CineMan_De16_B23DCAT040.vpp` bằng Visual Paradigm 18.1. Đây là project native, có lớp, thuộc tính, phương thức, đối tượng, thông điệp, trạng thái, bảng và khóa ngoại có thể chỉnh sửa. Không cần cài plugin để mở hoặc chỉnh sửa project.
 
-- `export/`: 20 PNG xuất ở tỷ lệ 3× và 20 SVG vector từ chính Visual Paradigm. Báo cáo dùng các PNG này. Watermark Community được giữ nguyên.
-- `specs/`: dữ liệu mô tả đầu vào khi tạo sơ đồ bằng Open API; bố cục cuối được chỉnh trong project. Project `.vpp` là bản mô hình cuối.
-- `validation.json`: phạm vi kiểm tra thành viên lớp, số bảng/FK và kích thước ảnh; không thay thế kiểm tra nghiệp vụ.
+- `export/`: 22 PNG xuất ở tỷ lệ 3× và 22 SVG vector từ chính Visual Paradigm. Báo cáo dùng các PNG này. Watermark Community được giữ nguyên.
+- `specs/`: đặc tả dựng hình hoặc snapshot Open API của sơ đồ; bố cục cuối được chỉnh trong project. Project `.vpp` là bản mô hình cuối.
+- `validation.json`: kiểm tra chữ ký thành viên lớp, quan hệ và hướng, bội số/hợp thành, phân cấp actor, đầu gửi/nhận thông điệp, cột/FK và đầu nối; không thay thế kiểm tra nghiệp vụ.
 - `../uml/`: mã PlantUML tương ứng về nội dung để dán vào các Google Form. Bố cục giữa hai công cụ có thể khác nhau.
 - `../docs/evidence/15-visual-paradigm.png`: ảnh chụp ứng dụng Visual Paradigm đang mở lớp thực thể.
 
-## Danh mục 20 sơ đồ
+## Danh mục 22 sơ đồ
 
 | Pha | Tệp (bỏ phần mở rộng) |
 |---|---|
@@ -22,6 +22,8 @@ Mở `CineMan_De16_B23DCAT040.vpp` bằng Visual Paradigm 18.1. Đây là projec
 | Phân tích | `04b-revenue-states` |
 | Phân tích | `05-registration-communication` |
 | Phân tích | `06-revenue-communication` |
+| Phân tích | `06a-registration-analysis-sequence` |
+| Phân tích | `06b-revenue-analysis-sequence` |
 | Thiết kế | `07-registration-design` |
 | Thiết kế | `07a-entities-design` |
 | Thiết kế | `08-revenue-design` |
@@ -35,17 +37,17 @@ Mở `CineMan_De16_B23DCAT040.vpp` bằng Visual Paradigm 18.1. Đây là projec
 
 ## Nội dung pha phân tích
 
-Bảy sơ đồ phân tích được dựng lại theo tiến trình của bài mẫu LibMan: trích thực thể qua danh từ, quan hệ và lớp thống kê; trích lớp biên in/out/sub từ kịch bản; gán trách nhiệm xử lý cho lớp thực thể hoặc lớp kết quả; trạng thái điều hướng giao diện; giao tiếp với đủ 11 và 23 thông điệp tương ứng các kịch bản đánh số trong báo cáo. Pha thiết kế có bảng chuyển các trách nhiệm này sang service/DAO và các record Java thực tế.
+Chín sơ đồ phân tích được dựng theo tiến trình của bài mẫu cùng Đề 16: kịch bản, trích thực thể qua danh từ và quan hệ, trích biên in/out/sub, trạng thái giao diện, kịch bản chi tiết, giao tiếp, tuần tự phân tích. Hai luồng dùng cùng 11 và 23 thông điệp ở kịch bản/giao tiếp/tuần tự. Pha thiết kế chuyển trách nhiệm sang Servlet, service, DAO và các record Java thực tế.
 
-Đường nối đã được chỉnh trong mô hình native để tránh vùng che nhãn và các lớp cản đường. Nhãn giao tiếp được rút gọn để đọc rõ trong trang in; số và hướng đối chiếu với nội dung đầy đủ trong kịch bản và các IMessage native.
+Mô hình toàn hệ thống có Account0, Customer0, Employee0, Movie0, Room0, Seat0, Showtime0, Invoice0, Ticket0 và bốn kiểu thống kê. Employee0 và CustomerRevenue0 là bối cảnh toàn hệ thống; bản chạy chỉ có hai mô-đun đã công bố.
 
 ## Quy ước mô hình
 
-Các package `Scope_*` tổ chức các phiên bản lớp theo pha để tên lớp phân tích không bị ghi đè bởi lớp thiết kế. Chúng không phải package Java triển khai. Sơ đồ `14-packages` thể hiện các package Java thực tế.
+Các package `Model_*` tách lớp theo pha và mô-đun, tránh ghi đè trách nhiệm phân tích bằng phương thức thiết kế. Chúng không là package Java triển khai; `14-packages` thể hiện các package source.
 
-Communication diagram chứa các `IMessage` native thuộc các `InteractionLifeLineLink`. Để tránh nhãn chồng nhau, thông điệp được trình bày gộp trên mỗi liên kết, có số thứ tự và mũi tên hướng gửi/trả. Các message vẫn có trong mô hình liên kết. Đối tượng biên/thực thể tham chiếu classifier của lớp phân tích.
+Communication diagram chứa các IMessage native thuộc InteractionLifeLineLink. Mỗi thông điệp có một view CommunicationMessage/CommunicationReverseMessage riêng, số và mũi tên do Visual Paradigm vẽ. View được đặt tự do để giữ bố cục sau khi lưu/mở lại, không dùng ký tự mũi tên thay UML. Các đối tượng biên/thực thể tham chiếu classifier phân tích.
 
-ERD có tám bảng và tám ánh xạ khóa ngoại tới đúng cột snake_case hiện hữu. `schema.sql` là định nghĩa thực thi, gồm cả UNIQUE nhiều cột và CHECK được ghi chú trong ERD. Không tuyên bố project VP đã tự sinh hoặc chạy toàn bộ DDL. Bất biến ghế đúng phòng và hóa đơn phải có vé chưa được SQL cưỡng chế; xem README và báo cáo.
+ERD có chín bảng, đúng 35 cột và chín ánh xạ FK tới cột snake_case hiện hữu. `schema.sql` là định nghĩa thực thi, gồm UNIQUE/CHECK; các lớp thống kê không có bảng riêng. Bất biến ghế đúng phòng và hóa đơn phải có vé chưa được SQL cưỡng chế; xem README và báo cáo.
 
 ## Công cụ và nguồn tham khảo kỹ thuật
 
@@ -53,3 +55,5 @@ Visual Paradigm Community Edition 18.1 build 20261101, Open API chính thức. T
 
 - [Tạo communication diagram qua Open API](https://knowhow.visual-paradigm.com/openapi/create-communication-diagram/)
 - [Xuất ảnh từ plugin](https://knowhow.visual-paradigm.com/openapi/export-diagram-img-plugin/)
+
+Người dùng là actor tổng quát của ba vai trò. Các tham chiếu được giữ trong trường Java thể hiện bằng association một chiều; phụ thuộc sử dụng thể hiện bằng dependency hướng tới lớp được dùng. Các bố cục đã được kiểm tra sau khi lưu/mở lại project.

@@ -1,534 +1,337 @@
 {
-  "diagramType": "ClassDiagram",
-  "elements": [
+  "id": "A8BbF4WD.AACARWb",
+  "type": "ClassDiagram",
+  "name": "08-revenue-design",
+  "opened": false,
+  "note": "diagram is not open in VP: bounds may be stale until it is opened (vp_open_diagram)",
+  "shapes": [
     {
-      "key": "AppServlet0",
-      "type": "Class",
-      "name": "AppServlet0",
-      "children": [
-        {
-          "type": "Attribute",
-          "name": "revenue",
-          "properties": {
-            "visibility": "private",
-            "type": "RevenueDAO0"
-          }
-        },
-        {
-          "type": "Operation",
-          "name": "reportPage",
-          "properties": {
-            "visibility": "private",
-            "returnType": "void"
-          },
-          "children": [
-            {
-              "type": "Parameter",
-              "name": "q"
-            },
-            {
-              "type": "Parameter",
-              "name": "r"
-            }
-          ]
-        },
-        {
-          "type": "Operation",
-          "name": "showtimesPage",
-          "properties": {
-            "visibility": "private",
-            "returnType": "void"
-          },
-          "children": [
-            {
-              "type": "Parameter",
-              "name": "q"
-            },
-            {
-              "type": "Parameter",
-              "name": "r"
-            }
-          ]
-        },
-        {
-          "type": "Operation",
-          "name": "invoicesPage",
-          "properties": {
-            "visibility": "private",
-            "returnType": "void"
-          },
-          "children": [
-            {
-              "type": "Parameter",
-              "name": "q"
-            },
-            {
-              "type": "Parameter",
-              "name": "r"
-            }
-          ]
-        },
-        {
-          "type": "Operation",
-          "name": "range",
-          "properties": {
-            "visibility": "private",
-            "returnType": "LocalDate[]"
-          },
-          "children": [
-            {
-              "type": "Parameter",
-              "name": "q"
-            }
-          ]
-        },
-        {
-          "type": "Operation",
-          "name": "id",
-          "properties": {
-            "visibility": "private",
-            "returnType": "long"
-          },
-          "children": [
-            {
-              "type": "Parameter",
-              "name": "q"
-            },
-            {
-              "type": "Parameter",
-              "name": "name"
-            }
-          ]
-        }
-      ],
-      "properties": {
-        "stereotypes": [
-          "servlet"
-        ]
-      },
-      "x": 423,
-      "y": 61,
-      "width": 367,
-      "height": 269,
-      "view": {
-        "fontSize": 20,
-        "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+      "shapeId": "f3fcl4WD.AACASvr",
+      "shapeType": "Class",
+      "modelId": "v3fcl4WD.AACASvq",
+      "modelType": "Class",
+      "name": "View0",
+      "x": 1490,
+      "y": 40,
+      "width": 650,
+      "height": 170
     },
     {
-      "key": "RevenueService0",
-      "type": "Class",
-      "name": "RevenueService0",
-      "children": [
-        {
-          "type": "Attribute",
-          "name": "{static",
-          "properties": {
-            "visibility": "public"
-          }
-        }
-      ],
-      "properties": {
-        "stereotypes": [
-          "validation"
-        ]
-      },
-      "x": 61,
-      "y": 474,
-      "width": 406,
-      "height": 120,
-      "view": {
-        "fontSize": 20,
-        "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
-    },
-    {
-      "key": "RevenueDAO0",
-      "type": "Class",
-      "name": "RevenueDAO0",
-      "children": [
-        {
-          "type": "Attribute",
-          "name": "db",
-          "properties": {
-            "visibility": "private",
-            "type": "Database0"
-          }
-        },
-        {
-          "type": "Operation",
-          "name": "getMovieRevenueStats",
-          "properties": {
-            "visibility": "public",
-            "returnType": "List<MovieRevenue0>"
-          },
-          "children": [
-            {
-              "type": "Parameter",
-              "name": "from"
-            },
-            {
-              "type": "Parameter",
-              "name": "to"
-            }
-          ]
-        },
-        {
-          "type": "Operation",
-          "name": "getShowtimeStats",
-          "properties": {
-            "visibility": "public",
-            "returnType": "List<ShowtimeRevenue0>"
-          },
-          "children": [
-            {
-              "type": "Parameter",
-              "name": "movieId"
-            },
-            {
-              "type": "Parameter",
-              "name": "from"
-            },
-            {
-              "type": "Parameter",
-              "name": "to"
-            }
-          ]
-        },
-        {
-          "type": "Operation",
-          "name": "getInvoicesByShowtime",
-          "properties": {
-            "visibility": "public",
-            "returnType": "List<InvoiceRevenue0>"
-          },
-          "children": [
-            {
-              "type": "Parameter",
-              "name": "showtimeId"
-            },
-            {
-              "type": "Parameter",
-              "name": "from"
-            },
-            {
-              "type": "Parameter",
-              "name": "to"
-            }
-          ]
-        },
-        {
-          "type": "Operation",
-          "name": "bind",
-          "properties": {
-            "visibility": "private",
-            "returnType": "void"
-          },
-          "children": [
-            {
-              "type": "Parameter",
-              "name": "statement"
-            },
-            {
-              "type": "Parameter",
-              "name": "from"
-            },
-            {
-              "type": "Parameter",
-              "name": "to"
-            }
-          ]
-        }
-      ],
-      "properties": {
-        "stereotypes": [
-          "DAO"
-        ]
-      },
-      "x": 502,
-      "y": 414,
-      "width": 893,
-      "height": 242,
-      "view": {
-        "fontSize": 20,
-        "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
-    },
-    {
-      "key": "Database0",
-      "type": "Class",
-      "name": "Database0",
-      "children": [
-        {
-          "type": "Operation",
-          "name": "open",
-          "properties": {
-            "visibility": "public",
-            "returnType": "Connection"
-          },
-          "children": []
-        }
-      ],
-      "properties": {},
-      "x": 127,
-      "y": 817,
-      "width": 293,
-      "height": 100,
-      "view": {
-        "fontSize": 20,
-        "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
-    },
-    {
-      "key": "MovieRevenue0",
-      "type": "Class",
-      "name": "MovieRevenue0",
-      "children": [
-        {
-          "type": "Attribute",
-          "name": "movieId",
-          "properties": {
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "title",
-          "properties": {
-            "type": "String"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "showtimeCount",
-          "properties": {
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "ticketCount",
-          "properties": {
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "revenue",
-          "properties": {
-            "type": "BigDecimal"
-          }
-        }
-      ],
-      "properties": {
-        "stereotypes": [
-          "record"
-        ]
-      },
-      "x": 454,
-      "y": 753,
-      "width": 295,
-      "height": 229,
-      "view": {
-        "fontSize": 20,
-        "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
-    },
-    {
-      "key": "ShowtimeRevenue0",
-      "type": "Class",
-      "name": "ShowtimeRevenue0",
-      "children": [
-        {
-          "type": "Attribute",
-          "name": "showtimeId",
-          "properties": {
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "movieTitle",
-          "properties": {
-            "type": "String"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "roomName",
-          "properties": {
-            "type": "String"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "startsAt",
-          "properties": {
-            "type": "LocalDateTime"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "ticketCount",
-          "properties": {
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "revenue",
-          "properties": {
-            "type": "BigDecimal"
-          }
-        }
-      ],
-      "properties": {
-        "stereotypes": [
-          "record"
-        ]
-      },
-      "x": 784,
-      "y": 739,
-      "width": 329,
-      "height": 256,
-      "view": {
-        "fontSize": 20,
-        "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
-    },
-    {
-      "key": "InvoiceRevenue0",
-      "type": "Class",
+      "shapeId": "lKBbF4WD.AACARYU",
+      "shapeType": "Class",
+      "modelId": "9iBbF4WD.AACARXf",
+      "modelType": "Class",
       "name": "InvoiceRevenue0",
-      "children": [
-        {
-          "type": "Attribute",
-          "name": "invoiceId",
-          "properties": {
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "issuedAt",
-          "properties": {
-            "type": "LocalDateTime"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "customerName",
-          "properties": {
-            "type": "String"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "ticketCount",
-          "properties": {
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "revenue",
-          "properties": {
-            "type": "BigDecimal"
-          }
-        }
-      ],
-      "properties": {
-        "stereotypes": [
-          "record"
-        ]
-      },
-      "x": 1147,
-      "y": 753,
-      "width": 337,
-      "height": 229,
-      "view": {
-        "fontSize": 20,
-        "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+      "x": 1800,
+      "y": 810,
+      "width": 610,
+      "height": 330
     },
     {
-      "key": "note0",
-      "type": "NOTE",
-      "name": "from và to: LocalDate; mã đối tượng: long.\nMọi truy vấn dùng cùng điều kiện PAID và starts_at.",
+      "shapeId": "mKBbF4WD.AACARYN",
+      "shapeType": "Class",
+      "modelId": "uiBbF4WD.AACARXW",
+      "modelType": "Class",
+      "name": "ShowtimeRevenue0",
+      "x": 900,
+      "y": 810,
+      "width": 620,
+      "height": 355
+    },
+    {
+      "shapeId": "oKBbF4WD.AACARYG",
+      "shapeType": "Class",
+      "modelId": "0iBbF4WD.AACARXO",
+      "modelType": "Class",
+      "name": "MovieRevenue0",
       "x": 60,
-      "y": 1055,
-      "width": 800,
-      "height": 90,
-      "view": {
-        "fontSize": 18
-      }
+      "y": 810,
+      "width": 590,
+      "height": 330
+    },
+    {
+      "shapeId": "ryBbF4WD.AACARX_",
+      "shapeType": "Class",
+      "modelId": "YiBbF4WD.AACARXM",
+      "modelType": "Class",
+      "name": "Database0",
+      "x": 2220,
+      "y": 360,
+      "width": 370,
+      "height": 125
+    },
+    {
+      "shapeId": "ByBbF4WD.AACARX4",
+      "shapeType": "Class",
+      "modelId": "DCBbF4WD.AACARW7",
+      "modelType": "Class",
+      "name": "RevenueDAO0",
+      "x": 760,
+      "y": 330,
+      "width": 1250,
+      "height": 260
+    },
+    {
+      "shapeId": "cyBbF4WD.AACARXx",
+      "shapeType": "Class",
+      "modelId": "5CBbF4WD.AACARW3",
+      "modelType": "Class",
+      "name": "RevenueService0",
+      "x": 760,
+      "y": 30,
+      "width": 650,
+      "height": 115
+    },
+    {
+      "shapeId": "PSBbF4WD.AACARXs",
+      "shapeType": "Class",
+      "modelId": "0CBbF4WD.AACARWn",
+      "modelType": "Class",
+      "name": "AppServlet0",
+      "x": 60,
+      "y": 80,
+      "width": 500,
+      "height": 280
     }
   ],
   "connectors": [
     {
-      "type": "Dependency",
-      "from": "AppServlet0",
-      "to": "RevenueService0",
-      "properties": {},
-      "view": {
-        "fontSize": 18
-      }
+      "shapeId": "MqBbF4WD.AACARYk",
+      "shapeType": "Dependency",
+      "modelId": "0qBbF4WD.AACARYj",
+      "modelType": "Dependency",
+      "name": null,
+      "fromShapeId": "PSBbF4WD.AACARXs",
+      "toShapeId": "cyBbF4WD.AACARXx",
+      "points": [
+        [
+          560,
+          120
+        ],
+        [
+          760,
+          90
+        ]
+      ]
     },
     {
-      "type": "Association",
-      "from": "AppServlet0",
-      "to": "RevenueDAO0",
-      "properties": {
-        "to.navigable": "navigable"
-      },
-      "view": {
-        "fontSize": 18
-      }
+      "shapeId": "SqBbF4WD.AACARYs",
+      "shapeType": "Association",
+      "modelId": "cqBbF4WD.AACARYn",
+      "modelType": "Association",
+      "name": null,
+      "fromShapeId": "PSBbF4WD.AACARXs",
+      "toShapeId": "ByBbF4WD.AACARX4",
+      "points": [
+        [
+          560,
+          325
+        ],
+        [
+          650,
+          325
+        ],
+        [
+          650,
+          460
+        ],
+        [
+          760,
+          460
+        ]
+      ]
     },
     {
-      "type": "Association",
-      "from": "RevenueDAO0",
-      "to": "Database0",
-      "properties": {
-        "to.navigable": "navigable"
-      },
-      "view": {
-        "fontSize": 18
-      }
+      "shapeId": "6qBbF4WD.AACARY0",
+      "shapeType": "Association",
+      "modelId": "KqBbF4WD.AACARYv",
+      "modelType": "Association",
+      "name": null,
+      "fromShapeId": "ByBbF4WD.AACARX4",
+      "toShapeId": "ryBbF4WD.AACARX_",
+      "points": [
+        [
+          2010,
+          420
+        ],
+        [
+          2220,
+          420
+        ]
+      ]
     },
     {
-      "type": "Dependency",
-      "from": "RevenueDAO0",
-      "to": "MovieRevenue0",
-      "properties": {},
-      "view": {
-        "fontSize": 18
-      }
+      "shapeId": "WqBbF4WD.AACARY4",
+      "shapeType": "Dependency",
+      "modelId": "mqBbF4WD.AACARY3",
+      "modelType": "Dependency",
+      "name": null,
+      "fromShapeId": "ByBbF4WD.AACARX4",
+      "toShapeId": "oKBbF4WD.AACARYG",
+      "points": [
+        [
+          850,
+          590
+        ],
+        [
+          850,
+          675
+        ],
+        [
+          500,
+          675
+        ],
+        [
+          500,
+          810
+        ]
+      ]
     },
     {
-      "type": "Dependency",
-      "from": "RevenueDAO0",
-      "to": "ShowtimeRevenue0",
-      "properties": {},
-      "view": {
-        "fontSize": 18
-      }
+      "shapeId": "OqBbF4WD.AACARY8",
+      "shapeType": "Dependency",
+      "modelId": "2qBbF4WD.AACARY7",
+      "modelType": "Dependency",
+      "name": null,
+      "fromShapeId": "ByBbF4WD.AACARX4",
+      "toShapeId": "mKBbF4WD.AACARYN",
+      "points": [
+        [
+          1385,
+          590
+        ],
+        [
+          1385,
+          810
+        ]
+      ]
     },
     {
-      "type": "Dependency",
-      "from": "RevenueDAO0",
-      "to": "InvoiceRevenue0",
-      "properties": {},
-      "view": {
-        "fontSize": 18
-      }
+      "shapeId": "eqBbF4WD.AACARZA",
+      "shapeType": "Dependency",
+      "modelId": "uqBbF4WD.AACARY_",
+      "modelType": "Dependency",
+      "name": null,
+      "fromShapeId": "ByBbF4WD.AACARX4",
+      "toShapeId": "lKBbF4WD.AACARYU",
+      "points": [
+        [
+          1920,
+          590
+        ],
+        [
+          1920,
+          810
+        ]
+      ]
+    },
+    {
+      "shapeId": "oA_cl4WD.AACATUy",
+      "shapeType": "Dependency",
+      "modelId": "IA_cl4WD.AACATUx",
+      "modelType": "Dependency",
+      "name": null,
+      "fromShapeId": "PSBbF4WD.AACARXs",
+      "toShapeId": "f3fcl4WD.AACASvr",
+      "points": [
+        [
+          560,
+          260
+        ],
+        [
+          1815,
+          260
+        ],
+        [
+          1815,
+          210
+        ]
+      ]
+    },
+    {
+      "shapeId": "VA_cl4WD.AACATU2",
+      "shapeType": "Dependency",
+      "modelId": "lA_cl4WD.AACATU1",
+      "modelType": "Dependency",
+      "name": null,
+      "fromShapeId": "PSBbF4WD.AACARXs",
+      "toShapeId": "oKBbF4WD.AACARYG",
+      "points": [
+        [
+          200,
+          360
+        ],
+        [
+          200,
+          810
+        ]
+      ]
+    },
+    {
+      "shapeId": "Qg_cl4WD.AACATU6",
+      "shapeType": "Dependency",
+      "modelId": "gg_cl4WD.AACATU5",
+      "modelType": "Dependency",
+      "name": null,
+      "fromShapeId": "PSBbF4WD.AACARXs",
+      "toShapeId": "mKBbF4WD.AACARYN",
+      "points": [
+        [
+          400,
+          360
+        ],
+        [
+          400,
+          720
+        ],
+        [
+          1050,
+          720
+        ],
+        [
+          1050,
+          810
+        ]
+      ]
+    },
+    {
+      "shapeId": "Og_cl4WD.AACATU.",
+      "shapeType": "Dependency",
+      "modelId": "2g_cl4WD.AACATU9",
+      "modelType": "Dependency",
+      "name": null,
+      "fromShapeId": "PSBbF4WD.AACARXs",
+      "toShapeId": "lKBbF4WD.AACARYU",
+      "points": [
+        [
+          560,
+          300
+        ],
+        [
+          600,
+          300
+        ],
+        [
+          600,
+          650
+        ],
+        [
+          2670,
+          650
+        ],
+        [
+          2670,
+          710
+        ],
+        [
+          2220,
+          710
+        ],
+        [
+          2220,
+          810
+        ]
+      ]
     }
   ]
 }

@@ -1,436 +1,169 @@
 {
-  "diagramType": "ClassDiagram",
   "elements": [
     {
       "key": "Account0",
       "type": "Class",
       "name": "Account0",
-      "children": [
-        {
-          "type": "Attribute",
-          "name": "id",
-          "properties": {
-            "visibility": "private",
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "username",
-          "properties": {
-            "visibility": "private",
-            "type": "String"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "passwordHash",
-          "properties": {
-            "visibility": "private",
-            "type": "String"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "role",
-          "properties": {
-            "visibility": "private",
-            "type": "String"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "fullName",
-          "properties": {
-            "visibility": "private",
-            "type": "String"
-          }
-        }
-      ],
-      "properties": {
-        "stereotypes": [
-          "record"
-        ]
-      },
-      "x": 78,
+      "x": 401,
       "y": 61,
       "width": 324,
       "height": 229,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#EDF6FA"
+      },
+      "modelId": "_v.bF4WD.AACARS7"
     },
     {
       "key": "Customer0",
       "type": "Class",
       "name": "Customer0",
-      "children": [
-        {
-          "type": "Attribute",
-          "name": "id",
-          "properties": {
-            "visibility": "private",
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "accountId",
-          "properties": {
-            "visibility": "private",
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "phone",
-          "properties": {
-            "visibility": "private",
-            "type": "String"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "email",
-          "properties": {
-            "visibility": "private",
-            "type": "String"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "registeredAt",
-          "properties": {
-            "visibility": "private",
-            "type": "LocalDate"
-          }
-        }
-      ],
-      "properties": {
-        "stereotypes": [
-          "record"
-        ]
-      },
-      "x": 67,
+      "x": 61,
       "y": 403,
-      "width": 346,
-      "height": 229,
+      "width": 536,
+      "height": 296,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#EDF6FA"
+      },
+      "modelId": "6f.bF4WD.AACARTB"
+    },
+    {
+      "key": "Employee0",
+      "type": "Class",
+      "name": "Employee0",
+      "x": 632,
+      "y": 451,
+      "width": 329,
+      "height": 202,
+      "view": {
+        "fontSize": 18,
+        "displayStereotypeIcon": false,
+        "fillColor": "#EDF6FA"
+      },
+      "modelId": "7f.bF4WD.AACARTJ"
     },
     {
       "key": "Movie0",
       "type": "Class",
       "name": "Movie0",
-      "children": [
-        {
-          "type": "Attribute",
-          "name": "id",
-          "properties": {
-            "visibility": "private",
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "title",
-          "properties": {
-            "visibility": "private",
-            "type": "String"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "durationMinutes",
-          "properties": {
-            "visibility": "private",
-            "type": "int"
-          }
-        }
-      ],
-      "properties": {
-        "stereotypes": [
-          "record"
-        ]
-      },
-      "x": 729,
-      "y": 431,
+      "x": 1250,
+      "y": 464,
       "width": 305,
       "height": 175,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#EDF6FA"
+      },
+      "modelId": "E_.bF4WD.AACARTO"
     },
     {
       "key": "Room0",
       "type": "Class",
       "name": "Room0",
-      "children": [
-        {
-          "type": "Attribute",
-          "name": "id",
-          "properties": {
-            "visibility": "private",
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "name",
-          "properties": {
-            "visibility": "private",
-            "type": "String"
-          }
-        }
-      ],
-      "properties": {
-        "stereotypes": [
-          "record"
-        ]
-      },
-      "x": 468,
-      "y": 444,
+      "x": 996,
+      "y": 478,
       "width": 220,
       "height": 147,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#EDF6FA"
+      },
+      "modelId": "K_.bF4WD.AACARTS"
     },
     {
       "key": "Seat0",
       "type": "Class",
       "name": "Seat0",
-      "children": [
-        {
-          "type": "Attribute",
-          "name": "id",
-          "properties": {
-            "visibility": "private",
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "roomId",
-          "properties": {
-            "visibility": "private",
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "label",
-          "properties": {
-            "visibility": "private",
-            "type": "String"
-          }
-        }
-      ],
-      "properties": {
-        "stereotypes": [
-          "record"
-        ]
-      },
-      "x": 454,
-      "y": 760,
+      "x": 925,
+      "y": 827,
       "width": 217,
       "height": 175,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#EDF6FA"
+      },
+      "modelId": "u_.bF4WD.AACARTV"
     },
     {
       "key": "Showtime0",
       "type": "Class",
       "name": "Showtime0",
-      "children": [
-        {
-          "type": "Attribute",
-          "name": "id",
-          "properties": {
-            "visibility": "private",
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "movieId",
-          "properties": {
-            "visibility": "private",
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "roomId",
-          "properties": {
-            "visibility": "private",
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "startsAt",
-          "properties": {
-            "visibility": "private",
-            "type": "LocalDateTime"
-          }
-        }
-      ],
-      "properties": {
-        "stereotypes": [
-          "record"
-        ]
-      },
-      "x": 706,
-      "y": 746,
+      "x": 1177,
+      "y": 813,
       "width": 351,
       "height": 202,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#EDF6FA"
+      },
+      "modelId": "z_.bF4WD.AACARTZ"
     },
     {
       "key": "Invoice0",
       "type": "Class",
       "name": "Invoice0",
-      "children": [
-        {
-          "type": "Attribute",
-          "name": "id",
-          "properties": {
-            "visibility": "private",
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "customerId",
-          "properties": {
-            "visibility": "private",
-            "type": "Long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "issuedAt",
-          "properties": {
-            "visibility": "private",
-            "type": "LocalDateTime"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "status",
-          "properties": {
-            "visibility": "private",
-            "type": "String"
-          }
-        }
-      ],
-      "properties": {
-        "stereotypes": [
-          "record"
-        ]
-      },
-      "x": 61,
-      "y": 746,
+      "x": 425,
+      "y": 813,
       "width": 359,
       "height": 202,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#EDF6FA"
+      },
+      "modelId": "cABbF4WD.AACARTe"
     },
     {
       "key": "Ticket0",
       "type": "Class",
       "name": "Ticket0",
-      "children": [
-        {
-          "type": "Attribute",
-          "name": "id",
-          "properties": {
-            "visibility": "private",
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "invoiceId",
-          "properties": {
-            "visibility": "private",
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "showtimeId",
-          "properties": {
-            "visibility": "private",
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "seatId",
-          "properties": {
-            "visibility": "private",
-            "type": "long"
-          }
-        },
-        {
-          "type": "Attribute",
-          "name": "unitPrice",
-          "properties": {
-            "visibility": "private",
-            "type": "BigDecimal"
-          }
-        }
-      ],
-      "properties": {
-        "stereotypes": [
-          "record"
-        ]
-      },
-      "x": 403,
-      "y": 1061,
+      "x": 874,
+      "y": 1128,
       "width": 319,
       "height": 229,
       "view": {
-        "fontSize": 20,
+        "fontSize": 18,
         "displayStereotypeIcon": false,
-        "background": "#FFFFFF"
-      }
+        "fillColor": "#EDF6FA"
+      },
+      "modelId": "uABbF4WD.AACARTj"
     },
     {
       "key": "note0",
       "type": "NOTE",
       "name": "Record components private final; accessors public.\nCác ID liên kết là thành phần record trong code.",
       "x": 60,
-      "y": 1350,
+      "y": 1417,
       "width": 800,
       "height": 90,
       "view": {
-        "fontSize": 18
+        "fontSize": 18,
+        "displayStereotypeIcon": false,
+        "fillColor": "#EDF6FA"
       }
     }
   ],
   "connectors": [
+    {
+      "type": "Association",
+      "from": "Account0",
+      "to": "Employee0",
+      "properties": {
+        "from.multiplicity": "1",
+        "to.multiplicity": "0..1"
+      },
+      "view": {
+        "fontSize": 18
+      },
+      "name": "hồ sơ nhân viên"
+    },
     {
       "type": "Association",
       "from": "Account0",

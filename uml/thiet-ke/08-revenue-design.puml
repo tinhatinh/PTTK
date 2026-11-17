@@ -20,6 +20,11 @@ class AppServlet0 <<servlet>> {
  -range(q) : LocalDate[]
  -id(q,name) : long
 }
+class View0 <<view>> {
+ +{static} page(title,body,manager,csrf) : String
+ +{static} e(x) : String
+ +{static} money(value : BigDecimal) : String
+}
 class RevenueService0 <<validation>> {
  +{static} validateRange(from,to) : void
 }
@@ -39,6 +44,8 @@ title : String
 showtimeCount : long
 ticketCount : long
 revenue : BigDecimal
+fromDate : LocalDate
+toDate : LocalDate
 }
 class ShowtimeRevenue0 <<record>> {
  showtimeId : long
@@ -47,6 +54,8 @@ roomName : String
 startsAt : LocalDateTime
 ticketCount : long
 revenue : BigDecimal
+fromDate : LocalDate
+toDate : LocalDate
 }
 class InvoiceRevenue0 <<record>> {
  invoiceId : long
@@ -54,15 +63,17 @@ issuedAt : LocalDateTime
 customerName : String
 ticketCount : long
 revenue : BigDecimal
+fromDate : LocalDate
+toDate : LocalDate
 }
+AppServlet0 ..> View0
+AppServlet0 ..> MovieRevenue0
+AppServlet0 ..> ShowtimeRevenue0
+AppServlet0 ..> InvoiceRevenue0
 AppServlet0 ..> RevenueService0
 AppServlet0 --> RevenueDAO0
 RevenueDAO0 --> Database0
 RevenueDAO0 ..> MovieRevenue0
 RevenueDAO0 ..> ShowtimeRevenue0
 RevenueDAO0 ..> InvoiceRevenue0
-note bottom of RevenueDAO0
-from và to: LocalDate; mã đối tượng: long.
-Mọi truy vấn dùng cùng điều kiện PAID và starts_at.
-end note
 @enduml

@@ -29,6 +29,7 @@ class Account0 <<entity>> {
  -role
 }
 class Customer0 <<entity>> {
+ -memberCode
  -phone
  -email
  -registeredAt

@@ -1,4 +1,5 @@
 INSERT INTO account(id,username,password_hash,role,full_name) VALUES(1,'manager','$MANAGER_HASH$','MANAGER','Quản lý CineMan');
+INSERT INTO employee(account_id,employee_code,position) SELECT id,'NV001','Quản lý' FROM account WHERE username='manager';
 ALTER TABLE account ALTER COLUMN id RESTART WITH 100;
 INSERT INTO movie VALUES(1,'Hành trình bình minh',110),(2,'Thành phố mùa hạ',105),(3,'Chuyến tàu cuối',95);
 INSERT INTO room VALUES(1,'Phòng 01'),(2,'Phòng 02');

@@ -12,10 +12,11 @@ skinparam dpi 150
 skinparam maxMessageSize 180
 hide empty members
 left to right direction
+actor "Người dùng" as U
 actor "Khách hàng" as C
 actor "Nhân viên bán hàng" as S
 actor "Nhân viên quản lý" as M
-rectangle "CineMan — bối cảnh hệ thống theo đề" {
+rectangle "CineMan" {
  usecase "Đăng ký thành viên\n[UC01 đã cài đặt]" as R
  usecase "Tìm kiếm phim" as F
  usecase "Mua vé trực tuyến" as O
@@ -27,18 +28,23 @@ rectangle "CineMan — bối cảnh hệ thống theo đề" {
  usecase "Lên lịch chiếu" as SCH
  usecase "Quản lý thông tin phim" as MOV
  usecase "Quản lý phòng chiếu" as ROOM
+ usecase "Đăng nhập" as LOGIN
 }
-C --> R
-C --> F
-C --> O
-C --> B
-S --> T
-S --> CARD
-M --> V
-M --> OTHER
-M --> SCH
-M --> MOV
-M --> ROOM
+C --|> U
+S --|> U
+M --|> U
+U -- LOGIN
+C -- R
+C -- F
+C -- O
+C -- B
+S -- T
+S -- CARD
+M -- V
+M -- OTHER
+M -- SCH
+M -- MOV
+M -- ROOM
 note bottom of OTHER
 Các chức năng còn lại chỉ làm rõ bối cảnh theo đề,
 không thuộc hai mô-đun lập trình của báo cáo này.

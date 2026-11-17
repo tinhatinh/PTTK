@@ -7,4 +7,6 @@ public record ShowtimeRevenue0(
     String roomName,
     java.time.LocalDateTime startsAt,
     long ticketCount,
-    java.math.BigDecimal revenue) {}
+    java.math.BigDecimal revenue,
+    java.time.LocalDate fromDate,
+    java.time.LocalDate toDate) {}

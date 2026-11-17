@@ -48,15 +48,16 @@ username : String
 password : String
 confirmPassword : String
 }
+class Customer0 <<record>> {
++{static} memberCode(customerId : long) : String
+}
+AppServlet0 ..> Customer0
 AppServlet0 --> RegistrationService0
 AppServlet0 ..> View0
 AppServlet0 ..> Registration0
 RegistrationService0 --> CustomerDAO0
+RegistrationService0 ..> Registration0
 RegistrationService0 ..> Password0
 CustomerDAO0 --> Database0
 CustomerDAO0 ..> Registration0
-note bottom of Registration0
-DTO chỉ tồn tại trong request, không lưu vào session.
-passwordHash được lưu; mật khẩu không trả về HTML.
-end note
 @enduml

@@ -1,8 +1,6 @@
 @startuml 05-registration-communication
 skinparam defaultFontName DejaVu Sans
 skinparam shadowing false
-skinparam classAttributeIconSize 0
-hide empty members
 allowmixing
 actor "Khách hàng" as A
 object ":HomeUI0" as H
@@ -21,4 +19,8 @@ C --> C : 8: Lưu tài khoản và hồ sơ
 C --> F : 9: Trả kết quả đăng ký
 F --> R : 10: Chuyển mã và họ tên
 R --> A : 11: Thông báo thành công
+note bottom
+Luồng chính UC01: thông điệp 1–11.
+Nhánh lỗi được mô tả trong kịch bản chi tiết.
+end note
 @enduml

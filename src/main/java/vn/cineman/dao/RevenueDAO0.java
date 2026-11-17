@@ -36,7 +36,13 @@ public final class RevenueDAO0 {
         while (r.next())
           out.add(
               new MovieRevenue0(
-                  r.getLong(1), r.getString(2), r.getLong(3), r.getLong(4), r.getBigDecimal(5)));
+                  r.getLong(1),
+                  r.getString(2),
+                  r.getLong(3),
+                  r.getLong(4),
+                  r.getBigDecimal(5),
+                  from,
+                  to));
       }
     }
     return out;
@@ -63,7 +69,9 @@ public final class RevenueDAO0 {
                   r.getString(3),
                   r.getTimestamp(4).toLocalDateTime(),
                   r.getLong(5),
-                  r.getBigDecimal(6)));
+                  r.getBigDecimal(6),
+                  from,
+                  to));
       }
     }
     return out;
@@ -92,7 +100,9 @@ public final class RevenueDAO0 {
                   r.getTimestamp(2).toLocalDateTime(),
                   r.getString(3),
                   r.getLong(4),
-                  r.getBigDecimal(5)));
+                  r.getBigDecimal(5),
+                  from,
+                  to));
       }
     }
     return out;

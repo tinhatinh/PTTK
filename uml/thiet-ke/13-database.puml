@@ -81,4 +81,12 @@ UNIQUE(showtime_id, seat_id)
 UNIQUE(room_id, label) thuộc seat
 SQL cho phép hóa đơn tạm chưa có vé.
 end note
+entity employee {
+ *id : BIGINT <<PK>>
+ --
+ account_id : BIGINT <<FK, UQ>>
+ employee_code : VARCHAR(20) <<UQ>>
+ position : VARCHAR(30)
+}
+account ||--o| employee : account_id
 @enduml

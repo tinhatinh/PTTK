@@ -6,4 +6,6 @@ public record InvoiceRevenue0(
     java.time.LocalDateTime issuedAt,
     String customerName,
     long ticketCount,
-    java.math.BigDecimal revenue) {}
+    java.math.BigDecimal revenue,
+    java.time.LocalDate fromDate,
+    java.time.LocalDate toDate) {}

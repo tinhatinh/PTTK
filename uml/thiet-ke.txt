@@ -48,17 +48,18 @@ username : String
 password : String
 confirmPassword : String
 }
+class Customer0 <<record>> {
++{static} memberCode(customerId : long) : String
+}
+AppServlet0 ..> Customer0
 AppServlet0 --> RegistrationService0
 AppServlet0 ..> View0
 AppServlet0 ..> Registration0
 RegistrationService0 --> CustomerDAO0
+RegistrationService0 ..> Registration0
 RegistrationService0 ..> Password0
 CustomerDAO0 --> Database0
 CustomerDAO0 ..> Registration0
-note bottom of Registration0
-DTO chỉ tồn tại trong request, không lưu vào session.
-passwordHash được lưu; mật khẩu không trả về HTML.
-end note
 @enduml
 
 @startuml 07a-entities-design
@@ -87,6 +88,14 @@ class Customer0 <<record>> {
 -phone : String
 -email : String
 -registeredAt : LocalDate
++memberCode() : String
++{static} memberCode(customerId : long) : String
+}
+class Employee0 <<record>> {
+-id : long
+-accountId : long
+-employeeCode : String
+-position : String
 }
 class Movie0 <<record>> {
 -id : long
@@ -121,19 +130,16 @@ class Ticket0 <<record>> {
 -seatId : long
 -unitPrice : BigDecimal
 }
-Account0 "1" -- "0..1" Customer0 : hồ sơ khách hàng
-Customer0 "0..1" -- "0..*" Invoice0 : đứng tên
-Invoice0 "1" *-- "1..*" Ticket0 : gồm
-Movie0 "1" -- "0..*" Showtime0 : được chiếu
-Room0 "1" -- "0..*" Showtime0 : diễn ra tại
-Room0 "1" *-- "1..*" Seat0 : có
-Showtime0 "1" -- "0..*" Ticket0 : dành cho
-Seat0 "1" -- "0..*" Ticket0 : vị trí ngồi
+Account0 "1" -- "0..1" Employee0
+Account0 "1" -- "0..1" Customer0
+Customer0 "0..1" -- "0..*" Invoice0
+Invoice0 "1" *-- "1..*" Ticket0
+Movie0 "1" -- "0..*" Showtime0
+Room0 "1" -- "0..*" Showtime0
+Room0 "1" *-- "1..*" Seat0
+Showtime0 "1" -- "0..*" Ticket0
+Seat0 "1" -- "0..*" Ticket0
 
-note bottom of Ticket0
-Record components private final; accessors public.
-Các ID liên kết là thành phần record trong code.
-end note
 @enduml
 
 @startuml 08-revenue-design
@@ -158,6 +164,11 @@ class AppServlet0 <<servlet>> {
  -range(q) : LocalDate[]
  -id(q,name) : long
 }
+class View0 <<view>> {
+ +{static} page(title,body,manager,csrf) : String
+ +{static} e(x) : String
+ +{static} money(value : BigDecimal) : String
+}
 class RevenueService0 <<validation>> {
  +{static} validateRange(from,to) : void
 }
@@ -177,6 +188,8 @@ title : String
 showtimeCount : long
 ticketCount : long
 revenue : BigDecimal
+fromDate : LocalDate
+toDate : LocalDate
 }
 class ShowtimeRevenue0 <<record>> {
  showtimeId : long
@@ -185,6 +198,8 @@ roomName : String
 startsAt : LocalDateTime
 ticketCount : long
 revenue : BigDecimal
+fromDate : LocalDate
+toDate : LocalDate
 }
 class InvoiceRevenue0 <<record>> {
  invoiceId : long
@@ -192,17 +207,19 @@ issuedAt : LocalDateTime
 customerName : String
 ticketCount : long
 revenue : BigDecimal
+fromDate : LocalDate
+toDate : LocalDate
 }
+AppServlet0 ..> View0
+AppServlet0 ..> MovieRevenue0
+AppServlet0 ..> ShowtimeRevenue0
+AppServlet0 ..> InvoiceRevenue0
 AppServlet0 ..> RevenueService0
 AppServlet0 --> RevenueDAO0
 RevenueDAO0 --> Database0
 RevenueDAO0 ..> MovieRevenue0
 RevenueDAO0 ..> ShowtimeRevenue0
 RevenueDAO0 ..> InvoiceRevenue0
-note bottom of RevenueDAO0
-from và to: LocalDate; mã đối tượng: long.
-Mọi truy vấn dùng cùng điều kiện PAID và starts_at.
-end note
 @enduml
 
 @startuml 09-registration-activity
@@ -480,6 +497,14 @@ UNIQUE(showtime_id, seat_id)
 UNIQUE(room_id, label) thuộc seat
 SQL cho phép hóa đơn tạm chưa có vé.
 end note
+entity employee {
+ *id : BIGINT <<PK>>
+ --
+ account_id : BIGINT <<FK, UQ>>
+ employee_code : VARCHAR(20) <<UQ>>
+ position : VARCHAR(30)
+}
+account ||--o| employee : account_id
 @enduml
 
 @startuml 14-packages

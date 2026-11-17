@@ -35,12 +35,14 @@ Doanh thu lọc theo **ngày bắt đầu suất chiếu**, từ 00:00 ngày b�
 
 Khoảng 01/11/2026–30/11/2026: phim Hành trình bình minh 480.000 đồng/6 vé/3 suất; Thành phố mùa hạ 270.000 đồng/3 vé/1 suất; tổng 750.000 đồng/9 vé. Mọi tên phim, hóa đơn, vé và người dùng mẫu đều do project tạo để kiểm thử.
 
+Hồ sơ nhân viên Employee0 và kết quả CustomerRevenue0 mô tả bối cảnh toàn hệ thống; chưa có màn hình quản lý nhân viên hoặc thống kê khách hàng. Schema có bảng employee và dữ liệu mẫu NV001 liên kết với quản lý. Mã thành viên KH<id> được suy ra từ Customer0, không lưu thêm cột trùng khóa. Ba kết quả thống kê đang dùng đều giữ fromDate/toDate.
+
 ## Kiến trúc và cây thư mục
 
 - `src/main/java/vn/cineman/web`: Servlet điều phối HTTP và lớp xuất HTML; không dùng JSP.
 - `service`: kiểm tra đăng ký/khoảng ngày và băm mật khẩu.
 - `dao`: JDBC, giao dịch đăng ký, truy vấn tổng hợp.
-- `model`: 8 record thực thể và 4 record dữ liệu truyền/đọc kết quả.
+- `model`: 9 record thực thể và 5 record dữ liệu truyền/đọc kết quả.
 - `src/main/resources`: schema, seed và CSS được ứng dụng dùng thật.
 - `src/test/java`: kiểm tra chức năng bằng Java, CSDL riêng trong bộ nhớ.
 - `uml`: mã PlantUML tương ứng, chia theo ba giai đoạn; ảnh xuất Visual Paradigm ở `models/export`.
@@ -54,7 +56,7 @@ Tomcat 10.1.61 triển khai Jakarta Servlet 6.0. Ba tầng logic chạy trong c�
 bash scripts/test.sh
 ```
 
-Kết quả đã chạy: **25 kiểm tra Java PASS**. `docs/evidence/java-tests.txt` ghi kết quả. Chương trình không cần JUnit; ném `AssertionError` nếu điều kiện sai và trả mã lỗi.
+Kết quả đã chạy: **29 kiểm tra Java PASS**. `docs/evidence/java-tests.txt` ghi kết quả. Chương trình không cần JUnit; ném `AssertionError` nếu điều kiện sai và trả mã lỗi.
 
 Kiểm tra trình duyệt và chụp ảnh bằng Playwright (13 kiểm tra): bắt đầu từ CSDL dữ liệu mẫu chưa đăng ký `nguyenan`, chạy app ở cổng 8080; cung cấp module Playwright và Chromium trên máy:
 
@@ -80,10 +82,10 @@ Repository: https://github.com/tinhatinh/PTTK . Đây là repository công khai 
 
 ## Project Visual Paradigm
 
-Mở `models/CineMan_De16_B23DCAT040.vpp` để chỉnh sửa 20 sơ đồ. PNG 3× và SVG vector xuất trực tiếp từ Visual Paradigm ở `models/export`; mã PlantUML nộp form ở `uml`. Xem `models/README.md` để đối chiếu.
+Mở `models/CineMan_De16_B23DCAT040.vpp` để chỉnh sửa 22 sơ đồ. PNG 3× và SVG vector xuất trực tiếp từ Visual Paradigm ở `models/export`; mã PlantUML nộp form ở `uml`. Xem `models/README.md` để đối chiếu.
 
 ## Báo cáo cuối
 
-- [Báo cáo PDF 55 trang](docs/report/16B23DCAT040.pdf)
+- [Báo cáo PDF](docs/report/16B23DCAT040.pdf)
 - [Báo cáo Word](docs/report/16B23DCAT040.docx)
 - [Danh mục bàn giao](docs/HANDOFF.md)

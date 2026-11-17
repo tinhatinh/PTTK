@@ -10,9 +10,14 @@ class Account0 <<entity>> {
  -role
 }
 class Customer0 <<entity>> {
+ -memberCode
  -phone
  -email
  -registeredAt
+}
+class Employee0 <<entity>> {
+ -employeeCode
+ -position
 }
 class Movie0 <<entity>> {
  -title
@@ -38,15 +43,28 @@ class MovieRevenue0 <<entity>> {
  -showtimeCount
  -ticketCount
  -revenue
+ -fromDate
+ -toDate
+}
+class CustomerRevenue0 <<entity>> {
+ -ticketCount
+ -revenue
+ -fromDate
+ -toDate
 }
 class ShowtimeRevenue0 <<entity>> {
  -ticketCount
  -revenue
+ -fromDate
+ -toDate
 }
 class InvoiceRevenue0 <<entity>> {
  -ticketCount
  -revenue
+ -fromDate
+ -toDate
 }
+Account0 "1" -- "0..1" Employee0
 Account0 "1" -- "0..1" Customer0
 Customer0 "0..1" -- "0..*" Invoice0
 Movie0 "1" -- "0..*" Showtime0
@@ -55,6 +73,7 @@ Room0 "1" -- "0..*" Showtime0
 Invoice0 "1" *-- "1..*" Ticket0
 Showtime0 "1" -- "0..*" Ticket0
 Seat0 "1" -- "0..*" Ticket0
+CustomerRevenue0 --|> Customer0
 MovieRevenue0 --|> Movie0
 ShowtimeRevenue0 --|> Showtime0
 InvoiceRevenue0 --|> Invoice0

@@ -1,0 +1,23 @@
+@startuml 06a-registration-analysis-sequence
+skinparam defaultFontName DejaVu Sans
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+hide empty members
+actor "Khách hàng" as A
+participant "HomeUI0" as H
+participant "RegistrationUI0" as F
+participant "Customer0" as C
+participant "Account0" as AC
+participant "RegistrationResultUI0" as R
+A -> H : 1: Chọn đăng ký
+H -> F : 2: Mở biểu mẫu
+F -> A : 3: Hiển thị biểu mẫu
+A -> F : 4: Nhập thông tin và Đăng ký
+F -> C : 5: register(info)
+C -> AC : 6: Tạo thông tin tài khoản
+AC -> C : 7: Thông tin tài khoản
+C -> C : 8: Lưu tài khoản và hồ sơ
+C -> F : 9: Trả kết quả đăng ký
+F -> R : 10: Chuyển mã và họ tên
+R -> A : 11: Thông báo thành công
+@enduml

@@ -147,8 +147,8 @@ public final class AppServlet0 extends HttpServlet {
           title("THÀNH VIÊN", "Đăng ký thành công", "Thông tin của bạn đã được lưu vào hệ thống.")
               + "<section class='card narrow'><div class='success'>✓</div><h2>Chào mừng "
               + e(q.getSession().getAttribute("registeredName"))
-              + "</h2><p>Mã thành viên <strong>KH"
-              + e(id)
+              + "</h2><p>Mã thành viên <strong>"
+              + e(Customer0.memberCode(((Number) id).longValue()))
               + "</strong></p><a class='button' href='/'>Về trang chủ</a></section>");
       return;
     }

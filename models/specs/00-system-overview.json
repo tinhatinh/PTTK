@@ -1,301 +1,533 @@
 {
-  "diagramType": "UseCaseDiagram",
-  "elements": [
+  "id": "OvmR54WD.AACAQnc",
+  "type": "UseCaseDiagram",
+  "name": "00-system-overview",
+  "opened": true,
+  "shapes": [
     {
-      "key": "sys",
-      "type": "System",
-      "name": "CineMan — bối cảnh hệ thống theo đề",
-      "x": 300,
-      "y": 40,
-      "width": 1000,
-      "height": 935,
-      "view": {
-        "fontSize": 20
-      }
+      "shapeId": "PVfcl4WD.AACASuM",
+      "shapeType": "Actor",
+      "modelId": "nVfcl4WD.AACASuE",
+      "modelType": "Actor",
+      "name": "Người dùng",
+      "x": 90,
+      "y": 630,
+      "width": 70,
+      "height": 85
     },
     {
-      "key": "C",
-      "type": "Actor",
-      "name": "Khách hàng",
-      "x": 50,
-      "y": 120,
-      "width": 180,
-      "height": 110,
-      "view": {
-        "fontSize": 20
-      }
-    },
-    {
-      "key": "S",
-      "type": "Actor",
-      "name": "Nhân viên bán hàng",
-      "x": 50,
-      "y": 431,
-      "width": 180,
-      "height": 110,
-      "view": {
-        "fontSize": 20
-      }
-    },
-    {
-      "key": "M",
-      "type": "Actor",
-      "name": "Nhân viên quản lý",
-      "x": 50,
-      "y": 742,
-      "width": 180,
-      "height": 110,
-      "view": {
-        "fontSize": 20
-      }
-    },
-    {
-      "key": "R",
-      "type": "UseCase",
-      "name": "Đăng ký thành viên\n[UC01 đã cài đặt]",
-      "x": 350,
-      "y": 115,
-      "width": 420,
+      "shapeId": "Xqa3F4WD.AACARNp",
+      "shapeType": "UseCase",
+      "modelId": "jqa3F4WD.AACARNY",
+      "modelType": "UseCase",
+      "name": "Đăng nhập",
+      "x": 800,
+      "y": 50,
+      "width": 680,
       "height": 90,
-      "view": {
-        "fontSize": 20
-      },
-      "parent": "sys"
+      "parentShapeId": "5fmR54WD.AACAQnk"
     },
     {
-      "key": "F",
-      "type": "UseCase",
-      "name": "Tìm kiếm phim",
-      "x": 830,
-      "y": 115,
-      "width": 420,
-      "height": 90,
-      "view": {
-        "fontSize": 20
-      },
-      "parent": "sys"
-    },
-    {
-      "key": "O",
-      "type": "UseCase",
-      "name": "Mua vé trực tuyến",
-      "x": 350,
-      "y": 255,
-      "width": 420,
-      "height": 90,
-      "view": {
-        "fontSize": 20
-      },
-      "parent": "sys"
-    },
-    {
-      "key": "B",
-      "type": "UseCase",
-      "name": "Mua vé tại quầy",
-      "x": 830,
-      "y": 255,
-      "width": 420,
-      "height": 90,
-      "view": {
-        "fontSize": 20
-      },
-      "parent": "sys"
-    },
-    {
-      "key": "T",
-      "type": "UseCase",
-      "name": "Bán vé tại quầy",
-      "x": 350,
-      "y": 395,
-      "width": 420,
-      "height": 90,
-      "view": {
-        "fontSize": 20
-      },
-      "parent": "sys"
-    },
-    {
-      "key": "CARD",
-      "type": "UseCase",
-      "name": "Xuất thẻ thành viên",
-      "x": 830,
-      "y": 395,
-      "width": 420,
-      "height": 90,
-      "view": {
-        "fontSize": 20
-      },
-      "parent": "sys"
-    },
-    {
-      "key": "V",
-      "type": "UseCase",
-      "name": "Xem thống kê phim theo doanh thu\n[UC02 đã cài đặt]",
-      "x": 350,
-      "y": 535,
-      "width": 420,
-      "height": 90,
-      "view": {
-        "fontSize": 20
-      },
-      "parent": "sys"
-    },
-    {
-      "key": "OTHER",
-      "type": "UseCase",
-      "name": "Xem các thống kê khác\nphim, khách hàng, doanh thu",
-      "x": 830,
-      "y": 535,
-      "width": 420,
-      "height": 90,
-      "view": {
-        "fontSize": 20
-      },
-      "parent": "sys"
-    },
-    {
-      "key": "SCH",
-      "type": "UseCase",
-      "name": "Lên lịch chiếu",
-      "x": 350,
-      "y": 675,
-      "width": 420,
-      "height": 90,
-      "view": {
-        "fontSize": 20
-      },
-      "parent": "sys"
-    },
-    {
-      "key": "MOV",
-      "type": "UseCase",
-      "name": "Quản lý thông tin phim",
-      "x": 830,
-      "y": 675,
-      "width": 420,
-      "height": 90,
-      "view": {
-        "fontSize": 20
-      },
-      "parent": "sys"
-    },
-    {
-      "key": "ROOM",
-      "type": "UseCase",
-      "name": "Quản lý phòng chiếu",
-      "x": 350,
-      "y": 815,
-      "width": 420,
-      "height": 90,
-      "view": {
-        "fontSize": 20
-      },
-      "parent": "sys"
-    },
-    {
-      "key": "Ghi chú 00-system-overview",
-      "type": "NOTE",
+      "shapeId": "gwWR54WD.AACAQrB",
+      "shapeType": "NOTE",
+      "modelId": "fQWR54WD.AACAQrA",
+      "modelType": "NOTE",
       "name": "Ghi chú 00-system-overview",
-      "properties": {
-        "HTMLDescription": "<html><body style=\"font-family:DejaVu Sans;font-size:18px\">Chỉ UC01 và UC02 được cài đặt; các chức năng còn lại là bối cảnh theo đề.</body></html>"
-      },
-      "x": 300,
-      "y": 1045,
-      "width": 1000,
-      "height": 85,
-      "view": {
-        "fontSize": 18
-      }
+      "x": 400,
+      "y": 1560,
+      "width": 1150,
+      "height": 90
+    },
+    {
+      "shapeId": "DQWR54WD.AACAQq5",
+      "shapeType": "UseCase",
+      "modelId": "tQWR54WD.AACAQqv",
+      "modelType": "UseCase",
+      "name": "Quản lý phòng chiếu",
+      "x": 800,
+      "y": 1392,
+      "width": 680,
+      "height": 90,
+      "parentShapeId": "5fmR54WD.AACAQnk"
+    },
+    {
+      "shapeId": "2QWR54WD.AACAQqo",
+      "shapeType": "UseCase",
+      "modelId": "mQWR54WD.AACAQqe",
+      "modelType": "UseCase",
+      "name": "Quản lý thông tin phim",
+      "x": 800,
+      "y": 1270,
+      "width": 680,
+      "height": 90,
+      "parentShapeId": "5fmR54WD.AACAQnk"
+    },
+    {
+      "shapeId": "4QWR54WD.AACAQqX",
+      "shapeType": "UseCase",
+      "modelId": "IQWR54WD.AACAQqN",
+      "modelType": "UseCase",
+      "name": "Lên lịch chiếu",
+      "x": 800,
+      "y": 1148,
+      "width": 680,
+      "height": 90,
+      "parentShapeId": "5fmR54WD.AACAQnk"
+    },
+    {
+      "shapeId": "rgWR54WD.AACAQqG",
+      "shapeType": "UseCase",
+      "modelId": "zgWR54WD.AACAQp8",
+      "modelType": "UseCase",
+      "name": "Xem các thống kê khác\nphim, khách hàng, doanh thu",
+      "x": 800,
+      "y": 1026,
+      "width": 680,
+      "height": 90,
+      "parentShapeId": "5fmR54WD.AACAQnk"
+    },
+    {
+      "shapeId": "ZgWR54WD.AACAQp1",
+      "shapeType": "UseCase",
+      "modelId": "JgWR54WD.AACAQpr",
+      "modelType": "UseCase",
+      "name": "Xem thống kê phim theo doanh thu\n[UC02 đã cài đặt]",
+      "x": 800,
+      "y": 904,
+      "width": 680,
+      "height": 90,
+      "parentShapeId": "5fmR54WD.AACAQnk"
+    },
+    {
+      "shapeId": "qgWR54WD.AACAQpk",
+      "shapeType": "UseCase",
+      "modelId": "ygWR54WD.AACAQpa",
+      "modelType": "UseCase",
+      "name": "Xuất thẻ thành viên",
+      "x": 800,
+      "y": 782,
+      "width": 680,
+      "height": 90,
+      "parentShapeId": "5fmR54WD.AACAQnk"
+    },
+    {
+      "shapeId": "EgWR54WD.AACAQpT",
+      "shapeType": "UseCase",
+      "modelId": "YgWR54WD.AACAQpJ",
+      "modelType": "UseCase",
+      "name": "Bán vé tại quầy",
+      "x": 800,
+      "y": 660,
+      "width": 680,
+      "height": 90,
+      "parentShapeId": "5fmR54WD.AACAQnk"
+    },
+    {
+      "shapeId": "3AWR54WD.AACAQpC",
+      "shapeType": "UseCase",
+      "modelId": "nAWR54WD.AACAQo4",
+      "modelType": "UseCase",
+      "name": "Mua vé tại quầy",
+      "x": 800,
+      "y": 538,
+      "width": 680,
+      "height": 90,
+      "parentShapeId": "5fmR54WD.AACAQnk"
+    },
+    {
+      "shapeId": "tAWR54WD.AACAQox",
+      "shapeType": "UseCase",
+      "modelId": "NAWR54WD.AACAQon",
+      "modelType": "UseCase",
+      "name": "Mua vé trực tuyến",
+      "x": 800,
+      "y": 416,
+      "width": 680,
+      "height": 90,
+      "parentShapeId": "5fmR54WD.AACAQnk"
+    },
+    {
+      "shapeId": "BAWR54WD.AACAQog",
+      "shapeType": "UseCase",
+      "modelId": "eAWR54WD.AACAQoW",
+      "modelType": "UseCase",
+      "name": "Tìm kiếm phim",
+      "x": 800,
+      "y": 294,
+      "width": 680,
+      "height": 90,
+      "parentShapeId": "5fmR54WD.AACAQnk"
+    },
+    {
+      "shapeId": "AAWR54WD.AACAQoP",
+      "shapeType": "UseCase",
+      "modelId": "7_mR54WD.AACAQoD",
+      "modelType": "UseCase",
+      "name": "Đăng ký thành viên\n[UC01 đã cài đặt]",
+      "x": 800,
+      "y": 172,
+      "width": 680,
+      "height": 90,
+      "parentShapeId": "5fmR54WD.AACAQnk"
+    },
+    {
+      "shapeId": "u_mR54WD.AACAQn7",
+      "shapeType": "Actor",
+      "modelId": "u_mR54WD.AACAQn6",
+      "modelType": "Actor",
+      "name": "Nhân viên quản lý",
+      "x": 440,
+      "y": 1170,
+      "width": 70,
+      "height": 85
+    },
+    {
+      "shapeId": "C_mR54WD.AACAQnz",
+      "shapeType": "Actor",
+      "modelId": "C_mR54WD.AACAQny",
+      "modelType": "Actor",
+      "name": "Nhân viên bán hàng",
+      "x": 440,
+      "y": 700,
+      "width": 70,
+      "height": 85
+    },
+    {
+      "shapeId": "3fmR54WD.AACAQnr",
+      "shapeType": "Actor",
+      "modelId": "7fmR54WD.AACAQnq",
+      "modelType": "Actor",
+      "name": "Khách hàng",
+      "x": 440,
+      "y": 250,
+      "width": 70,
+      "height": 85
+    },
+    {
+      "shapeId": "5fmR54WD.AACAQnk",
+      "shapeType": "System",
+      "modelId": "JfmR54WD.AACAQnj",
+      "modelType": "System",
+      "name": "CineMan",
+      "x": 730,
+      "y": 0,
+      "width": 820,
+      "height": 1510
     }
   ],
   "connectors": [
     {
-      "from": "C",
-      "to": "R",
-      "type": "Association",
-      "view": {
-        "fontSize": 18
-      }
+      "shapeId": "WwWR54WD.AACAQrN",
+      "shapeType": "Association",
+      "modelId": "GwWR54WD.AACAQrI",
+      "modelType": "Association",
+      "name": null,
+      "fromShapeId": "3fmR54WD.AACAQnr",
+      "toShapeId": "AAWR54WD.AACAQoP",
+      "points": [
+        [
+          510,
+          290
+        ],
+        [
+          800,
+          217
+        ]
+      ]
     },
     {
-      "from": "C",
-      "to": "F",
-      "type": "Association",
-      "view": {
-        "fontSize": 18
-      }
+      "shapeId": "lwWR54WD.AACAQrV",
+      "shapeType": "Association",
+      "modelId": "lwWR54WD.AACAQrQ",
+      "modelType": "Association",
+      "name": null,
+      "fromShapeId": "3fmR54WD.AACAQnr",
+      "toShapeId": "BAWR54WD.AACAQog",
+      "points": [
+        [
+          510,
+          290
+        ],
+        [
+          800,
+          339
+        ]
+      ]
     },
     {
-      "from": "C",
-      "to": "O",
-      "type": "Association",
-      "view": {
-        "fontSize": 18
-      }
+      "shapeId": "twWR54WD.AACAQrd",
+      "shapeType": "Association",
+      "modelId": "twWR54WD.AACAQrY",
+      "modelType": "Association",
+      "name": null,
+      "fromShapeId": "3fmR54WD.AACAQnr",
+      "toShapeId": "tAWR54WD.AACAQox",
+      "points": [
+        [
+          510,
+          290
+        ],
+        [
+          800,
+          461
+        ]
+      ]
     },
     {
-      "from": "C",
-      "to": "B",
-      "type": "Association",
-      "view": {
-        "fontSize": 18
-      }
+      "shapeId": "jwWR54WD.AACAQrl",
+      "shapeType": "Association",
+      "modelId": "DwWR54WD.AACAQrg",
+      "modelType": "Association",
+      "name": null,
+      "fromShapeId": "3fmR54WD.AACAQnr",
+      "toShapeId": "3AWR54WD.AACAQpC",
+      "points": [
+        [
+          510,
+          290
+        ],
+        [
+          800,
+          583
+        ]
+      ]
     },
     {
-      "from": "S",
-      "to": "T",
-      "type": "Association",
-      "view": {
-        "fontSize": 18
-      }
+      "shapeId": "LwWR54WD.AACAQrt",
+      "shapeType": "Association",
+      "modelId": "zwWR54WD.AACAQro",
+      "modelType": "Association",
+      "name": null,
+      "fromShapeId": "C_mR54WD.AACAQnz",
+      "toShapeId": "EgWR54WD.AACAQpT",
+      "points": [
+        [
+          510,
+          740
+        ],
+        [
+          800,
+          705
+        ]
+      ]
     },
     {
-      "from": "S",
-      "to": "CARD",
-      "type": "Association",
-      "view": {
-        "fontSize": 18
-      }
+      "shapeId": "7wWR54WD.AACAQr1",
+      "shapeType": "Association",
+      "modelId": "bwWR54WD.AACAQrw",
+      "modelType": "Association",
+      "name": null,
+      "fromShapeId": "C_mR54WD.AACAQnz",
+      "toShapeId": "qgWR54WD.AACAQpk",
+      "points": [
+        [
+          510,
+          740
+        ],
+        [
+          800,
+          827
+        ]
+      ]
     },
     {
-      "from": "M",
-      "to": "V",
-      "type": "Association",
-      "view": {
-        "fontSize": 18
-      }
+      "shapeId": "XwWR54WD.AACAQr9",
+      "shapeType": "Association",
+      "modelId": "nwWR54WD.AACAQr4",
+      "modelType": "Association",
+      "name": null,
+      "fromShapeId": "u_mR54WD.AACAQn7",
+      "toShapeId": "ZgWR54WD.AACAQp1",
+      "points": [
+        [
+          510,
+          1210
+        ],
+        [
+          800,
+          949
+        ]
+      ]
     },
     {
-      "from": "M",
-      "to": "OTHER",
-      "type": "Association",
-      "view": {
-        "fontSize": 18
-      }
+      "shapeId": "vwWR54WD.AACAQsF",
+      "shapeType": "Association",
+      "modelId": "vwWR54WD.AACAQsA",
+      "modelType": "Association",
+      "name": null,
+      "fromShapeId": "u_mR54WD.AACAQn7",
+      "toShapeId": "rgWR54WD.AACAQqG",
+      "points": [
+        [
+          510,
+          1210
+        ],
+        [
+          800,
+          1071
+        ]
+      ]
     },
     {
-      "from": "M",
-      "to": "SCH",
-      "type": "Association",
-      "view": {
-        "fontSize": 18
-      }
+      "shapeId": "QIWR54WD.AACAQsN",
+      "shapeType": "Association",
+      "modelId": "gIWR54WD.AACAQsI",
+      "modelType": "Association",
+      "name": null,
+      "fromShapeId": "u_mR54WD.AACAQn7",
+      "toShapeId": "4QWR54WD.AACAQqX",
+      "points": [
+        [
+          510,
+          1210
+        ],
+        [
+          800,
+          1193
+        ]
+      ]
     },
     {
-      "from": "M",
-      "to": "MOV",
-      "type": "Association",
-      "view": {
-        "fontSize": 18
-      }
+      "shapeId": "4IWR54WD.AACAQsV",
+      "shapeType": "Association",
+      "modelId": "oIWR54WD.AACAQsQ",
+      "modelType": "Association",
+      "name": null,
+      "fromShapeId": "u_mR54WD.AACAQn7",
+      "toShapeId": "2QWR54WD.AACAQqo",
+      "points": [
+        [
+          510,
+          1210
+        ],
+        [
+          800,
+          1315
+        ]
+      ]
     },
     {
-      "from": "M",
-      "to": "ROOM",
-      "type": "Association",
-      "view": {
-        "fontSize": 18
-      }
+      "shapeId": "UIWR54WD.AACAQsd",
+      "shapeType": "Association",
+      "modelId": "UIWR54WD.AACAQsY",
+      "modelType": "Association",
+      "name": null,
+      "fromShapeId": "u_mR54WD.AACAQn7",
+      "toShapeId": "DQWR54WD.AACAQq5",
+      "points": [
+        [
+          510,
+          1210
+        ],
+        [
+          800,
+          1437
+        ]
+      ]
+    },
+    {
+      "shapeId": "j1fcl4WD.AACASuS",
+      "shapeType": "Generalization",
+      "modelId": "D1fcl4WD.AACASuR",
+      "modelType": "Generalization",
+      "name": null,
+      "fromShapeId": "3fmR54WD.AACAQnr",
+      "toShapeId": "PVfcl4WD.AACASuM",
+      "points": [
+        [
+          160,
+          670
+        ],
+        [
+          300,
+          670
+        ],
+        [
+          300,
+          290
+        ],
+        [
+          440,
+          290
+        ]
+      ]
+    },
+    {
+      "shapeId": "X1fcl4WD.AACASuW",
+      "shapeType": "Generalization",
+      "modelId": "n1fcl4WD.AACASuV",
+      "modelType": "Generalization",
+      "name": null,
+      "fromShapeId": "C_mR54WD.AACAQnz",
+      "toShapeId": "PVfcl4WD.AACASuM",
+      "points": [
+        [
+          160,
+          670
+        ],
+        [
+          300,
+          670
+        ],
+        [
+          300,
+          740
+        ],
+        [
+          440,
+          740
+        ]
+      ]
+    },
+    {
+      "shapeId": "YNfcl4WD.AACASua",
+      "shapeType": "Generalization",
+      "modelId": "oNfcl4WD.AACASuZ",
+      "modelType": "Generalization",
+      "name": null,
+      "fromShapeId": "u_mR54WD.AACAQn7",
+      "toShapeId": "PVfcl4WD.AACASuM",
+      "points": [
+        [
+          160,
+          670
+        ],
+        [
+          300,
+          670
+        ],
+        [
+          300,
+          1210
+        ],
+        [
+          440,
+          1210
+        ]
+      ]
+    },
+    {
+      "shapeId": "Otfcl4WD.AACASu6",
+      "shapeType": "Association",
+      "modelId": "2tfcl4WD.AACASu1",
+      "modelType": "Association",
+      "name": null,
+      "fromShapeId": "PVfcl4WD.AACASuM",
+      "toShapeId": "Xqa3F4WD.AACARNp",
+      "points": [
+        [
+          125,
+          630
+        ],
+        [
+          125,
+          95
+        ],
+        [
+          800,
+          95
+        ]
+      ]
     }
   ]
 }

@@ -10,9 +10,14 @@ class Account0 <<entity>> {
  -role
 }
 class Customer0 <<entity>> {
+ -memberCode
  -phone
  -email
  -registeredAt
+}
+class Employee0 <<entity>> {
+ -employeeCode
+ -position
 }
 class Movie0 <<entity>> {
  -title
@@ -38,15 +43,28 @@ class MovieRevenue0 <<entity>> {
  -showtimeCount
  -ticketCount
  -revenue
+ -fromDate
+ -toDate
+}
+class CustomerRevenue0 <<entity>> {
+ -ticketCount
+ -revenue
+ -fromDate
+ -toDate
 }
 class ShowtimeRevenue0 <<entity>> {
  -ticketCount
  -revenue
+ -fromDate
+ -toDate
 }
 class InvoiceRevenue0 <<entity>> {
  -ticketCount
  -revenue
+ -fromDate
+ -toDate
 }
+Account0 "1" -- "0..1" Employee0
 Account0 "1" -- "0..1" Customer0
 Customer0 "0..1" -- "0..*" Invoice0
 Movie0 "1" -- "0..*" Showtime0
@@ -55,6 +73,7 @@ Room0 "1" -- "0..*" Showtime0
 Invoice0 "1" *-- "1..*" Ticket0
 Showtime0 "1" -- "0..*" Ticket0
 Seat0 "1" -- "0..*" Ticket0
+CustomerRevenue0 --|> Customer0
 MovieRevenue0 --|> Movie0
 ShowtimeRevenue0 --|> Showtime0
 InvoiceRevenue0 --|> Invoice0
@@ -91,6 +110,7 @@ class Account0 <<entity>> {
  -role
 }
 class Customer0 <<entity>> {
+ -memberCode
  -phone
  -email
  -registeredAt
@@ -135,9 +155,24 @@ class InvoiceListUI0 <<boundary>> {
  -outTotal
  -subBack
 }
+class Account0 <<entity>> {
+ -username
+ -password
+ -fullName
+ -role
+}
+class Customer0 <<entity>> {
+ -memberCode
+ -phone
+ -email
+ -registeredAt
+}
 class Movie0 <<entity>> {
  -title
  -durationMinutes
+}
+class Room0 <<entity>> {
+ -name
 }
 class Showtime0 <<entity>> {
  -startsAt
@@ -153,19 +188,28 @@ class MovieRevenue0 <<entity>> {
  -showtimeCount
  -ticketCount
  -revenue
+ -fromDate
+ -toDate
  +getMovieRevenueStats(from,to)
 }
 class ShowtimeRevenue0 <<entity>> {
  -ticketCount
  -revenue
+ -fromDate
+ -toDate
  +getShowtimeStats(movie,from,to)
 }
 class InvoiceRevenue0 <<entity>> {
  -ticketCount
  -revenue
+ -fromDate
+ -toDate
  +getInvoicesByShowtime(showtime,from,to)
 }
+Account0 "1" -- "0..1" Customer0
+Customer0 "0..1" -- "0..*" Invoice0
 Movie0 "1" -- "0..*" Showtime0
+Room0 "1" -- "0..*" Showtime0
 Invoice0 "1" *-- "1..*" Ticket0
 Showtime0 "1" -- "0..*" Ticket0
 MovieRevenue0 --|> Movie0
@@ -217,8 +261,6 @@ type --> home : Trang quản lý
 @startuml 05-registration-communication
 skinparam defaultFontName DejaVu Sans
 skinparam shadowing false
-skinparam classAttributeIconSize 0
-hide empty members
 allowmixing
 actor "Khách hàng" as A
 object ":HomeUI0" as H
@@ -237,13 +279,15 @@ C --> C : 8: Lưu tài khoản và hồ sơ
 C --> F : 9: Trả kết quả đăng ký
 F --> R : 10: Chuyển mã và họ tên
 R --> A : 11: Thông báo thành công
+note bottom
+Luồng chính UC01: thông điệp 1–11.
+Nhánh lỗi được mô tả trong kịch bản chi tiết.
+end note
 @enduml
 
 @startuml 06-revenue-communication
 skinparam defaultFontName DejaVu Sans
 skinparam shadowing false
-skinparam classAttributeIconSize 0
-hide empty members
 allowmixing
 actor "Nhân viên quản lý" as A
 object ":ManagerUI0" as H
@@ -277,4 +321,71 @@ I --> IS : 20: Yêu cầu hóa đơn của suất
 IS --> IS : 21: getInvoicesByShowtime(showtime,from,to)
 IS --> I : 22: Trả danh sách hóa đơn
 I --> A : 23: Hiển thị hóa đơn và tổng
+note bottom
+Luồng chính UC02: thông điệp 1–23.
+Thứ tự khớp kịch bản chi tiết và tuần tự phân tích.
+end note
+@enduml
+
+@startuml 06a-registration-analysis-sequence
+skinparam defaultFontName DejaVu Sans
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+hide empty members
+actor "Khách hàng" as A
+participant "HomeUI0" as H
+participant "RegistrationUI0" as F
+participant "Customer0" as C
+participant "Account0" as AC
+participant "RegistrationResultUI0" as R
+A -> H : 1: Chọn đăng ký
+H -> F : 2: Mở biểu mẫu
+F -> A : 3: Hiển thị biểu mẫu
+A -> F : 4: Nhập thông tin và Đăng ký
+F -> C : 5: register(info)
+C -> AC : 6: Tạo thông tin tài khoản
+AC -> C : 7: Thông tin tài khoản
+C -> C : 8: Lưu tài khoản và hồ sơ
+C -> F : 9: Trả kết quả đăng ký
+F -> R : 10: Chuyển mã và họ tên
+R -> A : 11: Thông báo thành công
+@enduml
+
+@startuml 06b-revenue-analysis-sequence
+skinparam defaultFontName DejaVu Sans
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+hide empty members
+actor "Nhân viên quản lý" as A
+participant "ManagerUI0" as H
+participant "ReportTypeUI0" as T
+participant "MovieStatsUI0" as M
+participant "MovieRevenue0" as MS
+participant "ShowtimeStatsUI0" as S
+participant "ShowtimeRevenue0" as SS
+participant "InvoiceListUI0" as I
+participant "InvoiceRevenue0" as IS
+A -> H : 1: Chọn Xem báo cáo
+H -> T : 2: Mở chọn loại báo cáo
+T -> A : 3: Hiển thị loại báo cáo
+A -> T : 4: Chọn thống kê và Tiếp tục
+T -> M : 5: Mở biểu mẫu ngày
+M -> A : 6: Hiển thị biểu mẫu ngày
+A -> M : 7: Nhập ngày và Xem thống kê
+M -> MS : 8: Yêu cầu thống kê phim
+MS -> MS : 9: getMovieRevenueStats(from,to)
+MS -> M : 10: Trả danh sách thống kê phim
+M -> A : 11: Hiển thị bảng phim
+A -> M : 12: Chọn một phim
+M -> S : 13: Chuyển phim và khoảng ngày
+S -> SS : 14: Yêu cầu thống kê suất
+SS -> SS : 15: getShowtimeStats(movie,from,to)
+SS -> S : 16: Trả danh sách thống kê suất
+S -> A : 17: Hiển thị bảng suất chiếu
+A -> S : 18: Chọn một suất
+S -> I : 19: Chuyển suất và ngữ cảnh
+I -> IS : 20: Yêu cầu hóa đơn của suất
+IS -> IS : 21: getInvoicesByShowtime(showtime,from,to)
+IS -> I : 22: Trả danh sách hóa đơn
+I -> A : 23: Hiển thị hóa đơn và tổng
 @enduml

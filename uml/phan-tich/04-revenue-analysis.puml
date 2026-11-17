@@ -31,9 +31,24 @@ class InvoiceListUI0 <<boundary>> {
  -outTotal
  -subBack
 }
+class Account0 <<entity>> {
+ -username
+ -password
+ -fullName
+ -role
+}
+class Customer0 <<entity>> {
+ -memberCode
+ -phone
+ -email
+ -registeredAt
+}
 class Movie0 <<entity>> {
  -title
  -durationMinutes
+}
+class Room0 <<entity>> {
+ -name
 }
 class Showtime0 <<entity>> {
  -startsAt
@@ -49,19 +64,28 @@ class MovieRevenue0 <<entity>> {
  -showtimeCount
  -ticketCount
  -revenue
+ -fromDate
+ -toDate
  +getMovieRevenueStats(from,to)
 }
 class ShowtimeRevenue0 <<entity>> {
  -ticketCount
  -revenue
+ -fromDate
+ -toDate
  +getShowtimeStats(movie,from,to)
 }
 class InvoiceRevenue0 <<entity>> {
  -ticketCount
  -revenue
+ -fromDate
+ -toDate
  +getInvoicesByShowtime(showtime,from,to)
 }
+Account0 "1" -- "0..1" Customer0
+Customer0 "0..1" -- "0..*" Invoice0
 Movie0 "1" -- "0..*" Showtime0
+Room0 "1" -- "0..*" Showtime0
 Invoice0 "1" *-- "1..*" Ticket0
 Showtime0 "1" -- "0..*" Ticket0
 MovieRevenue0 --|> Movie0

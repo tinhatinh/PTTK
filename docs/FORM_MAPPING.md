@@ -11,7 +11,7 @@ https://forms.gle/WjBeCqMYZnMPHmcV7
 | 2 Use case chi tiết module 1 | `uml/dac-ta/01a-registration-use-case.puml` |
 | 3 Use case chi tiết module 2 | `uml/dac-ta/01b-revenue-use-case.puml` |
 
-Form đặc tả đang ghi mô tả “Các lớp PTTK 2025”; link này đúng link được cung cấp trong yêu cầu, chưa tự suy đoán link thay thế.
+Các liên kết dưới đây là liên kết người yêu cầu cung cấp.
 
 ## Phân tích
 https://forms.gle/ciKQDmZntpPKuH4H7
@@ -43,6 +43,8 @@ Biểu đồ activity, gói và triển khai nằm trong cùng thư mục và đ
 ## Tự đánh giá cuối kỳ
 https://forms.gle/yuLGeZZtWheGsnPu5
 
-Mã sinh viên B23DCAT040; họ và đệm Phan Thành; tên Danh. Sinh viên tự chọn điểm cho bốn phần và tự xác nhận mức độ hiểu bài. Dữ kiện hỗ trợ: có đặc tả 2 UC, phân tích thực thể/lớp/giao tiếp, thiết kế lớp/CSDL/activity/sequence/gói/triển khai; Java đã chạy 25 kiểm tra và trình duyệt 13 kiểm tra. Hạn chế ở cuối README là cơ sở để viết phần thiếu/chưa chắc chắn. Không có form nào được tự gửi trong phiên tạo project.
+Mã sinh viên B23DCAT040; họ và đệm Phan Thành; tên Danh. Sinh viên tự chọn điểm cho bốn phần và tự xác nhận mức độ hiểu bài. Dữ kiện hỗ trợ: có đặc tả 2 UC, phân tích thực thể/lớp/giao tiếp, thiết kế lớp/CSDL/activity/sequence/gói/triển khai; Java đã chạy 29 kiểm tra và trình duyệt 13 kiểm tra. Hạn chế ở cuối README là cơ sở để viết phần thiếu/chưa chắc chắn. Không có form nào được tự gửi trong phiên tạo project.
 
 Hai statechart bổ sung nằm tại `uml/phan-tich/04a-registration-states.puml` và `04b-revenue-states.puml`; form phân tích hiện không có trường riêng. Các ảnh sơ đồ trong báo cáo xuất từ Visual Paradigm; xem `models/README.md`.
+
+Hai sequence phân tích bổ sung: `uml/phan-tich/06a-registration-analysis-sequence.puml` và `06b-revenue-analysis-sequence.puml`. Chúng có cùng thông điệp với communication, tách riêng các sequence thiết kế có service/DAO/JDBC.

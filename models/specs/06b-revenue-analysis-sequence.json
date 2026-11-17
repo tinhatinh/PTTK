@@ -1,0 +1,797 @@
+{
+  "id": "P5BbF4WD.AACARcp",
+  "type": "InteractionDiagram",
+  "name": "06b-revenue-analysis-sequence",
+  "opened": true,
+  "shapes": [
+    {
+      "shapeId": "NdBbF4WD.AACARgo",
+      "shapeType": "Activation",
+      "modelId": "xdBbF4WD.AACARgg",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 1813,
+      "y": 1020,
+      "width": 10,
+      "height": 25,
+      "parentShapeId": "g1BbF4WD.AACARdv"
+    },
+    {
+      "shapeId": "hdBbF4WD.AACARge",
+      "shapeType": "Activation",
+      "modelId": "adBbF4WD.AACARgW",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 1808,
+      "y": 960,
+      "width": 10,
+      "height": 165,
+      "parentShapeId": "g1BbF4WD.AACARdv"
+    },
+    {
+      "shapeId": "qdBbF4WD.AACARgU",
+      "shapeType": "Activation",
+      "modelId": "UdBbF4WD.AACARgM",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 1611,
+      "y": 1065,
+      "width": 10,
+      "height": 60,
+      "parentShapeId": "dVBbF4WD.AACARdn"
+    },
+    {
+      "shapeId": "kdBbF4WD.AACARgK",
+      "shapeType": "Activation",
+      "modelId": "_tBbF4WD.AACARgC",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 1606,
+      "y": 920,
+      "width": 10,
+      "height": 205,
+      "parentShapeId": "dVBbF4WD.AACARdn"
+    },
+    {
+      "shapeId": "ftBbF4WD.AACARgA",
+      "shapeType": "Activation",
+      "modelId": "LtBbF4WD.AACARf4",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 1361,
+      "y": 755,
+      "width": 10,
+      "height": 25,
+      "parentShapeId": "2VBbF4WD.AACARdf"
+    },
+    {
+      "shapeId": "TtBbF4WD.AACARf2",
+      "shapeType": "Activation",
+      "modelId": "ZtBbF4WD.AACARfu",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 1356,
+      "y": 695,
+      "width": 10,
+      "height": 430,
+      "parentShapeId": "2VBbF4WD.AACARdf"
+    },
+    {
+      "shapeId": "ptBbF4WD.AACARfs",
+      "shapeType": "Activation",
+      "modelId": "WtBbF4WD.AACARfk",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 1129,
+      "y": 880,
+      "width": 10,
+      "height": 245,
+      "parentShapeId": "EVBbF4WD.AACARdX"
+    },
+    {
+      "shapeId": "GtBbF4WD.AACARfi",
+      "shapeType": "Activation",
+      "modelId": "ctBbF4WD.AACARfa",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 1124,
+      "y": 800,
+      "width": 10,
+      "height": 325,
+      "parentShapeId": "EVBbF4WD.AACARdX"
+    },
+    {
+      "shapeId": "stBbF4WD.AACARfY",
+      "shapeType": "Activation",
+      "modelId": "ItBbF4WD.AACARfQ",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 1119,
+      "y": 655,
+      "width": 10,
+      "height": 470,
+      "parentShapeId": "EVBbF4WD.AACARdX"
+    },
+    {
+      "shapeId": "wtBbF4WD.AACARfO",
+      "shapeType": "Activation",
+      "modelId": "XNBbF4WD.AACARfG",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 906,
+      "y": 490,
+      "width": 10,
+      "height": 25,
+      "parentShapeId": "7lBbF4WD.AACARdP"
+    },
+    {
+      "shapeId": "nNBbF4WD.AACARfE",
+      "shapeType": "Activation",
+      "modelId": "dNBbF4WD.AACARe8",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 901,
+      "y": 430,
+      "width": 10,
+      "height": 695,
+      "parentShapeId": "7lBbF4WD.AACARdP"
+    },
+    {
+      "shapeId": "tNBbF4WD.AACARe6",
+      "shapeType": "Activation",
+      "modelId": "xNBbF4WD.AACARey",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 711,
+      "y": 615,
+      "width": 10,
+      "height": 510,
+      "parentShapeId": "JlBbF4WD.AACARdH"
+    },
+    {
+      "shapeId": "RNBbF4WD.AACARew",
+      "shapeType": "Activation",
+      "modelId": "aNBbF4WD.AACAReo",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 706,
+      "y": 535,
+      "width": 10,
+      "height": 590,
+      "parentShapeId": "JlBbF4WD.AACARdH"
+    },
+    {
+      "shapeId": "qNBbF4WD.AACARem",
+      "shapeType": "Activation",
+      "modelId": "wNBbF4WD.AACARee",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 701,
+      "y": 390,
+      "width": 10,
+      "height": 735,
+      "parentShapeId": "JlBbF4WD.AACARdH"
+    },
+    {
+      "shapeId": "QNBbF4WD.AACARec",
+      "shapeType": "Activation",
+      "modelId": "71BbF4WD.AACAReU",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 696,
+      "y": 310,
+      "width": 10,
+      "height": 815,
+      "parentShapeId": "JlBbF4WD.AACARdH"
+    },
+    {
+      "shapeId": "j1BbF4WD.AACAReS",
+      "shapeType": "Activation",
+      "modelId": "51BbF4WD.AACAReK",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 491,
+      "y": 270,
+      "width": 10,
+      "height": 855,
+      "parentShapeId": "SlBbF4WD.AACARc_"
+    },
+    {
+      "shapeId": "Z1BbF4WD.AACAReI",
+      "shapeType": "Activation",
+      "modelId": "u1BbF4WD.AACAReA",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 486,
+      "y": 190,
+      "width": 10,
+      "height": 935,
+      "parentShapeId": "SlBbF4WD.AACARc_"
+    },
+    {
+      "shapeId": "21BbF4WD.AACARd.",
+      "shapeType": "Activation",
+      "modelId": "C1BbF4WD.AACARd2",
+      "modelType": "Activation",
+      "name": "Activation",
+      "x": 299,
+      "y": 150,
+      "width": 10,
+      "height": 975,
+      "parentShapeId": "YlBbF4WD.AACARc3"
+    },
+    {
+      "shapeId": "g1BbF4WD.AACARdv",
+      "shapeType": "InteractionLifeLine",
+      "modelId": "_VBbF4WD.AACARdu",
+      "modelType": "InteractionLifeLine",
+      "name": "InvoiceRevenue0",
+      "x": 1734,
+      "y": 40,
+      "width": 158,
+      "height": 1125
+    },
+    {
+      "shapeId": "dVBbF4WD.AACARdn",
+      "shapeType": "InteractionLifeLine",
+      "modelId": "dVBbF4WD.AACARdm",
+      "modelType": "InteractionLifeLine",
+      "name": "InvoiceListUI0",
+      "x": 1545,
+      "y": 40,
+      "width": 132,
+      "height": 1125
+    },
+    {
+      "shapeId": "2VBbF4WD.AACARdf",
+      "shapeType": "InteractionLifeLine",
+      "modelId": "WVBbF4WD.AACARde",
+      "modelType": "InteractionLifeLine",
+      "name": "ShowtimeRevenue0",
+      "x": 1271,
+      "y": 40,
+      "width": 180,
+      "height": 1125
+    },
+    {
+      "shapeId": "EVBbF4WD.AACARdX",
+      "shapeType": "InteractionLifeLine",
+      "modelId": "4VBbF4WD.AACARdW",
+      "modelType": "InteractionLifeLine",
+      "name": "ShowtimeStatsUI0",
+      "x": 1041,
+      "y": 40,
+      "width": 167,
+      "height": 1125
+    },
+    {
+      "shapeId": "7lBbF4WD.AACARdP",
+      "shapeType": "InteractionLifeLine",
+      "modelId": "blBbF4WD.AACARdO",
+      "modelType": "InteractionLifeLine",
+      "name": "MovieRevenue0",
+      "x": 832,
+      "y": 40,
+      "width": 148,
+      "height": 1125
+    },
+    {
+      "shapeId": "JlBbF4WD.AACARdH",
+      "shapeType": "InteractionLifeLine",
+      "modelId": "xlBbF4WD.AACARdG",
+      "modelType": "InteractionLifeLine",
+      "name": "MovieStatsUI0",
+      "x": 634,
+      "y": 40,
+      "width": 135,
+      "height": 1125
+    },
+    {
+      "shapeId": "SlBbF4WD.AACARc_",
+      "shapeType": "InteractionLifeLine",
+      "modelId": "SlBbF4WD.AACARc.",
+      "modelType": "InteractionLifeLine",
+      "name": "ReportTypeUI0",
+      "x": 421,
+      "y": 40,
+      "width": 140,
+      "height": 1125
+    },
+    {
+      "shapeId": "YlBbF4WD.AACARc3",
+      "shapeType": "InteractionLifeLine",
+      "modelId": "YlBbF4WD.AACARc2",
+      "modelType": "InteractionLifeLine",
+      "name": "ManagerUI0",
+      "x": 246,
+      "y": 40,
+      "width": 117,
+      "height": 1125
+    },
+    {
+      "shapeId": "fFBbF4WD.AACARcx",
+      "shapeType": "InteractionActor",
+      "modelId": "vFBbF4WD.AACARcw",
+      "modelType": "InteractionActor",
+      "name": "Nhân viên quản lý",
+      "x": 60,
+      "y": 40,
+      "width": 60,
+      "height": 1125
+    },
+    {
+      "shapeId": "SjBbF4WD.AACARjM",
+      "shapeType": "Frame",
+      "modelId": "ijBbF4WD.AACARjL",
+      "modelType": "Frame",
+      "name": "06b-revenue-analysis-sequence",
+      "x": 10,
+      "y": 10,
+      "width": 2200,
+      "height": 1175
+    }
+  ],
+  "connectors": [
+    {
+      "shapeId": "9dBbF4WD.AACARgu",
+      "shapeType": "Message",
+      "modelId": "ddBbF4WD.AACARgq",
+      "modelType": "Message",
+      "name": "1: Chọn Xem báo cáo",
+      "fromShapeId": "fFBbF4WD.AACARcx",
+      "toShapeId": "YlBbF4WD.AACARc3",
+      "points": [
+        [
+          94,
+          150
+        ],
+        [
+          305,
+          150
+        ]
+      ]
+    },
+    {
+      "shapeId": "LdBbF4WD.AACARg1",
+      "shapeType": "Message",
+      "modelId": "zdBbF4WD.AACARgx",
+      "modelType": "Message",
+      "name": "2: Mở chọn loại báo cáo",
+      "fromShapeId": "YlBbF4WD.AACARc3",
+      "toShapeId": "SlBbF4WD.AACARc_",
+      "points": [
+        [
+          305,
+          190
+        ],
+        [
+          491,
+          190
+        ]
+      ]
+    },
+    {
+      "shapeId": "ndBbF4WD.AACARg8",
+      "shapeType": "Message",
+      "modelId": "HdBbF4WD.AACARg4",
+      "modelType": "Message",
+      "name": "3: Hiển thị loại báo cáo",
+      "fromShapeId": "SlBbF4WD.AACARc_",
+      "toShapeId": "fFBbF4WD.AACARcx",
+      "points": [
+        [
+          491,
+          230
+        ],
+        [
+          94,
+          230
+        ]
+      ]
+    },
+    {
+      "shapeId": "vdBbF4WD.AACARhD",
+      "shapeType": "Message",
+      "modelId": "PdBbF4WD.AACARg_",
+      "modelType": "Message",
+      "name": "4: Chọn thống kê và Tiếp tục",
+      "fromShapeId": "fFBbF4WD.AACARcx",
+      "toShapeId": "SlBbF4WD.AACARc_",
+      "points": [
+        [
+          94,
+          270
+        ],
+        [
+          491,
+          270
+        ]
+      ]
+    },
+    {
+      "shapeId": "Q9BbF4WD.AACARhK",
+      "shapeType": "Message",
+      "modelId": "g9BbF4WD.AACARhG",
+      "modelType": "Message",
+      "name": "5: Mở biểu mẫu ngày",
+      "fromShapeId": "SlBbF4WD.AACARc_",
+      "toShapeId": "JlBbF4WD.AACARdH",
+      "points": [
+        [
+          491,
+          310
+        ],
+        [
+          702,
+          310
+        ]
+      ]
+    },
+    {
+      "shapeId": "E9BbF4WD.AACARhR",
+      "shapeType": "Message",
+      "modelId": "49BbF4WD.AACARhN",
+      "modelType": "Message",
+      "name": "6: Hiển thị biểu mẫu ngày",
+      "fromShapeId": "JlBbF4WD.AACARdH",
+      "toShapeId": "fFBbF4WD.AACARcx",
+      "points": [
+        [
+          702,
+          350
+        ],
+        [
+          94,
+          350
+        ]
+      ]
+    },
+    {
+      "shapeId": "s9BbF4WD.AACARhY",
+      "shapeType": "Message",
+      "modelId": "M9BbF4WD.AACARhU",
+      "modelType": "Message",
+      "name": "7: Nhập ngày và Xem thống kê",
+      "fromShapeId": "fFBbF4WD.AACARcx",
+      "toShapeId": "JlBbF4WD.AACARdH",
+      "points": [
+        [
+          94,
+          390
+        ],
+        [
+          702,
+          390
+        ]
+      ]
+    },
+    {
+      "shapeId": "y9BbF4WD.AACARhf",
+      "shapeType": "Message",
+      "modelId": "i9BbF4WD.AACARhb",
+      "modelType": "Message",
+      "name": "8: Yêu cầu thống kê phim",
+      "fromShapeId": "JlBbF4WD.AACARdH",
+      "toShapeId": "7lBbF4WD.AACARdP",
+      "points": [
+        [
+          702,
+          430
+        ],
+        [
+          906,
+          430
+        ]
+      ]
+    },
+    {
+      "shapeId": "m9BbF4WD.AACARhm",
+      "shapeType": "Message",
+      "modelId": "G9BbF4WD.AACARhi",
+      "modelType": "Message",
+      "name": "9: getMovieRevenueStats(from,to)",
+      "fromShapeId": "7lBbF4WD.AACARdP",
+      "toShapeId": "7lBbF4WD.AACARdP",
+      "points": [
+        [
+          906,
+          470
+        ],
+        [
+          951,
+          470
+        ],
+        [
+          951,
+          490
+        ],
+        [
+          906,
+          490
+        ]
+      ]
+    },
+    {
+      "shapeId": "e9BbF4WD.AACARht",
+      "shapeType": "Message",
+      "modelId": "e9BbF4WD.AACARhp",
+      "modelType": "Message",
+      "name": "10: Trả danh sách thống kê phim",
+      "fromShapeId": "7lBbF4WD.AACARdP",
+      "toShapeId": "JlBbF4WD.AACARdH",
+      "points": [
+        [
+          906,
+          535
+        ],
+        [
+          702,
+          535
+        ]
+      ]
+    },
+    {
+      "shapeId": "J9BbF4WD.AACARh0",
+      "shapeType": "Message",
+      "modelId": "x9BbF4WD.AACARhw",
+      "modelType": "Message",
+      "name": "11: Hiển thị bảng phim",
+      "fromShapeId": "JlBbF4WD.AACARdH",
+      "toShapeId": "fFBbF4WD.AACARcx",
+      "points": [
+        [
+          702,
+          575
+        ],
+        [
+          94,
+          575
+        ]
+      ]
+    },
+    {
+      "shapeId": "N9BbF4WD.AACARh7",
+      "shapeType": "Message",
+      "modelId": "19BbF4WD.AACARh3",
+      "modelType": "Message",
+      "name": "12: Chọn một phim",
+      "fromShapeId": "fFBbF4WD.AACARcx",
+      "toShapeId": "JlBbF4WD.AACARdH",
+      "points": [
+        [
+          94,
+          615
+        ],
+        [
+          702,
+          615
+        ]
+      ]
+    },
+    {
+      "shapeId": "L9BbF4WD.AACARiC",
+      "shapeType": "Message",
+      "modelId": "z9BbF4WD.AACARh.",
+      "modelType": "Message",
+      "name": "13: Chuyển phim và khoảng ngày",
+      "fromShapeId": "JlBbF4WD.AACARdH",
+      "toShapeId": "EVBbF4WD.AACARdX",
+      "points": [
+        [
+          702,
+          655
+        ],
+        [
+          1125,
+          655
+        ]
+      ]
+    },
+    {
+      "shapeId": "39BbF4WD.AACARiJ",
+      "shapeType": "Message",
+      "modelId": "X9BbF4WD.AACARiF",
+      "modelType": "Message",
+      "name": "14: Yêu cầu thống kê suất",
+      "fromShapeId": "EVBbF4WD.AACARdX",
+      "toShapeId": "2VBbF4WD.AACARdf",
+      "points": [
+        [
+          1125,
+          695
+        ],
+        [
+          1361,
+          695
+        ]
+      ]
+    },
+    {
+      "shapeId": "IDBbF4WD.AACARiQ",
+      "shapeType": "Message",
+      "modelId": "wDBbF4WD.AACARiM",
+      "modelType": "Message",
+      "name": "15: getShowtimeStats(movie,from,to)",
+      "fromShapeId": "2VBbF4WD.AACARdf",
+      "toShapeId": "2VBbF4WD.AACARdf",
+      "points": [
+        [
+          1361,
+          735
+        ],
+        [
+          1406,
+          735
+        ],
+        [
+          1406,
+          755
+        ],
+        [
+          1361,
+          755
+        ]
+      ]
+    },
+    {
+      "shapeId": "UDBbF4WD.AACARiX",
+      "shapeType": "Message",
+      "modelId": "kDBbF4WD.AACARiT",
+      "modelType": "Message",
+      "name": "16: Trả danh sách thống kê suất",
+      "fromShapeId": "2VBbF4WD.AACARdf",
+      "toShapeId": "EVBbF4WD.AACARdX",
+      "points": [
+        [
+          1361,
+          800
+        ],
+        [
+          1125,
+          800
+        ]
+      ]
+    },
+    {
+      "shapeId": "SDBbF4WD.AACARie",
+      "shapeType": "Message",
+      "modelId": "iDBbF4WD.AACARia",
+      "modelType": "Message",
+      "name": "17: Hiển thị bảng suất chiếu",
+      "fromShapeId": "EVBbF4WD.AACARdX",
+      "toShapeId": "fFBbF4WD.AACARcx",
+      "points": [
+        [
+          1125,
+          840
+        ],
+        [
+          94,
+          840
+        ]
+      ]
+    },
+    {
+      "shapeId": "WDBbF4WD.AACARil",
+      "shapeType": "Message",
+      "modelId": "mDBbF4WD.AACARih",
+      "modelType": "Message",
+      "name": "18: Chọn một suất",
+      "fromShapeId": "fFBbF4WD.AACARcx",
+      "toShapeId": "EVBbF4WD.AACARdX",
+      "points": [
+        [
+          94,
+          880
+        ],
+        [
+          1125,
+          880
+        ]
+      ]
+    },
+    {
+      "shapeId": "RDBbF4WD.AACARis",
+      "shapeType": "Message",
+      "modelId": "hDBbF4WD.AACARio",
+      "modelType": "Message",
+      "name": "19: Chuyển suất và ngữ cảnh",
+      "fromShapeId": "EVBbF4WD.AACARdX",
+      "toShapeId": "dVBbF4WD.AACARdn",
+      "points": [
+        [
+          1125,
+          920
+        ],
+        [
+          1611,
+          920
+        ]
+      ]
+    },
+    {
+      "shapeId": "1DBbF4WD.AACARiz",
+      "shapeType": "Message",
+      "modelId": "VDBbF4WD.AACARiv",
+      "modelType": "Message",
+      "name": "20: Yêu cầu hóa đơn của suất",
+      "fromShapeId": "dVBbF4WD.AACARdn",
+      "toShapeId": "g1BbF4WD.AACARdv",
+      "points": [
+        [
+          1611,
+          960
+        ],
+        [
+          1813,
+          960
+        ]
+      ]
+    },
+    {
+      "shapeId": "LDBbF4WD.AACARi6",
+      "shapeType": "Message",
+      "modelId": "zDBbF4WD.AACARi2",
+      "modelType": "Message",
+      "name": "21: getInvoicesByShowtime(showtime,from,to)",
+      "fromShapeId": "g1BbF4WD.AACARdv",
+      "toShapeId": "g1BbF4WD.AACARdv",
+      "points": [
+        [
+          1813,
+          1000
+        ],
+        [
+          1858,
+          1000
+        ],
+        [
+          1858,
+          1020
+        ],
+        [
+          1813,
+          1020
+        ]
+      ]
+    },
+    {
+      "shapeId": "3DBbF4WD.AACARjB",
+      "shapeType": "Message",
+      "modelId": "XDBbF4WD.AACARi9",
+      "modelType": "Message",
+      "name": "22: Trả danh sách hóa đơn",
+      "fromShapeId": "g1BbF4WD.AACARdv",
+      "toShapeId": "dVBbF4WD.AACARdn",
+      "points": [
+        [
+          1813,
+          1065
+        ],
+        [
+          1611,
+          1065
+        ]
+      ]
+    },
+    {
+      "shapeId": "IjBbF4WD.AACARjI",
+      "shapeType": "Message",
+      "modelId": "wjBbF4WD.AACARjE",
+      "modelType": "Message",
+      "name": "23: Hiển thị hóa đơn và tổng",
+      "fromShapeId": "dVBbF4WD.AACARdn",
+      "toShapeId": "fFBbF4WD.AACARcx",
+      "points": [
+        [
+          1611,
+          1105
+        ],
+        [
+          94,
+          1105
+        ]
+      ]
+    }
+  ]
+}

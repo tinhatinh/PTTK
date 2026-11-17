@@ -1,8 +1,6 @@
 @startuml 06-revenue-communication
 skinparam defaultFontName DejaVu Sans
 skinparam shadowing false
-skinparam classAttributeIconSize 0
-hide empty members
 allowmixing
 actor "Nhân viên quản lý" as A
 object ":ManagerUI0" as H
@@ -36,4 +34,8 @@ I --> IS : 20: Yêu cầu hóa đơn của suất
 IS --> IS : 21: getInvoicesByShowtime(showtime,from,to)
 IS --> I : 22: Trả danh sách hóa đơn
 I --> A : 23: Hiển thị hóa đơn và tổng
+note bottom
+Luồng chính UC02: thông điệp 1–23.
+Thứ tự khớp kịch bản chi tiết và tuần tự phân tích.
+end note
 @enduml

@@ -28,6 +28,17 @@ public final class ProjectTest0 {
   public static void main(String[] args) throws Exception {
     var db = new Database0("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1");
     db.initialize();
+    check(rows(db, "employee") == 1, "SYS01 manager has a staff profile in the whole-system model");
+    boolean staffFkRejected = false;
+    try (var c = db.open();
+        var statement = c.createStatement()) {
+      statement.executeUpdate(
+          "INSERT INTO employee(account_id,employee_code,position) VALUES(99999,'ORPHAN','Quản"
+              + " lý')");
+    } catch (SQLException expected) {
+      staffFkRejected = true;
+    }
+    check(staffFkRejected, "SYS02 staff profile cannot reference an absent account");
     var reg = new RegistrationService0(new CustomerDAO0(db));
     var x =
         new Registration0(
@@ -41,6 +52,9 @@ public final class ProjectTest0 {
     check(
         id > 0 && rows(db, "customer") == 1,
         "REG01 valid registration persists account and customer");
+    check(
+        Customer0.memberCode(id).equals("KH" + id),
+        "REG14 displayed membership code derives from committed customer id");
     var a = new AccountDAO0(db).findByUsername("nguyenan");
     check(a != null && a.fullName().equals("Nguyễn Văn An"), "REG02 normalize spaces and username");
     check(
@@ -126,11 +140,17 @@ public final class ProjectTest0 {
         movies.stream().mapToLong(MovieRevenue0::ticketCount).sum() == 9,
         "REV02 cancelled invoices and outside dates excluded");
     BigDecimal total = BigDecimal.ZERO;
+    boolean periodsMatch =
+        movies.stream().allMatch(m -> from.equals(m.fromDate()) && to.equals(m.toDate()));
     for (var m : movies) {
       var shows = dao.getShowtimeStats(m.movieId(), from, to);
+      periodsMatch &=
+          shows.stream().allMatch(r -> from.equals(r.fromDate()) && to.equals(r.toDate()));
       BigDecimal film = BigDecimal.ZERO;
       for (var s : shows) {
         var inv = dao.getInvoicesByShowtime(s.showtimeId(), from, to);
+        periodsMatch &=
+            inv.stream().allMatch(r -> from.equals(r.fromDate()) && to.equals(r.toDate()));
         var sum =
             inv.stream().map(InvoiceRevenue0::revenue).reduce(BigDecimal.ZERO, BigDecimal::add);
         check(
@@ -141,6 +161,7 @@ public final class ProjectTest0 {
       total = total.add(film);
     }
     check(total.compareTo(new BigDecimal("750000")) == 0, "REV05 grand total equals 750000 VND");
+    check(periodsMatch, "REV12 all three report levels retain the requested date range");
     check(
         dao.getMovieRevenueStats(LocalDate.of(2026, 11, 30), to).get(0).ticketCount() == 1,
         "REV06 end date includes 23:59:59");
