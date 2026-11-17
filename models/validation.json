@@ -145,7 +145,7 @@
     {
       "diagram": "13-database",
       "png_pixels": [
-        4488,
+        5013,
         5061
       ],
       "svg": true
@@ -168,5 +168,109 @@
     }
   ],
   "limits": "Not a formal proof of UML semantics. Compound SQL unique constraints are documented in schema.sql and the ERD note.",
-  "registration_sequence_check": "Two native nested alt fragments; outer valid/invalid and inner SQL success/error guards. Captions and branches reviewed after export."
+  "registration_sequence_check": "Two native nested alt fragments; outer valid/invalid and inner SQL success/error guards. Captions and branches reviewed after export.",
+  "saved_project_sqlite_integrity": "ok",
+  "exact_database_column_audit": {
+    "result": "PASS after close and reopen",
+    "column_count": 31,
+    "tables": {
+      "ticket": [
+        "id",
+        "invoice_id",
+        "showtime_id",
+        "seat_id",
+        "unit_price"
+      ],
+      "invoice": [
+        "id",
+        "customer_id",
+        "issued_at",
+        "status"
+      ],
+      "showtime": [
+        "id",
+        "movie_id",
+        "room_id",
+        "starts_at"
+      ],
+      "seat": [
+        "id",
+        "room_id",
+        "label"
+      ],
+      "room": [
+        "id",
+        "name"
+      ],
+      "movie": [
+        "id",
+        "title",
+        "duration_minutes"
+      ],
+      "customer": [
+        "id",
+        "account_id",
+        "phone",
+        "email",
+        "registered_at"
+      ],
+      "account": [
+        "id",
+        "username",
+        "password_hash",
+        "role",
+        "full_name"
+      ]
+    }
+  },
+  "foreign_key_bindings_audit": [
+    {
+      "table": "customer",
+      "column": "account_id",
+      "references": "account.id",
+      "native_constraint_count": 1
+    },
+    {
+      "table": "invoice",
+      "column": "customer_id",
+      "references": "customer.id",
+      "native_constraint_count": 1
+    },
+    {
+      "table": "seat",
+      "column": "room_id",
+      "references": "room.id",
+      "native_constraint_count": 1
+    },
+    {
+      "table": "showtime",
+      "column": "movie_id",
+      "references": "movie.id",
+      "native_constraint_count": 1
+    },
+    {
+      "table": "showtime",
+      "column": "room_id",
+      "references": "room.id",
+      "native_constraint_count": 1
+    },
+    {
+      "table": "ticket",
+      "column": "invoice_id",
+      "references": "invoice.id",
+      "native_constraint_count": 1
+    },
+    {
+      "table": "ticket",
+      "column": "showtime_id",
+      "references": "showtime.id",
+      "native_constraint_count": 1
+    },
+    {
+      "table": "ticket",
+      "column": "seat_id",
+      "references": "seat.id",
+      "native_constraint_count": 1
+    }
+  ]
 }
