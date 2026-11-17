@@ -6,10 +6,13 @@ state "Hiển thị chọn loại báo cáo" as type
 state "Hiển thị thống kê phim" as movies
 state "Hiển thị thống kê suất chiếu" as shows
 state "Hiển thị hóa đơn của suất" as invoices
+state "Hiển thị lỗi dữ liệu\nvà liên kết nhập lại" as error
 [*] --> home
 home --> type : Chọn Xem báo cáo
 type --> movies : Chọn thống kê / Tiếp tục
-movies --> movies : Nhập ngày / Xem thống kê
+movies --> movies : Xem thống kê [ngày hợp lệ] / hiển thị kết quả
+movies --> error : Xem thống kê [ngày sai]
+error --> movies : Chọn lại khoảng ngày
 movies --> shows : Chọn một phim
 shows --> invoices : Chọn một suất
 invoices --> shows : Các suất chiếu

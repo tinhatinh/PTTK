@@ -215,8 +215,8 @@
     {
       "diagram": "04b-revenue-states",
       "png_pixels": [
-        5442,
-        3378
+        6378,
+        3567
       ],
       "svg": true
     },
@@ -255,8 +255,8 @@
     {
       "diagram": "07-registration-design",
       "png_pixels": [
-        5928,
-        3132
+        5778,
+        2868
       ],
       "svg": true
     },
@@ -271,8 +271,8 @@
     {
       "diagram": "08-revenue-design",
       "png_pixels": [
-        7848,
-        3423
+        7608,
+        3102
       ],
       "svg": true
     },
@@ -319,7 +319,7 @@
     {
       "diagram": "14-packages",
       "png_pixels": [
-        3567,
+        3738,
         3042
       ],
       "svg": true
@@ -653,5 +653,95 @@
       "diagram": "08-revenue-design",
       "endpoints_off_shape": []
     }
-  ]
+  ],
+  "compiled_implementation_review": {
+    "result": "PASS",
+    "method": "Independent javap of freshly compiled Java; every depicted design field/method checked for existence, arity, declared type, visibility and static scope; record fields final. Undeclared parameter types are intentionally abbreviated in UML and explained in prose.",
+    "checks": [
+      {
+        "diagram": "07a-entities-design",
+        "compiled_fields_and_methods_checked": 37
+      },
+      {
+        "diagram": "07-registration-design",
+        "compiled_fields_and_methods_checked": 23
+      },
+      {
+        "diagram": "08-revenue-design",
+        "compiled_fields_and_methods_checked": 38
+      }
+    ]
+  },
+  "seed_arithmetic_review": {
+    "result": "PASS",
+    "method": "Read seed rows independently of Java DAO; filter each ticket by invoice status and showtime date, group in Python; compare to captured UI and report examples.",
+    "movies": {
+      "Hành trình bình minh": {
+        "suat": 3,
+        "ve": 6,
+        "tien": 480000
+      },
+      "Thành phố mùa hạ": {
+        "suat": 1,
+        "ve": 3,
+        "tien": 270000
+      }
+    },
+    "total": 750000,
+    "tickets": 9,
+    "selected_showtimes": [
+      1,
+      2,
+      7
+    ],
+    "showtime_1": 160000
+  },
+  "saved_project_model_element_count": 1582,
+  "ui_provenance_review": {
+    "result": "PASS",
+    "states": 13,
+    "behavior_checks": 23,
+    "source_manifest": "../docs/ui-design/capture-manifest.json",
+    "method": "Actual server DOM; CSS preserves content, controls, bounding boxes; PNG dimensions include complete main content."
+  },
+  "connector_interior_review": [
+    {
+      "diagram": "02-domain",
+      "connector_count": 13,
+      "class_interior_intersections": []
+    },
+    {
+      "diagram": "03-registration-analysis",
+      "connector_count": 4,
+      "class_interior_intersections": []
+    },
+    {
+      "diagram": "04-revenue-analysis",
+      "connector_count": 16,
+      "class_interior_intersections": []
+    },
+    {
+      "diagram": "07-registration-design",
+      "connector_count": 9,
+      "class_interior_intersections": []
+    },
+    {
+      "diagram": "07a-entities-design",
+      "connector_count": 9,
+      "class_interior_intersections": []
+    },
+    {
+      "diagram": "08-revenue-design",
+      "connector_count": 10,
+      "class_interior_intersections": []
+    }
+  ],
+  "report_artifact_review": {
+    "pages": 68,
+    "figures": 41,
+    "embedded_native_diagrams": 22,
+    "embedded_live_ui_design_states": 7,
+    "toc_pages": "PASS",
+    "all_pages_visually_reviewed": true
+  }
 }

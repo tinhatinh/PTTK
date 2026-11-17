@@ -41,12 +41,12 @@ class Password0 {
  +{static} hash(value : String) : String
 }
 class Registration0 <<record>> {
- fullName : String
-phone : String
-email : String
-username : String
-password : String
-confirmPassword : String
+-fullName : String
+-phone : String
+-email : String
+-username : String
+-password : String
+-confirmPassword : String
 }
 class Customer0 <<record>> {
 +{static} memberCode(customerId : long) : String

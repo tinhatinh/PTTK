@@ -66,6 +66,8 @@ PLAYWRIGHT_MODULE=/absolute/path/to/playwright CHROMIUM_PATH=/usr/bin/chromium n
 
 Script đăng ký một người dùng minh họa và cập nhật ảnh trong `docs/evidence/`. Đây là script kiểm tra, không nằm trong luồng ứng dụng. Ảnh editor `14-project-editor.png` được chụp VS Code for the Web qua code-server mở đúng project.
 
+Bố cục đơn sắc ở pha thiết kế lấy từ chính DOM đang chạy, giữ nguyên nội dung và vị trí; xem `docs/ui-design/README.md`. `scripts/capture-ui-design.cjs` kiểm tra thêm 23 điều kiện và chụp 13 trạng thái. Bản khung không dùng HTML dựng riêng. Ngày sai trả trang lỗi riêng có liên kết nhập lại; kết quả rỗng vẫn ở trang thống kê với ba chỉ số bằng 0.
+
 ## PlantUML và biểu mẫu
 
 Mỗi `.puml` là một sơ đồ độc lập, đã kiểm tra cú pháp bằng PlantUML 1.2025.2. Ảnh trong báo cáo xuất trực tiếp từ project Visual Paradigm. Không dùng công cụ tạo ảnh AI. Xem `docs/FORM_MAPPING.md` để biết dán file nào vào từng trường Google Form. Không dán link thay cho code. Tự chấm điểm do sinh viên quyết định; các form chưa được gửi thay sinh viên.

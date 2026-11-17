@@ -41,12 +41,12 @@ class Password0 {
  +{static} hash(value : String) : String
 }
 class Registration0 <<record>> {
- fullName : String
-phone : String
-email : String
-username : String
-password : String
-confirmPassword : String
+-fullName : String
+-phone : String
+-email : String
+-username : String
+-password : String
+-confirmPassword : String
 }
 class Customer0 <<record>> {
 +{static} memberCode(customerId : long) : String
@@ -167,7 +167,7 @@ class AppServlet0 <<servlet>> {
 class View0 <<view>> {
  +{static} page(title,body,manager,csrf) : String
  +{static} e(x) : String
- +{static} money(value : BigDecimal) : String
+ +{static} money(x : Number) : String
 }
 class RevenueService0 <<validation>> {
  +{static} validateRange(from,to) : void
@@ -183,32 +183,32 @@ class Database0 {
  +open() : Connection
 }
 class MovieRevenue0 <<record>> {
- movieId : long
-title : String
-showtimeCount : long
-ticketCount : long
-revenue : BigDecimal
-fromDate : LocalDate
-toDate : LocalDate
+-movieId : long
+-title : String
+-showtimeCount : long
+-ticketCount : long
+-revenue : BigDecimal
+-fromDate : LocalDate
+-toDate : LocalDate
 }
 class ShowtimeRevenue0 <<record>> {
- showtimeId : long
-movieTitle : String
-roomName : String
-startsAt : LocalDateTime
-ticketCount : long
-revenue : BigDecimal
-fromDate : LocalDate
-toDate : LocalDate
+-showtimeId : long
+-movieTitle : String
+-roomName : String
+-startsAt : LocalDateTime
+-ticketCount : long
+-revenue : BigDecimal
+-fromDate : LocalDate
+-toDate : LocalDate
 }
 class InvoiceRevenue0 <<record>> {
- invoiceId : long
-issuedAt : LocalDateTime
-customerName : String
-ticketCount : long
-revenue : BigDecimal
-fromDate : LocalDate
-toDate : LocalDate
+-invoiceId : long
+-issuedAt : LocalDateTime
+-customerName : String
+-ticketCount : long
+-revenue : BigDecimal
+-fromDate : LocalDate
+-toDate : LocalDate
 }
 AppServlet0 ..> View0
 AppServlet0 ..> MovieRevenue0
