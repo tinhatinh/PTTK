@@ -1,4 +1,4 @@
-# CineMan — Đề 16
+# CineMan - Đề 16
 
 Bài tập lớn Phân tích và thiết kế hệ thống thông tin.
 **Phan Thành Danh · B23DCAT040 · Lớp 09**
